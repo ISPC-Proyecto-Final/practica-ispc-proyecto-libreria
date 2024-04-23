@@ -1,0 +1,79 @@
+.db-tittle {
+  font-family: 'Mulish';
+  font-style: normal;
+  font-weight: 700;
+  font-size: 26px;
+  line-height: 33px;
+  color: #5D5E5F;
+}
+
+#books-dashboard {
+  background: #F6F6F6;
+}
+
+.primary-button-outline {
+  box-sizing: border-box;
+  border: 1px solid #E35352;
+  border-radius: 15px;
+}
+
+.table {
+  font-family: 'Mulish';
+  font-style: normal;
+  font-weight: 500;
+  font-size: 20px;
+  line-height: 25px;
+  color: #041C3E;
+
+}
+
+/* .th1 {
+  padding: 20px, 100px, 60px, 60px;
+} */
+
+th {
+  padding: 20px;
+}
+
+.btn {
+  box-sizing: border-box;
+  background: #F9F9FB;
+  border: 1px solid rgba(0, 0, 0, 0.06);
+  border-radius: 20px;
+}
+
+.table td {
+  font-size: 1rem;
+  font-weight: 400;
+  /* padding: 1.8rem 0rem; */
+}
+
+.dashboard-table {
+  border: solid;
+  border-width: 0.01rem;
+  border-color: var(--primary-black-extra-opac);
+  border-radius: 18px;
+}
+
+a.active {
+  font-weight: 700;
+  color: var(--secondary-red);
+
+}
+
+button {
+  border: none;
+  background-color: transparent;
+}
+
+.trash-btn {
+  border: none;
+  background-color: transparent;
+  color: var(--secondary-red);
+}
+
+.edit-btn {
+  border: none;
+  background-color: transparent;
+  color: var(--primary-blue);
+}

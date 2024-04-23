@@ -1,0 +1,288 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Profile">
+
+    <TextView
+        android:id="@+id/textView18"
+        android:layout_width="102dp"
+        android:layout_height="27dp"
+        android:layout_marginTop="28dp"
+        android:fontFamily="@font/atkinsonhyperlegibleregular"
+        android:text="Mi Cuenta"
+        android:textColor="@color/black"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.113"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imageButton6" />
+
+    <TextView
+        android:id="@+id/name"
+        android:layout_width="207dp"
+        android:layout_height="24dp"
+        android:layout_marginTop="28dp"
+        android:fontFamily="@font/atkinsonhyperlegibleregular"
+        android:textColor="@color/black"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.171"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView18" />
+
+
+    <LinearLayout
+        android:id="@+id/inputNames"
+        android:layout_width="357dp"
+        android:layout_height="150dp"
+        android:layout_margin="20dp"
+        android:layout_marginTop="16dp"
+        android:divider="@null"
+        android:dividerHeight="0dp"
+        android:orientation="vertical"
+        android:paddingTop="10dp"
+        android:paddingBottom="10dp"
+        android:visibility="gone"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.225"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/name">
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/inputName"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            android:layout_width="334dp"
+            android:layout_height="65dp"
+            android:layout_marginStart="10dp"
+            android:layout_marginEnd="10dp"
+            android:hint="@string/name"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.236"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/name"
+            app:layout_constraintVertical_bias="0.055"
+            tools:ignore="NotSibling">
+
+            <com.google.android.material.textfield.TextInputEditText
+
+                android:id="@+id/firstInput"
+                android:layout_width="match_parent"
+                android:layout_height="55dp"
+                android:inputType="text"
+                android:textSize="17sp" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <Button
+            android:id="@+id/buttonNames"
+            android:layout_width="200dp"
+            android:layout_height="50dp"
+            android:layout_gravity="center"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            android:backgroundTint="#538DCC"
+            android:fontFamily="@font/rubik_medium"
+            android:hint="@string/save"
+            android:textAllCaps="false"
+            android:textColorHint="@android:color/white"
+            android:textSize="16sp"
+            app:iconTint="@color/white"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/firstInput" />
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/email"
+        android:layout_width="261dp"
+        android:layout_height="30dp"
+        android:layout_marginTop="8dp"
+        android:fontFamily="@font/atkinsonhyperlegibleregular"
+        android:textSize="19sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.222"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/inputNames" />
+
+    <LinearLayout
+        android:id="@+id/inputEmail"
+        android:layout_width="351dp"
+        android:layout_height="157dp"
+        android:layout_marginTop="4dp"
+        android:divider="@null"
+        android:dividerHeight="0dp"
+        android:orientation="vertical"
+        android:paddingTop="10dp"
+        android:paddingBottom="10dp"
+        android:visibility="gone"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.389"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/email">
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/inputMail"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            android:layout_width="332dp"
+            android:layout_height="65dp"
+            android:layout_marginStart="10dp"
+            android:layout_marginEnd="10dp"
+            android:hint="@string/mail"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.236"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/name"
+            app:layout_constraintVertical_bias="0.055"
+            tools:ignore="NotSibling">
+
+            <com.google.android.material.textfield.TextInputEditText
+
+                android:id="@+id/thirdInput"
+                android:layout_width="match_parent"
+                android:layout_height="55dp"
+                android:inputType="text"
+                android:textSize="17sp" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <Button
+            android:id="@+id/buttonEmail"
+            android:layout_width="200dp"
+            android:layout_height="50dp"
+            android:layout_gravity="center"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            android:backgroundTint="#538DCC"
+            android:fontFamily="@font/rubik_medium"
+            android:hint="@string/save"
+            android:textAllCaps="false"
+            android:textColorHint="@android:color/white"
+            android:textSize="16sp"
+            app:iconTint="@color/white"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/thirdInput" />
+    </LinearLayout>
+
+    <ImageButton
+        android:id="@+id/imageButton2"
+        android:layout_width="48dp"
+        android:layout_height="48dp"
+        android:layout_marginTop="28dp"
+        android:contentDescription="Icono de modificar información"
+        android:onClick="expandirInputsName"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.717"
+        app:layout_constraintStart_toEndOf="@+id/name"
+        app:layout_constraintTop_toBottomOf="@+id/textView18"
+        app:srcCompat="@drawable/editpencil" />
+
+    <ImageButton
+        android:id="@+id/imageButton6"
+        android:layout_width="50dp"
+        android:layout_height="48dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="20dp"
+        android:background="@color/white"
+        android:contentDescription="@string/volver_atras"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="?attr/actionModeCloseDrawable" />
+
+    <ImageButton
+        android:id="@+id/imageButton9"
+        android:layout_width="50dp"
+        android:layout_height="48dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="20dp"
+        android:background="@color/white"
+        android:contentDescription="@string/ir_al_carrito"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/shoppingcarticon" />
+
+
+    <ImageButton
+        android:id="@+id/imageButton11"
+        android:layout_width="48dp"
+        android:layout_height="48dp"
+        android:layout_marginTop="28dp"
+        android:contentDescription="Icono de modificar información"
+        android:onClick="expandirInputEmail"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/email"
+        app:layout_constraintTop_toBottomOf="@+id/inputNames"
+        app:srcCompat="@drawable/editpencil" />
+
+    <com.google.android.material.bottomnavigation.BottomNavigationView
+        android:id="@+id/nav_view"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="0dp"
+        android:layout_marginEnd="0dp"
+        android:background="?android:attr/windowBackground"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:menu="@menu/menu_navigation"></com.google.android.material.bottomnavigation.BottomNavigationView>
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="297dp"
+        android:layout_height="135dp"
+        android:layout_marginBottom="112dp"
+        android:padding="20dp"
+        app:layout_constraintBottom_toBottomOf="@+id/nav_view"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.503"
+        app:layout_constraintStart_toStartOf="parent">
+
+        <LinearLayout
+            android:id="@+id/itemacordeon"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="#EFF7FD"
+            android:onClick="expandir"
+            android:orientation="vertical"
+            android:padding="15dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Orden #1234"
+                android:textColor="@color/black"
+                android:textSize="20sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="En Proceso"
+                android:textColor="#2E7D32" />
+
+
+            <TextView
+                android:id="@+id/cuerpo1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Lista de los productos comprados y sus precios (en Prceso de construcción)"
+                android:textSize="18sp"
+                android:visibility="gone" />
+        </LinearLayout>
+    </androidx.cardview.widget.CardView>
+
+    <ImageButton
+        android:id="@+id/delete"
+        android:layout_width="48dp"
+        android:layout_height="48dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="32dp"
+        android:background="@color/white"
+        android:contentDescription="Icono de eliminar"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imageButton9"
+        app:srcCompat="@drawable/tachito" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

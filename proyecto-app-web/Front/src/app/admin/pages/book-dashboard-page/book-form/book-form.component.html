@@ -1,0 +1,256 @@
+<div class="modal-body p-0 m-0" [class.pb-5]="!formEnable" *ngIf="!isDeleteForm">
+  <div class="container">
+
+    <div class="row">
+      <div class="text-end pt-4 pe-3">
+        <button type="button" class="btn-close" aria-label="Close" (click)="onClose()">
+        </button>
+      </div>
+
+      <div class="row justify-content-start">
+        <div class="col-12 mb-2">
+          <h4 class="font-medium fs-md-1 fc-primary">
+            {{action === 'create' ? 'Agregar Libro':'Editar Libro'}}
+          </h4>
+        </div>
+      </div>
+    </div>
+
+    <form [formGroup]="bookForm" (ngSubmit)="onSaveHandle($event)">
+      <div class="row mb-3">
+        <div class="col-sm-12">
+          <div class="form-floating">
+            <input type="text" class="form-control formInput" id="isbn" placeholder="ISBN" formControlName="isbn" />
+            <label for="isbn">ISBN</label>
+            <div *ngIf="isbn?.errors && isbn?.touched">
+              <ng-container *ngFor="let error of errorMessages.isbn">
+                <div class="text-danger" *ngIf="isbn?.hasError(error.type)">
+                  {{ error.message }}
+                </div>
+              </ng-container>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="row mb-3">
+        <div class="col-sm-12">
+          <div class="form-floating">
+            <input type="text" class="form-control formInput" id="titulo" placeholder="titulo" formControlName="title" />
+            <label for="titulo">Título</label>
+            <div *ngIf="title?.errors && title?.touched">
+              <ng-container *ngFor="let error of errorMessages.title">
+                <div class="text-danger" *ngIf="title?.hasError(error.type)">
+                  {{ error.message }}
+                </div>
+              </ng-container>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="row mb-3">
+        <div class="col-sm-12">
+          <div class="form-floating">
+            <input type="number" class="form-control formInput" id="paginas" placeholder="Cantidad de páginas"
+              formControlName="pageAmount" />
+            <label for="paginas">Cantidad de páginas</label>
+            <div *ngIf="pageAmount?.errors && pageAmount?.touched">
+              <ng-container *ngFor="let error of errorMessages.pageAmount">
+                <div class="text-danger" *ngIf="pageAmount?.hasError(error.type)">
+                  {{ error.message }}
+                </div>
+              </ng-container>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="row mb-3">
+        <div class="col-sm-12">
+          <div class="form-floating">
+            <input type="text" class="form-control formInput" id="portada" placeholder="Imagen de portada"
+              formControlName="bookCover" />
+            <label for="portada">Imagen de portada</label>
+            <div *ngIf="bookCover?.errors && bookCover?.touched">
+              <ng-container *ngFor="let error of errorMessages.bookCover">
+                <div class="text-danger" *ngIf="bookCover?.hasError(error.type)">
+                  {{ error.message }}
+                </div>
+              </ng-container>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="row mb-3">
+        <div class="col-sm-12">
+          <div class="form-floating">
+            <input type="number" class="form-control formInput" id="stock" placeholder="Stock" formControlName="stock" />
+            <label for="stock">Stock</label>
+            <div *ngIf="stock?.errors && stock?.touched">
+              <ng-container *ngFor="let error of errorMessages.stock">
+                <div class="text-danger" *ngIf="stock?.hasError(error.type)">
+                  {{ error.message }}
+                </div>
+              </ng-container>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="row mb-3">
+        <div class="col-sm-12">
+          <div class="form-floating">
+            <input type="number" class="form-control formInput" id="precio" placeholder="Precio" formControlName="price" />
+            <label for="precio">Precio</label>
+            <div *ngIf="price?.errors && price?.touched">
+              <ng-container *ngFor="let error of errorMessages.price">
+                <div class="text-danger" *ngIf="price?.hasError(error.type)">
+                  {{ error.message }}
+                </div>
+              </ng-container>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="row mb-3">
+        <div class="col-sm-12">
+          <div class="form-floating">
+            <input type="number" min="1900" max="2099" step="1" class="form-control formInput" id="fecha"
+              placeholder="Año de lanzamiento" formControlName="releaseYear" />
+            <label for="fecha">Año de lanzamiento</label>
+            <div *ngIf="releaseYear?.errors && releaseYear?.touched">
+              <ng-container *ngFor="let error of errorMessages.releaseYear">
+                <div class="text-danger" *ngIf="releaseYear?.hasError(error.type)">
+                  {{ error.message }}
+                </div>
+              </ng-container>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="row mb-3">
+        <div class="col-sm-12">
+          <div class="form-floating">
+            <select id="autor" class="form-select" aria-label="Autor" formControlName="author">
+              <option selected value="">Seleccione un autor</option>
+              <option *ngFor="let author of authors" [value]="author.id_author">{{author.name}}</option>
+            </select>
+            <label for="autor">Autor</label>
+            <div *ngIf="author?.errors && author?.touched">
+              <ng-container *ngFor="let error of errorMessages.author">
+                <div class="text-danger" *ngIf="author?.hasError(error.type)">
+                  {{ error.message }}
+                </div>
+              </ng-container>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="row mb-3">
+        <div class="col-sm-12">
+          <div class="form-floating">
+            <select id="editorial" class="form-select" aria-label="Publisher" formControlName="publisher">
+              <option selected value="">Seleccione una editorial</option>
+              <option *ngFor="let publisher of publishers" [value]="publisher.id_publisher">{{publisher.name}}</option>
+            </select>
+            <label for="editorial">Editorial</label>
+            <div *ngIf="publisher?.errors && publisher?.touched">
+              <ng-container *ngFor="let error of errorMessages.publisher">
+                <div class="text-danger" *ngIf="publisher?.hasError(error.type)">
+                  {{ error.message }}
+                </div>
+              </ng-container>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="row mb-3">
+        <div class="col-sm-12">
+          <div class="form-floating">
+            <select id="genre" class="form-select" aria-label="Genre" formControlName="genre">
+              <option selected value="">Seleccione una genero</option>
+              <option *ngFor="let genre of genres" [value]="genre.id_genre">{{genre.name}}</option>
+            </select>
+            <label for="genero">Genero</label>
+            <div *ngIf="genre?.errors && genre?.touched">
+              <ng-container *ngFor="let error of errorMessages.genre">
+                <div class="text-danger" *ngIf="genre?.hasError(error.type)">
+                  {{ error.message }}
+                </div>
+              </ng-container>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="row mb-3">
+        <div class="col-sm-12">
+          <div class="form-floating">
+            <input type="text" class="form-control formInput" id="tag" placeholder="Tag" formControlName="tags" />
+            <label for="tag">Tag</label>
+            <div *ngIf="tags?.errors && tags?.touched">
+              <ng-container *ngFor="let error of errorMessages.tags">
+                <div class="text-danger" *ngIf="tags?.hasError(error.type)">
+                  {{ error.message }}
+                </div>
+              </ng-container>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="row mb-3">
+        <div class="col-sm-12">
+          <div class="form-floating">
+            <textarea class="form-control" placeholder="Sinopsis" id="synopsis" style="height: 100px"
+              formControlName="synopsis">
+          </textarea>
+            <label for="synopsis">Sinopsis</label>
+            <div *ngIf="synopsis?.errors && synopsis?.touched">
+              <ng-container *ngFor="let error of errorMessages.synopsis">
+                <div class="text-danger" *ngIf="synopsis?.hasError(error.type)">
+                  {{ error.message }}
+                </div>
+              </ng-container>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="modal-footer" *ngIf="formEnable">
+        <div>
+          <button type="button" class="btn btn-cancel me-5" data-bs-dismiss="modal" (click)="onClose()">
+            Cancelar
+          </button>
+        </div>
+        <div>
+          <button type="submit" class="btn btn-danger">
+            {{action === 'create' ? 'Guardar':'Guardar cambios'}}
+          </button>
+        </div>
+      </div>
+    </form>
+  </div>
+</div>
+
+<div class="modal-body p-0 m-0" [class.pb-5]="!formEnable" *ngIf="isDeleteForm">
+  <div class="container">
+
+    <div class="row py-5">
+
+      <div class="row justify-content-center">
+        <div class="col-12 mb-1 text-center">
+          <h4 class="font-medium fs-md-1 fc-primary">¿Desea eliminar el libro? </h4>
+        </div>
+      </div>
+    </div>
+
+    <div class="modal-footer" *ngIf="formEnable">
+      <div>
+        <button type="button" class="btn btn-cancel me-5" data-bs-dismiss="modal" (click)="onClose()">
+          Cancelar
+        </button>
+      </div>
+      <div>
+        <button type="submit" class="btn btn-danger" (click)="onConfirmDelete()">
+          Confirmar
+        </button>
+      </div>
+    </div>
+  </div>
+</div>

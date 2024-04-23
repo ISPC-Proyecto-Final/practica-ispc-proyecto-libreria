@@ -1,0 +1,29 @@
+[
+    {
+      "id_delivery": 1,
+      "name": "John Doe",
+      "email": "john.doe@example.com",
+      "telephone_number": "12345678",
+      "telephone_area_code": "123",
+      "document": 12345678,
+      "address_province": "Province 1",
+      "address_location": "Location 1",
+      "address_street": "Street 1",
+      "postal_code": "12345",
+      "state": "Delivered"
+    },
+    {
+      "id_delivery": 2,
+      "name": "Jane Smith",
+      "email": "jane.smith@example.com",
+      "telephone_number": "9876543",
+      "telephone_area_code": "987",
+      "document": 98765432,
+      "address_province": "Province 2",
+      "address_location": "Location 2",
+      "address_street": "Street 2",
+      "postal_code": "54321",
+      "state": "In Transit"
+    }
+  ]
+  

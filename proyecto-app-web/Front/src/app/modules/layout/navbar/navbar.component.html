@@ -1,0 +1,85 @@
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+  <div class="container-fluid justify-content-center padding-nav">
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup"
+      aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+      <div class="navbar-nav width-nav d-flex align-items-center justify-content-between">
+        <ul class="navbar-nav me-auto">
+          <li class="nav-item">
+            <a class="nav-link" aria-current="page" (click)="onClickNavigateToHome()" *ngIf="!isAdmin">
+              Inicio
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" aria-current="page" (click)="onClickNavigateToCatalogue()" *ngIf="!isAdmin">
+              Catalogo
+            </a>
+          </li>
+
+          <!-- NAV ADMIN -->
+          <li class="nav-item">
+            <a class="nav-link" aria-current="page" (click)="onClickNavigateToBookDashboard()" *ngIf="isAdmin">
+              Libros
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" aria-current="page" (click)="onClickNavigateToAuthorDashboard()" *ngIf="isAdmin">
+              Autores
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" aria-current="page" (click)="onClickNavigateToPublisherDashboard()" *ngIf="isAdmin">
+              Editoriales
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" aria-current="page" (click)="onClickNavigateToSalesDashboard()" *ngIf="isAdmin">
+              Ventas
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" aria-current="page" (click)="navigateToStoreDashboard()" *ngIf="isAdmin">
+              Sucursales
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" aria-current="page" (click)="onClickNavigateToClientDashboard()" *ngIf="isAdmin">
+              Clientes
+            </a>
+          </li>
+        </ul>
+
+        <ng-container *ngIf="!isAdmin">
+          <a class="nav-link" (click)="onClickRegister()" *ngIf="!profile">
+            <img src="./assets/img/navbar/plus-circle.png" alt="crear cuenta" />
+            Crear cuenta</a>
+        </ng-container>
+        <ng-container *ngIf="!isAdmin">
+          <a class="nav-link" (click)="onClickLogIn()" *ngIf="!profile">
+            <img src="./assets/img/navbar/user.png" alt="Iniciar sesion" />
+            Iniciar sesión</a>
+        </ng-container>
+        <ng-container *ngIf="!isAdmin">
+          <a class="nav-link" (click)="onProfile()" *ngIf="profile">
+            <img src="./assets/img/navbar/user.png" alt="perfil" /> Hola
+            {{ profile.username }}</a>
+          <a class="nav-link" (click)="logout()" *ngIf="profile">| Cerrar sesión</a>
+        </ng-container>
+
+        <!-- NAV ADMIN -->
+        <a class="nav-link" (click)="onProfile()" *ngIf="isAdmin">
+          <img src="./assets/img/navbar/user.png" alt="perfil" /> Hola Admin</a>
+
+        <a class="nav-link" (click)="logout()" *ngIf="isAdmin">| Cerrar sesión</a>
+
+        <app-button-cart *ngIf="!isAdmin"></app-button-cart>
+        <!-- <a href="#" class="nav-link menu-right"
+          ><img src="../../../../assets/img/navbar/shopping-cart.png " alt="Carrito" />0 -
+          <span>$0</span></a
+        > -->
+      </div>
+    </div>
+  </div>
+</nav>

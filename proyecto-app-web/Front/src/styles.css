@@ -1,0 +1,163 @@
+@import url("https://fonts.googleapis.com/css2?family=Mulish:wght@300;400;500;600;700;800&display=swap");
+
+/* You can add global styles to this file, and also import other style files */
+
+html,
+body {
+  height: 100%;
+  font-weight: 400;
+  overflow-x: hidden;
+  font-family: "Mulish", sans-serif !important;
+}
+
+body,
+.mat-typography {
+  margin: 0;
+}
+
+.mat-typography {
+  font-family: "Mulish", sans-serif !important;
+}
+
+a {
+  text-decoration: none;
+  color: currentColor;
+  transition-duration: 0.2s;
+  transition-timing-function: ease-in-out;
+  cursor: pointer;
+}
+
+a:hover {
+  text-decoration: none;
+  color: currentColor;
+  color: #E35352;
+  transition-duration: 0.2s;
+  transition-timing-function: ease-in-out;
+}
+
+/* Font Sizes */
+
+.fs-sm {
+  font-size: 14px;
+}
+
+.fs-sm-1 {
+  font-size: 18px;
+}
+
+.fs-sm-2 {
+  font-size: 20px;
+}
+
+.fs-md {
+  font-size: 22px;
+}
+
+.fs-md-1 {
+  font-size: 24px;
+}
+
+.fs-md-2 {
+  font-size: 26px;
+}
+
+.fs-lg-3 {
+  font-size: 30px;
+}
+
+.fs-lg {
+  font-size: 32px;
+}
+
+.fs-lg-2 {
+  font-size: 40px;
+}
+
+.fs-lg-1 {
+  font-size: 48px;
+}
+
+/* Font Colors */
+
+.fc-primary {
+  color: #5D5E5F;
+}
+
+.fc-primary-light {
+  color: #5D5E5F;
+  color: rgba(93, 94, 95, 0.9);
+}
+
+.fc-secondary {
+  color: #041E41;
+}
+
+.fc-basic-1 {
+  color: #C6C9CC;
+}
+
+.fc-basic-2 {
+  color: #FFFFFF;
+}
+
+.fc-basic-3 {
+  color: #A1A1A5;
+}
+
+.fc-basic-4 {
+  color: #A02A44;
+}
+
+.fc-basic-5 {
+  color: #73C255;
+}
+
+.fc-basic-6 {
+  color: #E35352;
+}
+
+
+/*COLORS*/
+:root {
+  --primary-blue: #0B67E5;
+  --secondary-blue: #041E41;
+  --primary-yellow: #DAF275;
+  --primary-green: #73C255;
+  --primary-black: #5D5E5F;
+  --primary-grey: #C6C9CC;
+  --primary-white: #F5F5F5;
+  --secondary-white: #FFFFFF;
+  --primary-red: #A02A44;
+  --alternative-red: #d54f4f;
+  --secondary-red: #E35352;
+}
+
+/* Font Family - Weight -Style */
+
+.font-light {
+  font-weight: 300;
+}
+
+.font-medium {
+  font-weight: 500;
+}
+
+.font-semi-bold {
+  font-weight: 600;
+}
+
+.font-bold {
+  font-weight: 700;
+}
+
+.font-extra-bold {
+  font-weight: 800;
+}
+
+.ng-valid:not(form).ng-touched{
+  border-left: 5px solid var(--primary-green);
+}
+
+.ng-invalid:not(form).ng-touched.formInput{
+  border-left: 5px solid var(--secondary-red);
+}

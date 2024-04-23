@@ -1,0 +1,29 @@
+[
+    {
+      "id_sell": "1",
+      "orderNumber": 123456,
+      "saleDate": "2023-01-01",
+      "deliveryType": "Express",
+      "paymentType": "Credit Card",
+      "totalQuantity": 5,
+      "totalCost": 100.00,
+      "profileId": 1,
+      "deliveryId": 1,
+      "paymentId": 1,
+      "bookId": "9789877391695"
+    },
+    {
+      "id_sell": "2",
+      "orderNumber": 789012,
+      "saleDate": "2023-02-01",
+      "deliveryType": "Standard",
+      "paymentType": "PayPal",
+      "totalQuantity": 3,
+      "totalCost": 50.00,
+      "profileId": 1,
+      "deliveryId": 2,
+      "paymentId": 2,
+      "bookId": "9789877352306"
+    }
+  ]
+  

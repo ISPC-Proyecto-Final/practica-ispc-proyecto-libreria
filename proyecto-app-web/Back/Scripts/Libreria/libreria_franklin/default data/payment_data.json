@@ -1,0 +1,17 @@
+[
+    {
+      "id_payment": 1,
+      "card_association": 1234,
+      "number": 1234567890123456,
+      "cvv": 123,
+      "expiration": "2024-12-31"
+    },
+    {
+      "id_payment": 2,
+      "card_association": 5678,
+      "number": 9876543210987654,
+      "cvv": 456,
+      "expiration": "2025-06-30"
+    }
+  ]
+  

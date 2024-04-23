@@ -1,0 +1,57 @@
+<section class="container my-5 pb-5 table-responsive bg-secondary-white px-5 dashboard-table" id="books-dashboard">
+  <section class="container pb-5 mb-5">
+    <div class="row mt-5 pt-5 align-items-center gy-5">
+
+      <div class="col-12 text-center">
+        <span class="fw-700 db-tittle">Sucursales</span>
+      </div>
+
+      <div class="col-12 text-end">
+        <button type="button" role="button" class="primary-button-outline py-2 px-3 col-12 col-lg-2"
+          (click)="onCreateStore()">
+          Agregar sucursal
+        </button>
+      </div>
+    </div>
+  </section>
+
+  <table class="table table-hover align-middle">
+
+    <thead>
+      <tr>
+        <th scope="col">Dirección</th>
+        <th scope="col">Provincia</th>
+        <th scope="col">Localidad</th>
+        <th scope="col">Télefono</th>
+        <th scope="col">Acciones</th>
+      </tr>
+    </thead>
+
+    <tbody>
+
+      <tr *ngFor="let store of stores">
+
+        <td class="ps-3">{{store.street_number}}</td>
+        <td class="ps-3">{{store.province}}</td>
+        <td class="ps-3">{{store.locality}}</td>
+        <td class="ps-3">{{store.telephone}}</td>
+
+        <td>
+          <div class="row">
+            <div class="col-3">
+              <button class="trash-btn" type="button" title="editar" (click)="onEditStore(store.id_store)">
+                <img src="./assets/icons/actions/edit.png" alt="" class="img-fluid">
+              </button>
+            </div>
+            <div class="col-3">
+              <button class="trash-btn" type="button" title="eliminar" (click)="onDeleteStore(store.id_store)">
+                <img src="./assets/icons/actions/trash.png" alt="" class="img-fluid">
+              </button>
+            </div>
+          </div>
+        </td>
+      </tr>
+
+
+    </tbody>
+  </table>

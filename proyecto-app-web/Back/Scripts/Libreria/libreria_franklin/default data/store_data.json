@@ -1,0 +1,26 @@
+[
+  {
+    "street_number": "Gral paz 60",
+    "province": "Buenos Aires",
+    "locality": "C.A.B.A",
+    "telephone": "1157345483"
+  },
+  {
+    "street_number": "Córdoba 1240",
+    "province": "Buenos Aires",
+    "locality": "C.A.B.A",
+    "telephone": "1157345234"
+  },
+  {
+    "street_number": "9 de Julio 3434",
+    "province": "Buenos Aires",
+    "locality": "C.A.B.A",
+    "telephone": "1157495833"
+  },
+  {
+    "street_number": "Av Corrientes 1234",
+    "province": "Buenos Aires",
+    "locality": "C.A.B.A",
+    "telephone": "1157434833"
+  }
+]

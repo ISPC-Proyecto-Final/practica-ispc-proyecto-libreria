@@ -1,0 +1,123 @@
+h3 {
+  font-size: 26px;
+}
+
+/********* search **********/
+.menu__item a:hover {
+  color: #e35352;
+}
+
+form {
+  display: flex;
+  height: 40px;
+  width: 100%;
+  padding: 2px;
+  min-width: 35% !important;
+  border: 1px solid rgba(0, 0, 0, 0.06);
+  border-radius: 20px;
+}
+
+form .search-data {
+  width: 100%;
+  height: 100%;
+  padding: 0 10px;
+  color: #a5a5a5;
+  font-size: 1rem;
+  border: none;
+  background: none;
+}
+
+.search-data:focus {
+  outline: none;
+}
+
+form button {
+  padding: 0 15px;
+  color: #a5a5a5;
+  font-size: 22px;
+  background: #ffffff;
+  border: none;
+  border-radius: 20px;
+  cursor: pointer;
+}
+
+form button:hover {
+  background: #f2f2f2;
+}
+
+@media all and (min-width: 992px) {
+  form {
+    width: 415px;
+  }
+}
+
+/********end search *********/
+
+.item-list {
+  border-radius: 20px;
+  padding-left: 1rem;
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+  margin-bottom: 15px;
+  overflow: hidden;
+}
+
+.item-content .row .col {
+  font-size: 1rem;
+  padding: 0px 8px;
+}
+
+.rounded-table {
+  border-radius: 20px;
+  overflow: hidden;
+}
+
+.colorback {
+  background-color: white;
+}
+
+tr {
+  margin-bottom: 1rem;
+}
+
+ul {
+  list-style: none;
+  padding-left: 0px;
+  margin-bottom: 0px;
+}
+
+ul .bullet-Entregado::before {
+  content: "•";
+  color: #45db66;
+  font-size: 170%;
+  line-height: 0.5em;
+  padding-right: 5px;
+}
+
+ul .bullet-Preparando::before {
+  content: "•";
+  color: #f45351;
+  font-size: 170%;
+  line-height: 0.5em;
+  padding-right: 5px;
+}
+
+ul .bullet-Enviado::before {
+  content: "•";
+  color: #041e41;
+  font-size: 170%;
+  line-height: 0.5em;
+  padding-right: 5px;
+}
+
+.bg-color {
+  background-color: #EAEAEA66;
+  /* background-color: rgba(234, 234, 234, 0.4); */
+}
+
+.btn {
+  box-sizing: border-box;
+  background: #F9F9FB;
+  border: 1px solid rgba(0, 0, 0, 0.06);
+  border-radius: 20px;
+}

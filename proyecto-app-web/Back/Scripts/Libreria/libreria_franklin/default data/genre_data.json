@@ -1,0 +1,41 @@
+[
+    {
+        "name": "arte"
+    },
+    {
+        "name": "ficcion"
+    },
+    {
+        "name": "gastronomia"
+    },
+    {
+        "name": "infantil"
+    },
+    {
+        "name": "juvenil"
+    },
+    {
+        "name": "negocios"
+    },
+    {
+        "name": "romantico"
+    },
+    {
+        "name": "auto ayuda"
+    },
+    {
+        "name": "ciencia ficcion"
+    },
+    {
+        "name": "novela rosa"
+    },
+    {
+        "name": "suspenso"
+    },
+    {
+        "name": "misterio"
+    },
+    {
+        "name": "novela"
+    }
+]

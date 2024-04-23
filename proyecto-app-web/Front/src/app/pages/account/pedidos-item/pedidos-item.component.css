@@ -1,0 +1,48 @@
+/*
+
+
+
+.accordion-button {
+  background-color: rgba(234, 234, 234, 0.4);
+}
+
+
+h2 button {
+  display: flex;
+
+}
+
+.accordion-button::after {
+  margin-left: 30px;
+}
+
+table {
+  border-radius: 20px;
+  overflow: hidden;
+}
+
+tbody,
+td,
+tfoot,
+th,
+thead,
+tr {
+  border-style: hidden;
+} */
+
+.fechas {
+  margin-left: auto;
+}
+
+.accordion-button {
+  background: rgba(234, 234, 234, 0.4);
+}
+
+tbody,
+td,
+tfoot,
+th,
+thead,
+tr {
+  border-style: hidden;
+}

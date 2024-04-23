@@ -1,0 +1,15 @@
+.trash-icon-button {
+  border: none;
+  background-color: transparent;
+}
+
+a {
+  text-decoration-line: underline;
+}
+
+.purchase-button {
+  color: white;
+  border: none;
+  border-radius: 5px;
+  background: #E35352;
+}
