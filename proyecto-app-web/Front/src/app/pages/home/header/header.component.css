@@ -1,5 +1,5 @@
 .bg-primary-yellow {
-  background-color: var(--primary-yellow);
+  background-color: var(--primary-color);
 }
 
 .text-primary-blue {
@@ -17,7 +17,7 @@
 
 .header-title {
   font-size: 55px;
-  color: var(--secondary-blue);
+  color: var(--secondary-color);
 }
 
 .header-paragraph {
@@ -32,13 +32,13 @@
   border-radius: 5px;
   width: 13rem;
   height: 3.5rem;
-  background-color: var(--secondary-blue);
+  background-color: var(--secondary-color);
   transition-duration: 0.3s;
   transition-timing-function: ease-in-out;
 }
 
 .featured-info-backgound {
-  background: var(--primary-white);
+  background-color: var(--light-white);
   border: 1px solid rgba(0, 0, 0, 0.09);
   border-radius: 60px;
 }
