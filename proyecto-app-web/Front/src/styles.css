@@ -121,6 +121,7 @@ a:hover {
 :root {
   --primary-blue: #0B67E5;
   --secondary-blue: #041E41;
+  --alternative-blue: #1C3775;
   --primary-yellow: #DAF275;
   --primary-green: #73C255;
   --primary-black: #5D5E5F;
@@ -133,6 +134,7 @@ a:hover {
   --secondary-red: #E35352;
   --primary-color: #F1F7FD;
   --secondary-color: #303754;
+  --alternative-secondary-color: #538DCC;
 }
 
 /* Font Family - Weight -Style */
