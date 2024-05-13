@@ -127,9 +127,12 @@ a:hover {
   --primary-grey: #C6C9CC;
   --primary-white: #F5F5F5;
   --secondary-white: #FFFFFF;
+  --light-white: rgba(254, 254, 254, 1);
   --primary-red: #A02A44;
   --alternative-red: #d54f4f;
   --secondary-red: #E35352;
+  --primary-color: #F1F7FD;
+  --secondary-color: #303754;
 }
 
 /* Font Family - Weight -Style */

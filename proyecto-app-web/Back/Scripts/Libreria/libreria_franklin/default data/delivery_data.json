@@ -10,7 +10,7 @@
       "address_location": "Location 1",
       "address_street": "Street 1",
       "postal_code": "12345",
-      "state": "Delivered"
+      "status": "Delivered"
     },
     {
       "id_delivery": 2,
@@ -23,7 +23,7 @@
       "address_location": "Location 2",
       "address_street": "Street 2",
       "postal_code": "54321",
-      "state": "In Transit"
+      "status": "In Transit"
     }
   ]
   

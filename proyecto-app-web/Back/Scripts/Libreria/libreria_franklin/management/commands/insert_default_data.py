@@ -126,12 +126,12 @@ class Command(BaseCommand):
                 address_location = delivery_data['address_location']
                 address_street = delivery_data['address_street']
                 postal_code = delivery_data['postal_code']
-                state = delivery_data['state']
+                status = delivery_data['status']
 
                 Delivery.objects.create(id_delivery=id_delivery, name=name, email=email,
                                         telephone_number=telephone_number, telephone_area_code=telephone_area_code,
                                         document=document, address_province=address_province, address_location=address_location,
-                                        address_street=address_street, postal_code=postal_code, state=state)
+                                        address_street=address_street, postal_code=postal_code, status=status)
 
             self.stdout.write(self.style.SUCCESS('Default deliveries inserted successfully.'))
         else:
