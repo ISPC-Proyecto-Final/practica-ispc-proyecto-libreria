@@ -37,4 +37,12 @@ export class NavigationService {
   navigateToSearchBook() {
     this.router.navigate(['book-search']);
   }
+
+  navigateToMobilePage() {
+    this.router.navigate(['mobile-app']);
+  }
+
+  navigateToSubscription() {
+    this.router.navigate(['subscription']);
+  }
 }

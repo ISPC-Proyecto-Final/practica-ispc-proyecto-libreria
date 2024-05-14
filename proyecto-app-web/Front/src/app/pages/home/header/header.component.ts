@@ -14,5 +14,8 @@ export class HeaderComponent {
   onClickCatalogue() {
     this.navitaionService.navigateToCatalogue();
   }
+  onClickMobilePage() {
+    this.navitaionService.navigateToMobilePage();
+  }
 
 }
