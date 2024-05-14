@@ -45,4 +45,7 @@ export class NavigationService {
   navigateToSubscription() {
     this.router.navigate(['subscription']);
   }
+  navigateToContact() {
+    this.router.navigate(['contact']);
+  }
 }
