@@ -54,6 +54,9 @@ export class NavbarComponent implements OnInit {
   onClickNavigateToSubscription() {
     this.navigationService.navigateToSubscription();
   }
+  onClickNavigateToContact() {
+    this.navigationService.navigateToContact();
+  }
 
   onClickNavigateToBookDashboard() {
     this.adminNavigationService.navigateToBookDashboard();

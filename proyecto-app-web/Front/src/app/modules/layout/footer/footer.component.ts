@@ -32,4 +32,7 @@ export class FooterComponent {
   onClickSubscription(){
     this.navigationService.navigateToSubscription();
   }
+  onClickContact(){
+    this.navigationService.navigateToContact();
+  }
 }
