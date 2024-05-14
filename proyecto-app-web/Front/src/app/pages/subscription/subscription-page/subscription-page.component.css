@@ -1,0 +1,19 @@
+.bg-color {
+  background-color: #F1F7FD;
+  border-radius: 20px;
+}
+
+.app-name{
+  color: var(--primary-blue);
+}
+
+.primary-button {
+  color: var(--secondary-white);
+  border: none;
+  border-radius: 5px;
+  width: 13rem;
+  height: 3.5rem;
+  background-color: var(--alternative-secondary-color);
+  transition-duration: 0.3s;
+  transition-timing-function: ease-in-out;
+}
