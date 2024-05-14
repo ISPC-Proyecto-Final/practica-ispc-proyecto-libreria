@@ -8,6 +8,7 @@ import { BookCataloguePageComponent } from "./book/book-catalogue-page/catalogue
 import { CartDetailPageComponent } from "./cart/cart-detail-page/cart-detail-page.component";
 import { AccountDetailsComponent } from "./account/account-details/account-details.component";
 import { SearchBookPageComponent } from "./book/search-book-page/search-book-page.component";
+import { MobileInfoPageComponent } from "./about-us/mobile-info-page/mobile-info-page.component";
 
 const routes: Routes = [
   { path: '', component: HomePageComponent },
@@ -18,7 +19,8 @@ const routes: Routes = [
   { path: 'catalogue', component: BookCataloguePageComponent },
   { path: 'cart-detail', component: CartDetailPageComponent },
   { path: 'profile', component: AccountDetailsComponent },
-  { path: 'book-search', component: SearchBookPageComponent }
+  { path: 'book-search', component: SearchBookPageComponent },
+  { path: 'mobile-app', component: MobileInfoPageComponent },
 ];
 
 @NgModule({
