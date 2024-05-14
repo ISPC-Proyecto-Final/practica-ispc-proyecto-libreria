@@ -17,6 +17,18 @@
               Catalogo
             </a>
           </li>
+          <li class="nav-item">
+            <a class="nav-link" aria-current="page" (click)="onClickNavigateToSubscription()" *ngIf="!isAdmin">
+              Suscripción
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" aria-current="page" (click)="onClickNavigateToContact()" *ngIf="!isAdmin">
+              Contacto
+            </a>
+          </li>
+
+
 
           <!-- NAV ADMIN -->
           <li class="nav-item">

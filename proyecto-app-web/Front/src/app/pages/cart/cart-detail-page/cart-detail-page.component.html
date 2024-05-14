@@ -24,8 +24,8 @@
   </div>
 </section>
 
-<section class="container-fluid">
-  <div class="row">
+<section class="container-fluid pb-5 mb-5">
+  <div class="row pb-5 mb-5">
     <div class="col-12 col-xl-8 order-last order-xl-first">
       <app-selected-books [books]="books"></app-selected-books>
     </div>
@@ -38,6 +38,33 @@
 
         <div class="col-auto col-md-6 col-xl-auto p-4 mt-4">
           <div class="row gy-4">
+            <div class="col-11 coupon-form">
+              <input
+              id="search"
+              type="text"
+              class="search-data fw-400"
+              placeholder="¿Tenés un cupón?"
+              name="title"
+              [(ngModel)]="coupon"
+              (keyup.enter)="onSubmitCoupon()"/>
+
+            <button role="button" title="buscar" (click)="onSubmitCoupon()">
+              <span class="material-icons"> chevron_right </span>
+            </button>
+            </div>
+
+            <div class="col-11 g-0 pt-2" *ngIf="couponErrorMessage">
+              <div class="text-danger">
+                {{ couponErrorMessage }}
+              </div>
+            </div>
+
+            <div class="col-11 g-0 pt-2" *ngIf="couponSuccessMessage">
+              <div class="text-success">
+                {{ couponSuccessMessage }}
+              </div>
+            </div>
+
             <div class="col-12">
               <div class="row">
                 <div class="col-6">

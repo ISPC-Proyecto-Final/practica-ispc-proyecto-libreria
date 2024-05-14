@@ -93,6 +93,19 @@ export class CartService {
     this.totalCostUpdated.next(this.totalCost);
   }
 
+  makeDiscount(discountPercent: number) {
+    this.totalCost = parseFloat(this.cart.reduce((partialSum, book) => {
+      return partialSum + Number(book.price) * book.selectedAmount;
+    }, 0).toFixed(3));
+
+    const discount = discountPercent / 100;
+    const discountedCost = this.totalCost * (1 - discount);
+
+    this.totalCost = discountedCost;
+
+    this.totalCostUpdated.next(this.totalCost);
+  }
+
   getcartUpdatedListener() {
     return this.cartUpdated.asObservable();
   }

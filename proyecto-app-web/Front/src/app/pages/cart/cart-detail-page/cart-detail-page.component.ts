@@ -16,6 +16,9 @@ export class CartDetailPageComponent implements OnInit, OnDestroy {
   books: SelectedBookDto[] = [];
   totalItems: number = 0;
   totalCost: number = 0;
+  coupon: string = '';
+  couponErrorMessage: string = '';
+  couponSuccessMessage: string = '';
 
   constructor(
     private navigationService: NavigationService,
@@ -67,5 +70,29 @@ export class CartDetailPageComponent implements OnInit, OnDestroy {
       return;
     }
     this.navigationService.navigateToCheckout();
+  }
+
+  onSubmitCoupon() {
+    this.couponErrorMessage= '';
+    this.couponSuccessMessage = '';
+    this.cartService.makeDiscount(0);
+    const keyword = this.coupon.slice(0, 6);
+    this.coupon = this.coupon.replace(/[^\d.-]/g, "");
+    const discountPercent = parseFloat(this.coupon);
+    this.coupon = `${keyword}${this.coupon}`;
+    if (keyword.toLocaleLowerCase() !== 'pluton') {
+      console.log('no es pluton');
+      this.couponErrorMessage= 'Cupón inválido';
+      return;
+    }
+
+    if(Number.isNaN(discountPercent)){
+      console.log('no es un numero');
+      this.couponErrorMessage= 'Cupón inválido';
+      return;
+    }
+
+    this.cartService.makeDiscount(discountPercent);
+    this.couponSuccessMessage = 'Cupón aplicado exitosamente'
   }
 }

@@ -1,8 +1,29 @@
-<section class="my-5 py-5"></section>
-<footer class="footer d-flex justify-content-between fc-basic-2 p-5 mt-5 row">
-  <div class="col-12 col-md-5 col-lg-2 mb-5 mb-md-0">
-    <img src="./assets/img/logo/Logo biblioteca franklin.png" alt="" class="mt-3">
-    <div class="row gx-5 d-flex justify-content-start redes mt-5">
+<section class="container-fluid position-relative header mt-5 pt-5">
+  <section class="container position-absolute top-10 start-50 translate-middle py-4 mobile-app-banner">
+    <div class="row justify-content-around align-items-center">
+      <div class="col-auto pt-4 fs-lg app-name">
+        <p>Plutón App</p>
+      </div>
+
+      <div class="col-auto pt-4 fs-md-1 app-advertising">
+        <p>¡Descargala ahora y unite a nuestra comunidad!</p>
+      </div>
+
+      <div class="col-auto">
+          <button type="button" class="font-bold fs-md py-3 px-3 mobile-link-button" (click)="onClickMobileAppAdd()">
+            Quiero conocerla
+          </button>
+      </div>
+    </div>
+  </section>
+
+
+  <footer class="footer d-flex justify-content-between fc-basic-2 p-5 row">
+    <div class="row py-5"></div>
+
+    <div class="col-12 col-md-5 col-lg-2 mb-5 mb-md-0 pt-4">
+      <!-- <img src="./assets/img/logo/Logo biblioteca franklin.png" alt="" class="mt-3"> -->
+      <!-- <div class="row gx-5 d-flex justify-content-start redes mt-5">
       <a type="link" title="Instagram" target="_blank" rel="noopener noreferrer" class="col-3">
         <i>
           <img src="./assets/icons/instagram-logo.png" alt="Instagram logo" class="img-fluid">
@@ -18,36 +39,69 @@
           <img src="./assets/icons/twitter-logo.png" alt="Twitter logo" class="img-fluid">
         </i>
       </a>
+    </div> -->
     </div>
-  </div>
-  <div class="map col-12 col-md-5 col-lg-2 mb-5 mb-lg-0">
-    <ul class="fs-sm-2">
-      <li><a (click)="onClickHome()">Home</a></li>
-      <li><a (click)="onClickCatalogue()">Catálogo</a></li>
-      <li><a (click)="onClickMyAccount()">Mi cuenta</a></li>
-      <li><a (click)="onClickCartDetail()">Carrito de compras</a></li>
-    </ul>
-  </div>
-  <div class="payment mt-3 col-12 col-md-5 col-lg-3 mb-5 mb-lg-0">
-    <p class="font-bold fs-md">Método de pago</p>
-    <div class="row d-flex justify-content-start">
-      <i class="col-2">
-        <img src="./assets/icons/visa-logo.png" alt="Visa logo" class="img-fluid">
-      </i>
-      <i class="col-2">
-        <img src="./assets/icons/mastercard-logo.png" alt="Mastercard logo" class="img-fluid">
-      </i>
-      <i class="col-2">
-        <img src="./assets/icons/amex-logo.png" alt="Amex logo" class="img-fluid">
-      </i>
+
+    <div class="map col-12 col-md-5 col-lg-2 mb-5 mb-lg-0">
+      <ul class="fs-sm-2">
+        <li><a (click)="onClickHome()">Home</a></li>
+        <li><a (click)="onClickCatalogue()">Catálogo</a></li>
+      </ul>
     </div>
-  </div>
-  <div class="contact mt-3 col-12 col-md-5 col-lg-3 mb-5 mb-lg-0">
-    <p class="font-bold fs-md">Contacto</p>
+
+    <div class="map col-12 col-md-5 col-lg-2 mb-5 mb-lg-0">
+      <ul class="fs-sm-2">
+        <li><a (click)="onClickMyAccount()">Mi cuenta</a></li>
+        <li><a (click)="onClickCartDetail()">Carrito de compras</a></li>
+      </ul>
+    </div>
+
+    <div class="map col-12 col-md-5 col-lg-2 mb-5 mb-lg-0">
+      <ul class="fs-sm-2">
+        <li><a (click)="onClickSubscription()">Suscripción</a></li>
+        <li><a (click)="onClickContact()">Contacto</a></li>
+      </ul>
+    </div>
+
+    <!-- <div class="payment mt-3 col-12 col-md-5 col-lg-3 mb-5 mb-lg-0">
+      <p class="font-bold fs-md">Método de pago</p>
+      <div class="row d-flex justify-content-start">
+        <i class="col-2">
+          <img src="./assets/icons/visa-logo.png" alt="Visa logo" class="img-fluid">
+        </i>
+        <i class="col-2">
+          <img src="./assets/icons/mastercard-logo.png" alt="Mastercard logo" class="img-fluid">
+        </i>
+        <i class="col-2">
+          <img src="./assets/icons/amex-logo.png" alt="Amex logo" class="img-fluid">
+        </i>
+      </div>
+    </div> -->
+
+    <div class="contact col-12 col-md-5 col-lg-3 mb-5 mb-lg-0">
+      <!-- <p class="font-bold fs-md">Contacto</p>
     <ul class="fs-sm-2">
-      <li><i class="fa-regular fa-envelope"></i>contacto@biblioteca.com</li>
+      <li><i class="fa-regular fa-envelope"></i>contacto&#64;biblioteca.com</li>
       <li><i class="fa-solid fa-phone-volume"></i>1126789634</li>
       <li><i class="fa-solid fa-location-dot"></i>Humberto Primo 467. 2 Piso. Córdoba. Argentina.</li>
-    </ul>
-  </div>
-</footer>
+    </ul> -->
+      <div class="row gx-5 d-flex justify-content-start redes mt-5">
+        <a type="link" title="Instagram" target="_blank" rel="noopener noreferrer" class="col-3">
+          <i>
+            <img src="./assets/icons/instagram-logo.png" alt="Instagram logo" class="img-fluid">
+          </i>
+        </a>
+        <a type="link" title="Twitter" target="_blank" rel="noopener noreferrer" class="col-3">
+          <i>
+            <img src="./assets/icons/fb-logo.png" alt="Facebok logo" class="img-fluid">
+          </i>
+        </a>
+        <a type="link" title="Facebook" target="_blank" rel="noopener noreferrer" class="col-3">
+          <i>
+            <img src="./assets/icons/twitter-logo.png" alt="Twitter logo" class="img-fluid">
+          </i>
+        </a>
+      </div>
+    </div>
+  </footer>
+</section>

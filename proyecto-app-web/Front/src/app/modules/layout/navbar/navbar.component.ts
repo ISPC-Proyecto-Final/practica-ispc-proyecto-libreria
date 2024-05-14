@@ -51,6 +51,13 @@ export class NavbarComponent implements OnInit {
     this.navigationService.navigateToCatalogue();
   }
 
+  onClickNavigateToSubscription() {
+    this.navigationService.navigateToSubscription();
+  }
+  onClickNavigateToContact() {
+    this.navigationService.navigateToContact();
+  }
+
   onClickNavigateToBookDashboard() {
     this.adminNavigationService.navigateToBookDashboard();
   }
@@ -73,6 +80,7 @@ export class NavbarComponent implements OnInit {
   onClickNavigateToPublisherDashboard() {
     this.adminNavigationService.navigateToPublisherDashboard();
   }
+
 
   getProfile() {
     this.authService.getProfileListener().subscribe((user) => {

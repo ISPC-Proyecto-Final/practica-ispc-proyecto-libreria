@@ -25,4 +25,14 @@ export class FooterComponent {
   onClickMyAccount() {
     this.navigationService.navigateToProfile();
   }
+
+  onClickMobileAppAdd(){
+    this.navigationService.navigateToMobilePage();
+  }
+  onClickSubscription(){
+    this.navigationService.navigateToSubscription();
+  }
+  onClickContact(){
+    this.navigationService.navigateToContact();
+  }
 }
