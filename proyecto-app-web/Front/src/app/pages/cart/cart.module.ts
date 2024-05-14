@@ -7,7 +7,7 @@ import { SelectedBookDetailComponent } from './selected-book-detail/selected-boo
 import { CartDetailPageComponent } from './cart-detail-page/cart-detail-page.component';
 import { DeliveryHelperComponent } from './delivery-helper/delivery-helper.component';
 import { StoreHelperComponent } from './store-helper/store-helper/store-helper.component';
-
+import { NgbToastModule } from '@ng-bootstrap/ng-bootstrap';
 @NgModule({
   declarations: [
     SelectedBookDetailComponent,
@@ -16,6 +16,6 @@ import { StoreHelperComponent } from './store-helper/store-helper/store-helper.c
     DeliveryHelperComponent,
     StoreHelperComponent,
   ],
-  imports: [CommonModule, FormsModule],
+  imports: [CommonModule, FormsModule, NgbToastModule],
 })
 export class CartModule {}
