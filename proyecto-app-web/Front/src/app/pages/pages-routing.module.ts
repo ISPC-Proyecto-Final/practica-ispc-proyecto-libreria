@@ -9,6 +9,7 @@ import { CartDetailPageComponent } from "./cart/cart-detail-page/cart-detail-pag
 import { AccountDetailsComponent } from "./account/account-details/account-details.component";
 import { SearchBookPageComponent } from "./book/search-book-page/search-book-page.component";
 import { MobileInfoPageComponent } from "./about-us/mobile-info-page/mobile-info-page.component";
+import { SubscriptionPageComponent } from "./subscription/subscription-page/subscription-page.component";
 
 const routes: Routes = [
   { path: '', component: HomePageComponent },
@@ -21,6 +22,7 @@ const routes: Routes = [
   { path: 'profile', component: AccountDetailsComponent },
   { path: 'book-search', component: SearchBookPageComponent },
   { path: 'mobile-app', component: MobileInfoPageComponent },
+  { path: 'subscription', component: SubscriptionPageComponent },
 ];
 
 @NgModule({
