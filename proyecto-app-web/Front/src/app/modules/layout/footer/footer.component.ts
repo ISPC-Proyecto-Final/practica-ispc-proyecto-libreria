@@ -27,6 +27,9 @@ export class FooterComponent {
   }
 
   onClickMobileAppAdd(){
-
+    this.navigationService.navigateToMobilePage();
+  }
+  onClickSubscription(){
+    this.navigationService.navigateToSubscription();
   }
 }
