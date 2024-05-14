@@ -6,12 +6,21 @@
           Librería <span class="text-primary-blue font-bold">Franklin</span>
         </h1>
         <p class="header-paragraph fs-sm-2 ">
-          Encontrá el libro que estás buscando. Novelas, cuentos, infantiles, historia, economía, jardinería y mucho más. 
+          Encontrá el libro que estás buscando. Novelas, cuentos, infantiles, historia, economía, jardinería y mucho más.
         </p>
         <div>
-          <button class="col-12 col-md-9 primary-button text-sm-center font-bold fs-sm-2" (click)="onClickCatalogue()">
-            Ver catálogo
-          </button>
+          <div class="row">
+            <div class="col-12 col-md-5">
+              <button class="primary-button text-sm-center font-bold fs-sm-2" (click)="onClickCatalogue()">
+                Ver catálogo
+              </button>
+            </div>
+            <div class="col-12 col-md-5">
+              <button class="primary-button text-sm-center font-bold fs-sm-2" (click)="onClickMobilePage()">
+                Conocé la app
+              </button>
+            </div>
+          </div>
         </div>
       </div>
     </div>

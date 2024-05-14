@@ -32,4 +32,5 @@ export class AdminNavigationService {
   navigateToPublisherDashboard() {
     this.router.navigate(['/admin/publisher-dashboard']);
   }
+
 }
