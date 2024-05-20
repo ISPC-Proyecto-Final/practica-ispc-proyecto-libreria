@@ -1,0 +1,60 @@
+<section class="container my-5 pb-5 table-responsive bg-secondary-white px-5 dashboard-table" id="books-dashboard">
+  <section class="container pb-5 mb-5">
+    <div class="row mt-5 pt-5 justify-content-center align-items-center gy-5">
+
+      <div class="col-12 col-lg-4 text-start">
+        <span class="fw-700 db-tittle">Editoriales registradas</span>
+      </div>
+
+      <div class="col-12 col-lg-6">
+        <div class="input-group">
+          <input type="text" class="form-control rounded-1 px-4 py-3" placeholder="Buscá por nombre">
+          <button type="button" class="btn btn-outline-secondary"> <img src="./assets/icons/extra/lupa.png" alt="">
+            <i class="bi bi-search"></i>
+          </button>
+        </div>
+      </div>
+
+      <div class="col-12 col-lg-2 text-end">
+        <button type="button" role="button" class="primary-button-outline col-12 py-2" (click)="onCreatePublisher()">
+          Agregar editorial
+        </button>
+      </div>
+    </div>
+  </section>
+
+  <table class="table table-hover align-middle">
+
+    <thead>
+      <tr>
+        <th scope="col">Nombre</th>
+        <th scope="col">Acciones</th>
+      </tr>
+    </thead>
+
+    <tbody>
+
+      <tr *ngFor="let publisher of publishers">
+
+        <td class="ps-3">{{publisher.name}}</td>
+
+        <td>
+          <div class="row">
+            <div class="col-2">
+              <button class="trash-btn" type="button" title="editar" (click)="onEditPublisher(publisher.id_publisher)">
+                <img src="./assets/icons/actions/edit.png" alt="" class="img-fluid">
+              </button>
+            </div>
+            <div class="col-2">
+              <button class="trash-btn" type="button" title="eliminar"
+                (click)="onDeletePublisher(publisher.id_publisher)">
+                <img src="./assets/icons/actions/trash.png" alt="" class="img-fluid">
+              </button>
+            </div>
+          </div>
+        </td>
+      </tr>
+
+
+    </tbody>
+  </table>

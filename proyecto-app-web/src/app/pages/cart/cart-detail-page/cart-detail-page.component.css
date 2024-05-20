@@ -1,0 +1,54 @@
+.trash-icon-button {
+  border: none;
+  background-color: transparent;
+}
+
+a {
+  text-decoration-line: underline;
+}
+
+.purchase-button {
+  color: white;
+  border: none;
+  border-radius: 5px;
+  background: var(--alternative-secondary-color);
+}
+
+.coupon-form {
+  display: flex;
+  height: 40px;
+  background: #ffffff;
+  border: 1px solid rgba(155, 155, 155, 0.2);
+  border-radius: 5px;
+}
+
+.coupon-form .search-data {
+  width: 100%;
+  height: 100%;
+  padding: 0 10px;
+  color: #a5a5a5;
+  font-size: 1rem;
+  border: none;
+  background: none;
+}
+
+.search-data:focus {
+  outline: none;
+}
+
+.coupon-form button {
+  padding: 0 15px;
+  color: #a5a5a5;
+  font-size: 22px;
+  background: #ffffff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.coupon-form button:hover {
+  background: #f2f2f2;
+}

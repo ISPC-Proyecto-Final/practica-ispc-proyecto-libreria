@@ -1,0 +1,23 @@
+.backgorund-color-green {
+    background-color: var(--primary-color);
+  }
+
+  .backgorund-color-white {
+    background-color: white;
+  }
+
+  .border-radius {
+    border-radius: 40px 0px 0px 40px;
+  }
+
+  html {
+    height: 100%;
+  }
+
+  .login-button {
+    color: white;
+    border-radius: 15px;
+    border-color: var(--secondary-color);
+    background-color: var(--secondary-color);
+
+  }

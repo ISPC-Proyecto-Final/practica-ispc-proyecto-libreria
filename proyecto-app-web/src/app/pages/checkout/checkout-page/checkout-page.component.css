@@ -1,0 +1,42 @@
+.example-stepper {
+  margin-top: 8px;
+}
+
+.mat-mdc-form-field {
+  margin-top: 16px;
+}
+
+/* :host ::ng-deep .mat-stepper-horizontal-line{
+    border-top-width: 10px;
+    border-top-style: dotted;
+    margin: 0;
+  } */
+
+:host ::ng-deep .mat-stepper-horizontal {
+  font-family: "Mulish", sans-serif !important;
+}
+
+:host ::ng-deep .mdc-form-field {
+  font-family: "Mulish", sans-serif !important;
+  font-size: 18px;
+  color: #5D5E5F;
+  font-weight: 700;
+}
+
+.secondary-button {
+  color: var(--secondary-white);
+  border: none;
+  border-radius: 5px;
+  background-color: var(--secondary-red);
+  transition-duration: 0.3s;
+  transition-timing-function: ease-in-out;
+}
+
+.back-button {
+  border: none;
+  background-color: transparent;
+}
+
+.ng-valid:not(form).ng-touched.notFormInput {
+  border-left: none;
+}

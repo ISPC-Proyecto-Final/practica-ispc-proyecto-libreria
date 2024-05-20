@@ -1,0 +1,27 @@
+.modal-header {
+  border-bottom: none;
+}
+
+.modal-footer {
+  border-top: none;
+}
+
+.form-control {
+  border-radius: 6px;
+}
+
+.btn {
+  border-radius: 5px !important;
+}
+
+.btn-danger {
+  --bs-btn-bg: #e35352;
+}
+
+.btn-cancel {
+  border: none;
+  text-decoration: underline;
+  background-color: transparent;
+  color: rgba(93, 94, 95, 1);
+  font-weight: 300;
+}

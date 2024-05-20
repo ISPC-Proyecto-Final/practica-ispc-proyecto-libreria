@@ -1,0 +1,53 @@
+.cart-button {
+  height: 3.5rem;
+  width: 10rem;
+  background-color: var(--secondary-color);
+  border: none;
+  padding: 10px 40px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  margin: 4px 2px;
+  cursor: pointer;
+  border-radius: 34px;
+  transition-duration: 0.4s;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.9);
+  position: relative;
+}
+
+.cart-button:hover {
+  background-color: rgba(4, 30, 65, 0.8);
+}
+
+.cart-button img {
+  position: absolute;
+  top: 50%;
+  left: 1.3rem;
+  transform: translateY(-50%);
+  width: 20px;
+  height: 20px;
+  margin-right: 10px;
+  filter: hue-rotate(0deg) saturate(0) brightness(200%) opacity(0.5);
+  height: 50%;
+  width: 20%;
+}
+
+.cart-button .item-count {
+  position: absolute;
+  top: 50%;
+  left: 4rem;
+  transform: translateY(-50%);
+}
+
+.cart-button .total-amount {
+  position: absolute;
+  top: 50%;
+  right: 30px;
+  transform: translateY(-50%);
+}
+
+.cart {
+  color: white;
+  border: none;
+  background-color: transparent;
+}

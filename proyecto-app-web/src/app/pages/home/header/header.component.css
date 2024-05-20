@@ -1,0 +1,44 @@
+.bg-primary-yellow {
+  background-color: var(--primary-color);
+}
+
+.text-primary-blue {
+  color: var(--primary-blue);
+}
+
+.py-5 {
+  padding-top: 3rem!important;
+  padding-bottom: 3rem!important;
+}
+
+.header {
+  margin-bottom: 7rem;
+}
+
+.header-title {
+  font-size: 55px;
+  color: var(--secondary-color);
+}
+
+.header-paragraph {
+  line-height: 1.75rem;
+  color: var(--primary-black);
+  margin: 2rem 0;
+}
+
+.primary-button {
+  color: var(--secondary-white);
+  border: none;
+  border-radius: 5px;
+  width: 13rem;
+  height: 3.5rem;
+  background-color: var(--alternative-secondary-color);
+  transition-duration: 0.3s;
+  transition-timing-function: ease-in-out;
+}
+
+.featured-info-backgound {
+  background-color: var(--light-white);
+  border: 1px solid rgba(0, 0, 0, 0.09);
+  border-radius: 60px;
+}

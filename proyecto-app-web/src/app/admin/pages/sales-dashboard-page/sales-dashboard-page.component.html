@@ -1,0 +1,141 @@
+<section class="container my-5 pb-5 table-responsive bg-secondary-white px-5 dashboard-table" id="books-dashboard">
+  <section class="container pb-5 mb-5">
+    <div class="row mt-5 pt-5 align-items-center gy-5">
+
+      <div class="col-12 col-lg-6">
+        <span class="fc-primary font-bold fs-md-2">Ventas realizadas</span>
+      </div>
+
+      <div class="col-12 col-lg-6">
+        <div class="input-group">
+          <input type="text" class="form-control rounded-1 px-4 py-3" placeholder="Buscá por número de orden">
+          <button type="button" class="btn btn-outline-secondary"> <img src="./assets/icons/extra/lupa.png" alt="">
+            <i class="bi bi-search"></i>
+          </button>
+        </div>
+      </div>
+    </div>
+  </section>
+  <div *ngIf="sales.length">
+    <div class="row item-list bg-color py-4" *ngFor="let sale of sales">
+      <div class="col item-content">
+        <div class="row d-flex align-items-end pb-2 fs-sm-1 fc-secondary font-bold">
+          <div class="col">Orden</div>
+          <div class="col">Fecha</div>
+          <div class="col">Cliente</div>
+          <div class="col-2">Tipo de envio</div>
+          <div class="col">Cantidad</div>
+          <div class="col">Total</div>
+          <div class="col">Estado</div>
+        </div>
+        <div class="row d-flex align-items-center fs-sm-1 font-semi-bold fc-primary">
+          <div class="col">{{sale.id_sell}}</div>
+          <div class="col">{{sale.saleDate}}</div>
+          <div class="col">{{sale.user.username}}</div>
+          <div class="col-2">{{sale.deliveryType}}</div>
+          <div class="col">{{sale.totalQuantity}}</div>
+          <div class="col">${{sale.totalCost}}</div>
+          <div class="col">
+            <ul class="status-list align-left">
+              <li class="status-text bullet-{{sale.delivery.status}}">{{sale.delivery.status}}</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+
+<!-- <div class="container mt-5">
+  <div class="row mb-4">
+    <div class="col d-flex align-items-stretch">
+      <h3>Ventas realizadas</h3>
+    </div>
+    <div class="col">
+      <form action="#">
+        <input type="search" class="search-data fw-400" placeholder="Busca por numero de orden" required />
+        <button type="submit" role="button" title="buscar" class="bi bi-search"></button>
+      </form>
+    </div>
+  </div>
+  <div class="row item-list bg-light">
+    <div class="col item-content">
+      <div class="row d-flex align-items-end">
+        <div class="col">Orden</div>
+        <div class="col">Fecha</div>
+        <div class="col">Cliente</div>
+        <div class="col-2">Tipo de envio</div>
+        <div class="col">Item</div>
+        <div class="col">Total</div>
+        <div class="col">Estado</div>
+      </div>
+      <div class="row d-flex align-items-center">
+        <div class="col">#12345</div>
+        <div class="col">10/020/2020</div>
+        <div class="col">Maria Perez</div>
+        <div class="col-2">Correo argentino</div>
+        <div class="col">5</div>
+        <div class="col">$820,00</div>
+        <div class="col">
+          <ul class="status-list align-left">
+            <li class="status-text bullet-inprocess">En proceso</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="row item-list bg-light">
+    <div class="col item-content">
+      <div class="row d-flex align-items-end">
+        <div class="col">Orden</div>
+        <div class="col">Fecha</div>
+        <div class="col">Cliente</div>
+        <div class="col-2">Tipo de envio</div>
+        <div class="col">Item</div>
+        <div class="col">Total</div>
+        <div class="col">Estado</div>
+      </div>
+      <div class="row d-flex align-items-center">
+        <div class="col">#12345</div>
+        <div class="col">10/020/2020</div>
+        <div class="col">Maria Perez</div>
+        <div class="col-2">Correo argentino</div>
+        <div class="col">5</div>
+        <div class="col">$820,00</div>
+        <div class="col">
+          <ul class="status-list align-left">
+            <li class="status-text bullet-returned">Devuelto</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="row item-list bg-light">
+    <div class="col item-content">
+      <div class="row d-flex align-items-end">
+        <div class="col">Orden</div>
+        <div class="col">Fecha</div>
+        <div class="col">Cliente</div>
+        <div class="col-2">Tipo de envio</div>
+        <div class="col">Item</div>
+        <div class="col">Total</div>
+        <div class="col">Estado</div>
+      </div>
+      <div class="row d-flex align-items-center">
+        <div class="col">#12345</div>
+        <div class="col">10/020/2020</div>
+        <div class="col">Maria Perez</div>
+        <div class="col-2">Correo argentino</div>
+        <div class="col">5</div>
+        <div class="col">$820,00</div>
+        <div class="col">
+          <ul class="status-list align-left">
+            <li class="status-text bullet-delivered">Entregado</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</div> -->

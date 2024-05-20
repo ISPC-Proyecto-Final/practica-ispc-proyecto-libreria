@@ -1,0 +1,14 @@
+<form #searchForm="ngForm" (ngSubmit)="onClickSearch()">
+  <input
+    id="search"
+    type="text"
+    class="search-data fw-400"
+    placeholder="Buscar"
+    name="title"
+    [(ngModel)]="title"
+    required
+  />
+  <button type="submit" role="button" title="buscar">
+    <span class="material-icons"> search </span>
+  </button>
+</form>
