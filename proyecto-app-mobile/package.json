@@ -4,11 +4,21 @@
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
-    "build": "ng build",
+    "build": "ng build --prod",
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
-    
-    "server": "json-server-auth --watch db.json "
+    "server": "json-server-auth --watch db.json ",
+
+    "copy-www": "cp -a dist/tu-proyecto-angular/. ../MyApp/www",
+    "cordova-build-android": "cd ../MyApp && cordova build android",
+    "cordova-build-ios": "cd ../MyApp && cordova build ios",
+    "cordova-run-android": "cd ../MyApp && cordova run android",
+    "cordova-run-ios": "cd ../MyApp && cordova run ios",
+    "build-and-copy": "npm run build && npm run copy-www",
+    "build-android": "npm run build-and-copy && npm run cordova-build-android",
+    "run-android": "npm run build-and-copy && npm run cordova-run-android",
+    "build-ios": "npm run build-and-copy && npm run cordova-build-ios",
+    "run-ios": "npm run build-and-copy && npm run cordova-run-ios"
   },
   "private": true,
   "dependencies": {
@@ -25,6 +35,7 @@
     "@ng-bootstrap/ng-bootstrap": "^14.1.0",
     "@popperjs/core": "^2.11.6",
     "bootstrap": "^5.2.3",
+    "cordova": "^12.0.0",
     "rxjs": "~7.8.0",
     "tslib": "^2.3.0",
     "zone.js": "~0.12.0"
