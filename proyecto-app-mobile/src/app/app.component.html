@@ -1,6 +1,8 @@
 <app-header-menu [isAdmin]="isAdmin"></app-header-menu>
 <app-navbar [isAdmin]="isAdmin"></app-navbar>
 <main>
-  <router-outlet></router-outlet>
+  <div class="router-outlet-container">
+    <router-outlet></router-outlet>
+  </div>
 </main>
-<app-footer></app-footer>
+  <app-footer></app-footer>

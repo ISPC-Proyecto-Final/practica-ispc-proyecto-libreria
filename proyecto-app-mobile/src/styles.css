@@ -119,6 +119,8 @@ a:hover {
 
 /*COLORS*/
 :root {
+  --primary-background-color: #F7F9F8;
+  --secondary-background-color: #FFFFFF;
   --primary-blue: #0B67E5;
   --secondary-blue: #041E41;
   --alternative-blue: #1C3775;
