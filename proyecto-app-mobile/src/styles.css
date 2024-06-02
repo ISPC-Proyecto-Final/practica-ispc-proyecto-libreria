@@ -37,8 +37,20 @@ a:hover {
 
 /* Font Sizes */
 
+.fs-sm-mob {
+  font-size: 14px;
+}
+
+.fs-extra-sm-mob {
+  font-size: 5px;
+}
+
 .fs-sm {
   font-size: 14px;
+}
+
+.fs-sm-alt {
+  font-size: 16px;
 }
 
 .fs-sm-1 {
@@ -114,6 +126,10 @@ a:hover {
 
 .fc-basic-6 {
   color: #E35352;
+}
+
+.fc-basic-7 {
+  color: #686767;
 }
 
 

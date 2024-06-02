@@ -10,7 +10,8 @@ export class BooksRowCardsComponent implements OnInit {
 
   @Input() books: Book[] = [];
   @Input() showPrice = true;
-  @Input() justify: 'evenly' | 'center' | 'start' = 'start';
+  @Input() colSize = 4;
+  @Input() justify: 'between' | 'evenly' | 'center' | 'start' = 'start';
 
   ngOnInit(): void {
 

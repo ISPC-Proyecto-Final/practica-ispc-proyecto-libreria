@@ -1,6 +1,7 @@
 <div class="container-fluid">
-  <div class="row justify-content-xl-{{justify}} gy-5 py-4 ps-2 ps-md-5 ps-xl-0">
-    <div class="col-6 col-md-4 col-lg-3 col-xl-2" *ngFor="let book of books">
+  <div class="row justify-content-{{justify}} gy-5 py-4">
+    <!-- <div class="col-6 col-md-4 col-lg-3 col-xl-2" *ngFor="let book of books"> -->
+    <div class="col-{{colSize}}" *ngFor="let book of books">
       <app-book-card [book]="book" [showPrice]="showPrice"></app-book-card>
     </div>
   </div>

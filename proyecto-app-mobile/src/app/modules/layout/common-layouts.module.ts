@@ -4,18 +4,18 @@ import { CommonModule } from '@angular/common';
 import { MatBadgeModule } from '@angular/material/badge';
 
 import { FooterComponent } from './footer/footer.component';
-import { HeaderMenuComponent } from './header-menu/header-menu.component';
 import { SearchComponent } from './search/search.component';
 import { NavbarComponent } from './navbar/navbar.component';
 import { LoginModule } from '../login/login.module';
 import { ButtonCartComponent } from './button-cart/button-cart.component';
 // import { CommonComponentsModule } from '../common-components/common-components.module';
 import { FormsModule } from '@angular/forms';
+import { SearchBarComponent } from './search-bar/search-bar.component';
 
 @NgModule({
   declarations: [
     FooterComponent,
-    HeaderMenuComponent,
+    SearchBarComponent,
     SearchComponent,
     NavbarComponent,
     ButtonCartComponent,
@@ -29,7 +29,7 @@ import { FormsModule } from '@angular/forms';
   ],
   exports: [
     FooterComponent,
-    HeaderMenuComponent,
+    SearchBarComponent,
     NavbarComponent,
     SearchComponent,
   ],

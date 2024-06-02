@@ -3,11 +3,11 @@ import { AdminNavigationService } from 'src/app/admin/services/navigation/naviga
 import { NavigationService } from 'src/app/services/navigation/navigation.service';
 
 @Component({
-  selector: 'app-header-menu',
-  templateUrl: './header-menu.component.html',
-  styleUrls: ['./header-menu.component.css']
+  selector: 'app-search-bar',
+  templateUrl: './search-bar.component.html',
+  styleUrls: ['./search-bar.component.css']
 })
-export class HeaderMenuComponent {
+export class SearchBarComponent {
 
   @Input() isAdmin = false;
 

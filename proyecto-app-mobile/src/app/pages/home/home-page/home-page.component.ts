@@ -57,7 +57,7 @@ export class HomePageComponent implements OnInit {
   }
 
   sortAndLimit(books: Book[]) {
-    return books.sort(() => Math.random() - 0.5).slice(0, 5);
+    return books.sort(() => Math.random() - 0.5).slice(0, 2);
   }
 
 }

@@ -1,9 +1,9 @@
 <a (click)="navigate(book.id_book)">
   <div class="row ps-4">
     <img [src]="book.book_cover" alt="imagen de portada de el libro {{ book.title }}" class="img-fluid col-8">
-    <h2 class="fc-secondary font-medium fs-sm-2 pt-3">{{ book.title }}</h2>
-    <h3 class="fc-primary-light font-semi-bold fs-sm-2">{{ book.author.name }}</h3>
-    <h4 class="fc-secondary font-bold fs-md-1" *ngIf="showPrice">
+    <h2 class="fc-secondary font-medium fs-sm pt-3">{{ book.title }}</h2>
+    <h3 class="fc-primary-light font-semi-bold fs-sm">{{ book.author.name }}</h3>
+    <h4 class="fc-secondary font-bold fs-sm" *ngIf="showPrice">
       ${{ book.price }}
     </h4>
   </div>

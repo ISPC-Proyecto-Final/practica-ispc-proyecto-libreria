@@ -48,3 +48,9 @@
     margin-right: 100px;
   }
 }
+
+.button-style {
+  color: white;
+  border: none;
+  background-color: transparent;
+}

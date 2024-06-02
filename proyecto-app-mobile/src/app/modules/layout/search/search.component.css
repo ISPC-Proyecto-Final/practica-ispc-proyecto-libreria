@@ -7,7 +7,7 @@ form {
   height: 40px;
   width: 100%;
   margin-top: 10px;
-  padding: 2px;
+  /* padding: 2px; */
   background: #ffffff;
   min-width: 35% !important;
   border: 1px solid rgba(155, 155, 155, 0.2);
@@ -17,7 +17,7 @@ form {
 form .search-data {
   width: 100%;
   height: 100%;
-  padding: 0 10px;
+  /* padding: 0 10px; */
   color: #a5a5a5;
   font-size: 1rem;
   border: none;
@@ -50,4 +50,23 @@ form button:hover {
     width: 415px;
   }
 
+}
+
+.search-button{
+  background-color: white;
+  border: var(--bs-border-width) solid var(--bs-border-color);
+  border-left: none;
+}
+
+.form-control:focus{
+  appearance: none;
+  background-color: var(--bs-body-bg);
+  background-clip: padding-box;
+  border: var(--bs-border-width) solid var(--bs-border-color);
+  box-shadow: none;
+  border-right: none;
+}
+
+.shadow{
+  box-shadow: 4px 4px 10px 0px #00000040;
 }
