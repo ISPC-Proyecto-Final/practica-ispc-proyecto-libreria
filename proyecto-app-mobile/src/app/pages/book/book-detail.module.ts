@@ -6,6 +6,7 @@ import { BookCataloguePageComponent } from './book-catalogue-page/catalogue-page
 import { SearchBookNotFoundComponent } from './search-book-not-found/search-book-not-found.component';
 import { SelectedBookNotFoundComponent } from './selected-book-not-found/selected-book-not-found.component';
 import { SearchBookPageComponent } from './search-book-page/search-book-page.component';
+import { CommonLayoutsModule } from "../../modules/layout/common-layouts.module";
 
 @NgModule({
   declarations: [
@@ -17,7 +18,8 @@ import { SearchBookPageComponent } from './search-book-page/search-book-page.com
   ],
   imports: [
     CommonModule,
-    BookCardModule
+    BookCardModule,
+    CommonLayoutsModule
   ]
 })
 export class BookDetailModule { }

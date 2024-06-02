@@ -10,6 +10,7 @@ import { NavigationService } from 'src/app/services/navigation/navigation.servic
 export class SearchBarComponent {
 
   @Input() isAdmin = false;
+  @Input() showGreets = false;
 
   constructor(
     private navigationService: NavigationService,
