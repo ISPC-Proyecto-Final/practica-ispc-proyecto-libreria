@@ -104,6 +104,10 @@ a:hover {
   color: #041E41;
 }
 
+.fc-secondary-alt {
+  color: #538DCC;
+}
+
 .fc-basic-1 {
   color: #C6C9CC;
 }
@@ -153,6 +157,7 @@ a:hover {
   --primary-color: #F1F7FD;
   --secondary-color: #303754;
   --alternative-secondary-color: #538DCC;
+  --alternative-secondary-color-light: #F1F7FD;
 }
 
 /* Font Family - Weight -Style */

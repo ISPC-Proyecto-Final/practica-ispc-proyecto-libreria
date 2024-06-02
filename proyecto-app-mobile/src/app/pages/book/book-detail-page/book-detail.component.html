@@ -1,4 +1,52 @@
-<section class="container-fluid row p-4 p-md-5 m-0 detail" *ngIf="bookFound">
+<section class="container-fluid detail pb-3" *ngIf="bookFound">
+  <div class="row">
+    <div class="col-12 text-center">
+      <img [src]="book.book_cover" class="img-fluid col-8 text-center" alt="Image Cover: {{ book.title }}" />
+    </div>
+  </div>
+
+  <div class="row text-center pt-2">
+    <div class="col-12">
+      <span class="font-medium fc-secondary fs-md-1">{{ book.title }}</span>
+    </div>
+
+    <div class="col-12">
+      <span class="font-medium fc-basic-4 fs-sm-2">{{ book.author.name }}</span>
+    </div>
+
+    <div class="col-12">
+      <span class="font-medium fc-secondary fs-md-1">${{ book.price }}</span>
+    </div>
+
+    <div class="col-12 pt-2 text-start">
+      <p><span class="font-bold">Sinopsis:</span> {{ book.synopsis }}</p>
+    </div>
+
+    <div class="col-12">
+      <button type="button" class="col-12 py-3 secondary-button text-sm-center fs-sm-2 font-bold" (click)="onAddBook()"
+        *ngIf=" book.stock > 0">
+        Agregar al carrito
+      </button>
+    </div>
+  </div>
+</section>
+
+<section class="container-fluid pt-3" *ngIf="bookFound">
+    <div class="row">
+      <div class="col-12 index-book-title">
+        <p class="font-medium fc-secondary fs-md">
+          Te pueden interesar
+        </p>
+      </div>
+    </div>
+  <app-books-row-cards [books]="recomendedBooks" [colSize]="6"></app-books-row-cards>
+</section>
+
+<section *ngIf="!bookFound && searchComplete">
+  <app-selected-book-not-found></app-selected-book-not-found>
+</section>
+
+<!-- <section class="container-fluid row p-4 p-md-5 m-0 detail" *ngIf="bookFound">
   <div class="col-7 col-sm-6 col-md-5 col-lg-4 col-xl-3">
     <img [src]="book.book_cover" class="img-fluid" alt="..." />
   </div>
@@ -74,10 +122,4 @@
       <app-books-row-cards [books]="recomendedBooks"></app-books-row-cards>
     </div>
   </div>
-</section>
-
-
-
-<section *ngIf="!bookFound">
-  <app-selected-book-not-found></app-selected-book-not-found>
-</section>
+</section> -->

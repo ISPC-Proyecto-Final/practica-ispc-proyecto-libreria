@@ -1,15 +1,17 @@
 <div class="modal-dialog">
   <div class="modal-content">
     <div class="modal-header">
-      <h5 class="modal-title text-center">Nuestras Tiendas</h5>
-      <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      <h5 class="modal-title text-center font-medium fs-md-1 fc-secondary">Encontranos en</h5>
+      <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" (click)="closeModal()"></button>
     </div>
     <div class="modal-body">
-      <ul>
-        <li *ngFor="let store of stores">
-          {{ store.street_number }} - {{ store.province }} - {{ store.locality }} - {{ store.telephone }}
-        </li>
-      </ul>
+      <div class="row">
+        <div class="col-12" *ngFor="let store of stores">
+          <p>
+            <span><img src="./assets/icons/location-icon.png" alt="Map location icon"></span> {{ store.street_number }} - {{ store.province }} - {{ store.locality }} - {{ store.telephone }}
+          </p>
+        </div>
+      </div>
     </div>
   </div>
 </div>

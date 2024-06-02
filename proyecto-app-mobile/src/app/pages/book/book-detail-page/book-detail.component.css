@@ -2,9 +2,7 @@
   color: var(--secondary-white);
   border: none;
   border-radius: 5px;
-  width: 250px;
-  height: 55px;
-  background-color: var(--secondary-red);
+  background-color: var(--alternative-secondary-color);
   transition-duration: 0.2s;
   transition-timing-function: ease-in-out;
   -webkit-transition: all 0.3s;

@@ -14,6 +14,7 @@ export class BookDetailComponent implements OnInit {
   book!: Book;
   id: string = '';
   bookFound = false;
+  searchComplete = false;
   recomendedBooks: Book[] = [];
 
   constructor(
@@ -38,12 +39,12 @@ export class BookDetailComponent implements OnInit {
     this.bookService.getBookById(Number(this.id))
       .subscribe((result: Book) => {
         this.book = result;
+        this.searchComplete = true;
 
         if (this.book) {
           this.bookFound = true;
           this.getRecomendations();
         }
-
       });
   }
 
@@ -51,7 +52,7 @@ export class BookDetailComponent implements OnInit {
     this.bookService.getBooksByGenre(this.book.genres[0])
       .subscribe((result: Book[]) => {
 
-        result = result.sort(() => Math.random() - 0.5).slice(0, 5);
+        result = result.sort(() => Math.random() - 0.5).slice(0, 4);
         this.recomendedBooks = result;
       });
   }

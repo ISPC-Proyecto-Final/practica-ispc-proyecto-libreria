@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
 import { environment } from 'src/environments/environment.development';
 import { StoreService } from 'src/app/services/store/store.service';
 import { Store } from 'src/app/models/store/store-models';
@@ -16,7 +15,6 @@ export class StoreHelperComponent implements OnInit {
   private apiUrl = environment.API_URL;
 
   constructor(
-    private http: HttpClient,
     private storeService: StoreService,
     private modalService: NgbModal
   ) {}
@@ -33,5 +31,9 @@ export class StoreHelperComponent implements OnInit {
 
   openModal(content: any) {
     this.modalService.open(content, { centered: true });
+  }
+
+  closeModal() {
+    this.modalService.dismissAll();
   }
 }
