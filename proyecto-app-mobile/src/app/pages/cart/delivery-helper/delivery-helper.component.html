@@ -1,8 +1,23 @@
 <div class="container-fluid">
-  <div class="row gy-4 background p-3">
-    <div class="col-12">
+  <div class="row gy-3 background p-3">
+    <!-- <div class="col-12">
       <span class="fs-sm-2 font-semi-bold fc-primary-light">Ingresá tu código postal</span>
+    </div> -->
+
+    <div class="col-12">
+      <div class="form-floating">
+        <input type="text" id="postalCodeLabel" class="form-control" placeholder="Código postal" [(ngModel)]="postalCode"/>
+        <label for="postalCodeLabel">Código postal</label>
+      </div>
+      <div *ngIf="shippingCost !== 0" class="delivery-cost">
+        Costo de envío: <span>${{ shippingCost }}</span>
+      </div>
     </div>
+
+    <div class="col-12">
+      <button type="button" class="font-light py-2" (click)="calcularEnvio()">Calcular envío</button>
+    </div>
+<!--
     <div class="col-12 pb-3">
       <div class="row">
         <div class="col-5">
@@ -16,13 +31,10 @@
           Costo de envío: <span>${{ shippingCost }}</span>
         </div>
       </div>
-    </div>
+    </div> -->
+
     <div class="col-12">
-      <span class="fs-sm-2 font-semi-bold fc-primary-light">Retirá gratis en nuestro local</span>
-    </div>
-    <div class="col-12">
-      <a type="button" class="btn btn-link" (click)="onWatchStores()">Ver sucursales</a>
+      <span class="fs-sm-1 font-semi-bold fc-primary-light">Retirá gratis en nuestras <a type="button" class="btn-link" (click)="onWatchStores()">sucursales</a></span>
     </div>
   </div>
-
 </div>

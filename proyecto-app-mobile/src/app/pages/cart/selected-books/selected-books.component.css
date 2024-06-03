@@ -1,5 +1,5 @@
 .scroll {
+  max-height: 50vh;
   overflow-y: auto;
   overflow-x: hidden;
-  height: 75%;
 }

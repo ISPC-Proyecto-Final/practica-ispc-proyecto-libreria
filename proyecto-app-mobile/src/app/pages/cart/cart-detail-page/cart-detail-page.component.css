@@ -7,13 +7,6 @@ a {
   text-decoration-line: underline;
 }
 
-.purchase-button {
-  color: white;
-  border: none;
-  border-radius: 5px;
-  background: var(--alternative-secondary-color);
-}
-
 .coupon-form {
   display: flex;
   height: 40px;
@@ -51,4 +44,38 @@ a {
 
 .coupon-form button:hover {
   background: #f2f2f2;
+}
+
+.form-control:focus {
+  appearance: none;
+  box-shadow: none;
+  border: var(--bs-border-width) solid var(--bs-border-color);
+}
+
+.ng-valid:not(form).ng-touched {
+  border: var(--bs-border-width) solid var(--bs-border-color);
+}
+
+.coupon-button {
+  color: white;
+  border: none;
+  border-radius: 10px;
+  background-color: var(--alternative-secondary-color);
+}
+
+.purchase-button {
+  color: white;
+  border: none;
+  border-radius: 10px;
+  background-color: var(--alternative-secondary-color);
+}
+
+
+.total-bg{
+  border-radius: 10px;
+  background-color: white;
+}
+
+.scroll{
+  overflow-y: scroll;
 }
