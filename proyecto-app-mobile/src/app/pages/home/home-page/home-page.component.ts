@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Book } from 'src/app/models/book/book-model';
+import { User } from 'src/app/models/user/user-model';
+import { AuthService } from 'src/app/services/auth/auth.service';
 import { BookService } from 'src/app/services/book/book.service';
 import { NavigationService } from 'src/app/services/navigation/navigation.service';
 import { TAG } from 'src/app/utils/enums/book.enum';
@@ -17,10 +19,12 @@ export class HomePageComponent implements OnInit {
   newAtBooks: Book[] = [];
   recomendedBooks: Book[] = [];
   topSellingBooks: Book[] = [];
+  profile: User | null = null;
 
   constructor(
     bookService: BookService,
     private navigationService: NavigationService,
+    private authService: AuthService,
   ) {
     this.bookService = bookService;
   }
@@ -29,6 +33,7 @@ export class HomePageComponent implements OnInit {
     this.getRecomendedBooks();
     this.getNewAtBooks();
     this.getTopSellerBooks();
+    this.getProfile();
   }
 
   onClickCatalogue() {
@@ -60,6 +65,11 @@ export class HomePageComponent implements OnInit {
     return books.sort(() => Math.random() - 0.5).slice(0, 2);
   }
 
+  getProfile() {
+    this.authService.getProfileListener().subscribe((user) => {
+      this.profile = user;
+    });
+  }
 }
 
 

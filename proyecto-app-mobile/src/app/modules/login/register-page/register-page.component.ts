@@ -74,10 +74,7 @@ export class RegisterPageComponent implements OnInit {
     private modalService: NgbModal,
     private formBuilder: FormBuilder,
     private userService: UserService,
-  ) {
-
-  }
-
+  ) { }
 
   ngOnInit(): void {
     this.createForm();
@@ -114,10 +111,8 @@ export class RegisterPageComponent implements OnInit {
             console.log('Error al registrar', error);
             throw error;
           })
-        )
-        .subscribe();
+        ).subscribe();
     }
-
   }
 
   // registerUser(event: Event){
@@ -188,9 +183,6 @@ export class RegisterPageComponent implements OnInit {
     };
   }
 
-
-
-
   onClickRegister() {
     this.activeModal.close();
   }
@@ -200,7 +192,6 @@ export class RegisterPageComponent implements OnInit {
   }
 
   onClickEnterLogin() {
-    const modalRef = this.modalService.open(LoginPageComponent, { fullscreen: true });
     this.activeModal.close();
   }
 }

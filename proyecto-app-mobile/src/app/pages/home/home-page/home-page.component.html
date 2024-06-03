@@ -1,97 +1,103 @@
-<!-- <app-header></app-header> -->
-<app-search-bar [showGreets]="true"></app-search-bar>
+<div *ngIf="!profile">
+  <app-login-page></app-login-page>
+</div>
 
-<section class="container-fluid pt-5">
-  <div class="row">
-    <div class="col-12">
-      <h6 class="fs-sm-1 fc-secondary font-bold text-uppercase">categorías</h6>
-    </div>
-    <div class="col-12 text-end fc-basic-7 fs-sm-mob">
-      <a role="button">Ver todas</a>
-    </div>
-  </div>
-  <!-- <span class="material-icons fc-basic-7 fs-sm-mob">chevron_right</span> -->
+<div *ngIf="profile">
+  <!-- <app-header></app-header> -->
+  <app-search-bar [showGreets]="true"></app-search-bar>
 
-  <div class="row pt-4 justify-content-between">
-    <div class="col-3 category-box">
-      <a role="button">
-        <div class="row justify-content-center">
-          <div class="col-auto">
-            <img src="./assets/icons/category-art-icon.png" alt="Category art icon" class="img-fluid">
-          </div>
-          <div class="col-12 pb-2 text-center">
-            <span class="fc-basic-7 fs-sm-mob">Arte</span>
-          </div>
-        </div>
-      </a>
-    </div>
-
-    <div class="col-3 category-box">
-      <a role="button">
-        <div class="row justify-content-center">
-          <div class="col-auto pt-2">
-            <img src="./assets/icons/category-science-icon.png" alt="Category art icon" class="img-fluid">
-          </div>
-          <div class="col-12 py-2 text-center">
-            <span class="fc-basic-7 fs-sm-mob">Ciencia</span>
-          </div>
-        </div>
-      </a>
-    </div>
-
-    <div class="col-3 category-box">
-      <a role="button">
-        <div class="row justify-content-center">
-          <div class="col-auto pt-2">
-            <img src="./assets/icons/category-fiction-icon.png" alt="Category art icon" class="img-fluid">
-          </div>
-          <div class="col-12 py-2 text-center">
-            <span class="fc-basic-7 fs-sm-mob">Ficción</span>
-          </div>
-        </div>
-      </a>
-    </div>
-  </div>
-</section>
-
-<section class="pt-5">
-  <div class="container-fluid">
+  <section class="container-fluid pt-5">
     <div class="row">
       <div class="col-12">
-        <h6 class="fs-sm-1 fc-secondary font-bold text-uppercase">Recomendados</h6>
+        <h6 class="fs-sm-1 fc-secondary font-bold text-uppercase">categorías</h6>
       </div>
       <div class="col-12 text-end fc-basic-7 fs-sm-mob">
-        <a role="button" (click)="onClickCatalogue()">Ver todas</a>
+        <a role="button">Ver todas</a>
       </div>
     </div>
-  </div>
-  <app-books-row-cards [books]="recomendedBooks" [colSize]="6"></app-books-row-cards>
-</section>
+    <!-- <span class="material-icons fc-basic-7 fs-sm-mob">chevron_right</span> -->
 
-<section class="pt-5">
-  <div class="container-fluid">
-    <div class="row">
-      <div class="col-12">
-        <h6 class="fs-sm-1 fc-secondary font-bold text-uppercase">Novedades</h6>
+    <div class="row pt-4 justify-content-between">
+      <div class="col-3 category-box">
+        <a role="button">
+          <div class="row justify-content-center">
+            <div class="col-auto">
+              <img src="./assets/icons/category-art-icon.png" alt="Category art icon" class="img-fluid">
+            </div>
+            <div class="col-12 pb-2 text-center">
+              <span class="fc-basic-7 fs-sm-mob">Arte</span>
+            </div>
+          </div>
+        </a>
       </div>
-      <div class="col-12 text-end fc-basic-7 fs-sm-mob">
-        <a role="button" (click)="onClickCatalogue()">Ver todas</a>
-      </div>
-    </div>
-  </div>
-  <app-books-row-cards [books]="newAtBooks" [colSize]="6"></app-books-row-cards>
-</section>
 
-<section class="pt-5">
-  <div class="container-fluid">
-    <div class="row">
-      <div class="col-12">
-        <h6 class="fs-sm-1 fc-secondary font-bold text-uppercase">Más vendidos</h6>
+      <div class="col-3 category-box">
+        <a role="button">
+          <div class="row justify-content-center">
+            <div class="col-auto pt-2">
+              <img src="./assets/icons/category-science-icon.png" alt="Category art icon" class="img-fluid">
+            </div>
+            <div class="col-12 py-2 text-center">
+              <span class="fc-basic-7 fs-sm-mob">Ciencia</span>
+            </div>
+          </div>
+        </a>
       </div>
-      <div class="col-12 text-end fc-basic-7 fs-sm-mob">
-        <a role="button" (click)="onClickCatalogue()">Ver todas</a>
+
+      <div class="col-3 category-box">
+        <a role="button">
+          <div class="row justify-content-center">
+            <div class="col-auto pt-2">
+              <img src="./assets/icons/category-fiction-icon.png" alt="Category art icon" class="img-fluid">
+            </div>
+            <div class="col-12 py-2 text-center">
+              <span class="fc-basic-7 fs-sm-mob">Ficción</span>
+            </div>
+          </div>
+        </a>
       </div>
     </div>
-  </div>
-  <app-books-row-cards [books]="topSellingBooks" [colSize]="6"></app-books-row-cards>
-</section>
+  </section>
+
+  <section class="pt-5">
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-12">
+          <h6 class="fs-sm-1 fc-secondary font-bold text-uppercase">Recomendados</h6>
+        </div>
+        <div class="col-12 text-end fc-basic-7 fs-sm-mob">
+          <a role="button" (click)="onClickCatalogue()">Ver todas</a>
+        </div>
+      </div>
+    </div>
+    <app-books-row-cards [books]="recomendedBooks" [colSize]="6"></app-books-row-cards>
+  </section>
+
+  <section class="pt-5">
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-12">
+          <h6 class="fs-sm-1 fc-secondary font-bold text-uppercase">Novedades</h6>
+        </div>
+        <div class="col-12 text-end fc-basic-7 fs-sm-mob">
+          <a role="button" (click)="onClickCatalogue()">Ver todas</a>
+        </div>
+      </div>
+    </div>
+    <app-books-row-cards [books]="newAtBooks" [colSize]="6"></app-books-row-cards>
+  </section>
+
+  <section class="pt-5">
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-12">
+          <h6 class="fs-sm-1 fc-secondary font-bold text-uppercase">Más vendidos</h6>
+        </div>
+        <div class="col-12 text-end fc-basic-7 fs-sm-mob">
+          <a role="button" (click)="onClickCatalogue()">Ver todas</a>
+        </div>
+      </div>
+    </div>
+    <app-books-row-cards [books]="topSellingBooks" [colSize]="6"></app-books-row-cards>
+  </section>
+</div>

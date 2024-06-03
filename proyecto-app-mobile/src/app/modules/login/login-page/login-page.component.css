@@ -17,7 +17,13 @@
   .login-button {
     color: white;
     border-radius: 15px;
-    border-color: var(--secondary-color);
-    background-color: var(--secondary-color);
-
+    border-color: var(--alternative-secondary-color);
+    background-color: var(--alternative-secondary-color);
   }
+
+  .form-control:focus {
+    appearance: none;
+    box-shadow: none;
+    border: var(--bs-border-width) solid var(--bs-border-color);
+  }
+
