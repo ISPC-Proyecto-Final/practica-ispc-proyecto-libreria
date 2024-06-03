@@ -189,3 +189,7 @@ a:hover {
 .ng-invalid:not(form).ng-touched.formInput{
   border-left: 5px solid var(--secondary-red);
 }
+
+.background{
+  background-color: var(--primary-background-color);
+}

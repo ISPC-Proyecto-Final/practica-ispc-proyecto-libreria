@@ -66,9 +66,9 @@ export class CartDetailPageComponent implements OnInit, OnDestroy {
   }
 
   onClickConfirmPurchase() {
-    if (!this.books.length) {
-      return;
-    }
+    // if (!this.books.length) {
+    //   return;
+    // }
     this.navigationService.navigateToCheckout();
   }
 

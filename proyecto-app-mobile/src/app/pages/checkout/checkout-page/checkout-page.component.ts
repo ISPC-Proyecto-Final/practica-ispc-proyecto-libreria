@@ -25,6 +25,8 @@ import { Subscription } from 'rxjs';
 import { SelectedBookDto } from 'src/app/models/book/book-model';
 import { AuthService } from 'src/app/services/auth/auth.service';
 import { User } from 'src/app/models/user/user-model';
+import { StoreService } from 'src/app/services/store/store.service';
+import { Store } from 'src/app/models/store/store-models';
 
 @Component({
   selector: 'app-checkout-page',
@@ -42,6 +44,7 @@ export class CheckoutPageComponent implements OnInit, OnDestroy {
   selectedPaymentType: string = this.paymentTypes.EFECTIVO;
   selectedDeliveryType: string = this.deliveryTypes.SUCURSAL;
   showDeliveryForm: boolean = false;
+  showCardPayment: boolean = false;
 
   profileSub!: Subscription;
   cartSub!: Subscription;
@@ -53,6 +56,7 @@ export class CheckoutPageComponent implements OnInit, OnDestroy {
   totalCost: number = 0;
   profile: User | null = null;
   orderNumber: number | string = '';
+  stores: Store[] = [];
 
   stepperOrientation: Observable<StepperOrientation>;
   icons = ['./assets/img/stepper/Camion.png', 'icono-2', 'icono-3'];
@@ -130,7 +134,8 @@ export class CheckoutPageComponent implements OnInit, OnDestroy {
     private paymentService: PaymentService,
     private cartService: CartService,
     private authService: AuthService,
-    breakpointObserver: BreakpointObserver
+    breakpointObserver: BreakpointObserver,
+    private storeService: StoreService,
   ) {
     this.stepperOrientation = breakpointObserver
       .observe('(min-width: 800px)')
@@ -149,6 +154,7 @@ export class CheckoutPageComponent implements OnInit, OnDestroy {
     this.cartSubscribe();
     this.totalItemSubscribe();
     this.totalCostSubscribe();
+    this.getAllStores();
   }
 
   ngOnDestroy(): void {
@@ -266,6 +272,7 @@ export class CheckoutPageComponent implements OnInit, OnDestroy {
 
   selectPaymentType(paymentType: string) {
     this.selectedPaymentType = paymentType;
+    this.showCardPayment = this.selectedPaymentType === this.paymentTypes.CREDITO;
     this.setPaymentRequire();
   }
 
@@ -388,6 +395,12 @@ export class CheckoutPageComponent implements OnInit, OnDestroy {
 
   onClickBackToCatalogue() {
     this.navigationService.navigateToCatalogue();
+  }
+
+  getAllStores() {
+    this.storeService.getAllStores().subscribe((result: Store[]) => {
+      this.stores = result;
+    });
   }
 
   get name() {

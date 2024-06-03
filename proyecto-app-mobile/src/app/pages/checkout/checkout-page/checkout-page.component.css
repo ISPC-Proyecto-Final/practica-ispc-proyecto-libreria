@@ -27,7 +27,7 @@
   color: var(--secondary-white);
   border: none;
   border-radius: 5px;
-  background-color: var(--secondary-red);
+  background-color: var(--alternative-secondary-color);
   transition-duration: 0.3s;
   transition-timing-function: ease-in-out;
 }
@@ -39,4 +39,14 @@
 
 .ng-valid:not(form).ng-touched.notFormInput {
   border-left: none;
+}
+
+.form-control:focus {
+  appearance: none;
+  box-shadow: none;
+  border: var(--bs-border-width) solid var(--bs-border-color);
+}
+
+.stepper-container{
+  border-radius: 10px;
 }
