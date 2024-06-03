@@ -6,22 +6,23 @@
   border-top: none;
 }
 
-.form-control {
-  border-radius: 6px;
-}
-
-.btn {
-  border-radius: 5px !important;
-}
-
-.btn-danger {
-  --bs-btn-bg: #e35352;
-}
-
 .btn-cancel {
   border: none;
   text-decoration: underline;
   background-color: transparent;
   color: rgba(93, 94, 95, 1);
   font-weight: 300;
+}
+
+.confirm-button {
+  color: white;
+  border-radius: 15px;
+  border-color: var(--alternative-secondary-color);
+  background-color: var(--alternative-secondary-color);
+}
+
+.form-control:focus {
+  appearance: none;
+  box-shadow: none;
+  border: var(--bs-border-width) solid var(--bs-border-color);
 }

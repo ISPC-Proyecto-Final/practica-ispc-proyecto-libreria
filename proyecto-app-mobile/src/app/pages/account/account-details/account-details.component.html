@@ -1,40 +1,71 @@
+<section *ngIf="profile; else loginRequired" class="container-fluid">
+  <div class="row">
+    <div class="col-12">
+      <span class="font-medium fs-md fc-secondary">Mi cuenta</span>
+    </div>
 
-<div *ngIf="profile; else loginRequired" class="wrapper">
-  <h1 class="font-bold fs-md-2 fc-primary">Mi cuenta</h1>
-  <main>
-    <section>
-      <h2 class="font-bold fs-md-2 fc-primary">Datos</h2>
-      <div class="dataCard">
-        <div class="title">
-          <h3 class="fs-sm-2 font-semi-bold fc-primary">Datos personales</h3>
+    <div class="col-12 pt-4">
+      <div class="row gy-1 p-4 card">
+        <div class="col-12 border-bottom">
+          <span class="fs-sm-2 font-bold fc-secondary">Datos personales</span>
           <button type="button" (click)="onEditPersonalData()">
             <img src="/assets/icons/actions/edit.png" alt="Editar datos personales" />
           </button>
         </div>
-        <span class="font-bold fs-sm-2 fc-primary">{{profile.username}}</span>
-        <span class="font-semi-bold fs-sm-2 fc-primary">{{profile.document}}</span>
-        <span class="font-semi-bold fs-sm-2 fc-primary">{{profile.email}}</span>
-        <span class="font-bold fs-sm-2 fc-primary">{{profile.telephone_number}}</span>
+
+        <div class="col-12">
+          <span class="font-semi-bold fs-sm-2 fc-primary">{{profile.username}}</span>
+        </div>
+
+        <div class="col-12">
+          <span class="font-semi-bold fs-sm-2 fc-primary">{{profile.document}}</span>
+        </div>
+
+        <div class="col-12">
+          <span class="font-semi-bold fs-sm-2 fc-primary">{{profile.email}}</span>
+        </div>
+
+        <div class="col-12">
+          <span class="font-semi-bold fs-sm-2 fc-primary">{{profile.telephone_area_code}}
+            {{profile.telephone_number}}</span>
+        </div>
       </div>
-      <div class="dataCard">
-        <div class="title">
-          <h3 class="font-semi-bold fs-sm-2 fc-primary">Dirección</h3>
+    </div>
+
+    <div class="col-12 pt-4">
+      <div class="row gy-1 p-4 card">
+        <div class="col-12 border-bottom">
+          <span class="fs-sm-2 font-bold fc-secondary">Dirección</span>
           <button type="button" (click)="onEditAddress()">
-            <img src="/assets/icons/actions/edit.png" alt="Editar dirección" />
+            <img src="/assets/icons/actions/edit.png" alt="Editar Dirección" />
           </button>
         </div>
-        <span class="font-bold fs-sm-2 fc-primary">{{profile.address_street}}</span>
-        <span class="font-bold fs-sm-2 fc-primary">{{profile.address_province}}</span>
-        <span class="font-semi-bold fs-sm-2 fc-primary">{{profile.address_location}}</span>
 
+        <div class="col-12">
+          <span class="font-bold fs-sm-2 fc-primary">{{profile.address_street}}</span>
+        </div>
+
+        <div class="col-12">
+          <span class="font-bold fs-sm-2 fc-primary">{{profile.address_province}}</span>
+        </div>
+
+        <div class="col-12">
+          <span class="font-semi-bold fs-sm-2 fc-primary">{{profile.address_location}}</span>
+        </div>
       </div>
-    </section>
-    <section *ngIf="purchaseData" class="col-6">
-      <h2>Pedidos realizados</h2>
-      <app-pedidos-item [purchases]="purchaseData"></app-pedidos-item>
-    </section>
-  </main>
-</div>
+    </div>
+
+    <div class="col-12" *ngIf="purchaseData.length">
+      <div class="row">
+        <div class="col-12">
+          <span class="font-medium fs-md fc-secondary">Pedidos realizados</span>
+        </div>
+
+        <app-pedidos-item [purchases]="purchaseData"></app-pedidos-item>
+      </div>
+    </div>
+  </div>
+</section>
 
 <ng-template #loginRequired>
   <p>No hay usuario logueado</p>

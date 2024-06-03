@@ -18,7 +18,7 @@ import { Purchase } from 'src/app/models/user/purchase-model';
 
 export class AccountDetailsComponent implements OnInit, OnDestroy {
   personalData!: CreateUserDTO;
-  purchaseData!: Sale[];
+  purchaseData: Sale[] = [];
   profile: User | null = null;
   userDataSub!: Subscription
 
@@ -35,6 +35,7 @@ export class AccountDetailsComponent implements OnInit, OnDestroy {
     this.authService.getProfileListener().subscribe((profile: User | null) => {
       if (profile) {
         this.profile = { ...profile };
+        this.profile.telephone_area_code
         this.loadUserPurchases();
 
       }

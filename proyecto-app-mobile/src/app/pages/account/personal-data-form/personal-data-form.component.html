@@ -1,93 +1,95 @@
-<div class="modal-body p-0 m-0">
+<div class="modal-body">
   <div class="container">
     <div class="row">
       <div class="text-end pt-4 pe-3">
         <button type="button" class="btn-close" aria-label="Close" (click)="onClose()"></button>
       </div>
 
-      <div class="row justify-content-start">
+      <div class="row justify-content-center">
         <div class="col-12 mb-2">
-          <h4 class="font-medium fs-md-1 fc-primary">
+          <h4 class="font-medium fs-md-1 fc-secondary">
             Editar datos personales
           </h4>
         </div>
       </div>
     </div>
-    <form [formGroup]="formUser" (submit)="updateUserData()">
-      <div class="row mb-3">
-        <label for="inputEmail3" class="col-sm-2 col-form-label visually-hidden">Nombre y apellido</label>
-        <div class="col-sm-12">
-          <input type="text" formControlName="username" class="form-control" id="inputEmail3"
-            placeholder="Nombre y apellido" />
-          <small class="text-danger mt-2" [hidden]="username.valid || username.pristine">
-            <span *ngIf="username.errors?.['required']">
-              El campo "Nombre y apellido"es obligatorio
-            </span>
-            <span *ngIf="username.errors?.['minlength']">
-              Minimo de 5 caracteres
-            </span>
 
-          </small>
+    <form [formGroup]="formUser" (submit)="updateUserData()" class="row justify-content-center">
+      <div class="col-12">
+        <div class="form-floating">
+          <input type="text" id="usernameLabel" class="form-control fw-300" placeholder="Nombre y apellido"
+            formControlName="username" />
+          <label for="usernameLabel">Nombre y apellido</label>
         </div>
+        <small class="text-danger mt-2" [hidden]="username.valid || username.pristine">
+          <span *ngIf="username.errors?.['required']">
+            El campo "Nombre y apellido"es obligatorio
+          </span>
+          <span *ngIf="username.errors?.['minlength']">
+            Minimo de 5 caracteres
+          </span>
+        </small>
       </div>
-      <div class="row mb-3">
-        <label for="inputPassword3" class="col-sm-2 col-form-label visually-hidden">DNI</label>
-        <div class="col-sm-12">
-          <input type="number" formControlName="document" class="form-control" id="inputPassword3"
-            placeholder="Documento de identidad" />
-          <small class="text-danger mt-2" [hidden]="document.valid || document.pristine">
 
-            <span *ngIf="document.errors?.['required']">
-              El campo "Documento de identidad" es obligatorio
-            </span>
-            <span *ngIf="document.errors?.['pattern']">
-              El "DNI" debe ser válido
-            </span>
+      <div class="col-12 pt-3">
+        <div class="form-floating">
+          <input type="text" id="documentLabel" class="form-control fw-300" placeholder="Documento de identidad"
+            formControlName="document" />
+          <label for="documentLabel">Documento de identidad</label>
+        </div>
+        <small class="text-danger mt-2" [hidden]="document.valid || document.pristine">
+          <span *ngIf="document.errors?.['required']">
+            El campo "Documento de identidad" es obligatorio
+          </span>
+          <span *ngIf="document.errors?.['pattern']">
+            El "DNI" debe ser válido
+          </span>
+        </small>
+      </div>
 
-          </small>
+      <div class="col-12 pt-3">
+        <div class="form-floating">
+          <input type="text" id="telephone_area_codeLabel" class="form-control fw-300" placeholder="Codigo de area"
+            formControlName="telephone_area_code" />
+          <label for="telephone_area_codeLabel">Codigo de area</label>
         </div>
+        <small class="text-danger mt-2" [hidden]="telephone_area_code.valid || telephone_area_code.pristine">
+          El campo "Código de área" es obligatorio
+        </small>
       </div>
-      <div class="row mb-3">
-        <div class="col-sm-5">
-          <input type="number" formControlName="telephone_area_code" class="form-control" placeholder="Código de área"
-            aria-label="Codigo de area" />
-          <small class="text-danger mt-2" [hidden]="telephone_area_code.valid || telephone_area_code.pristine">
-            El campo "Código de área" es obligatorio
-          </small>
+
+      <div class="col-12 pt-3">
+        <div class="form-floating">
+          <input type="text" id="telephone_numberLabel" class="form-control fw-300" placeholder="Teléfono"
+            formControlName="telephone_number" />
+          <label for="telephone_numberLabel">Teléfono</label>
         </div>
-        <div class="col-sm-7">
-          <input type="tel" formControlName="telephone_number" class="form-control" placeholder="Número" aria-label="Numero" />
-          <small class="text-danger mt-2" [hidden]="telephone_number.valid || telephone_number.pristine">
-            El campo "Número" es obligatorio
-          </small>
-        </div>
+        <small class="text-danger mt-2" [hidden]="telephone_number.valid || telephone_number.pristine">
+          El campo "Número" es obligatorio
+        </small>
       </div>
-      <div class="row mb-3">
-        <label for="inputEmail" class="col-sm-2 col-form-label visually-hidden">Email</label>
-        <div class="col-sm-12">
-          <input type="email" formControlName="email" class="form-control" id="inputEmail"
-            placeholder="Correo electrónico" />
-          <small class="text-danger mt-2" [hidden]="email.valid || email.pristine">
-            <span *ngIf="email.errors?.['required']">
-              El email es obligatorio
-            </span>
-            <span *ngIf="email.errors?.['email']">
-              El email debe ser válido
-            </span>
-          </small>
+
+      <div class="col-12 pt-3">
+        <div class="form-floating">
+          <input type="email" id="emailLabel" class="form-control fw-300" placeholder="Correo electrónico"
+            formControlName="email" />
+          <label for="emailLabel">Correo electrónico</label>
         </div>
+        <small class="text-danger mt-2" [hidden]="email.valid || email.pristine">
+          <span *ngIf="email.errors?.['required']">
+            El email es obligatorio
+          </span>
+          <span *ngIf="email.errors?.['email']">
+            El email debe ser válido
+          </span>
+        </small>
       </div>
-      <div class="modal-footer">
-        <div>
-          <button type="button" class="btn btn-cancel me-5" data-bs-dismiss="modal" (click)="onClose()">
-            Cancelar
-          </button>
-        </div>
-        <div>
-          <button type="submit" class="btn btn-danger" [disabled]="formUser.invalid">
-            Guardar cambios
-          </button>
-        </div>
+
+      <div class="modal-footer col-12">
+        <button type="submit" class="col-12 confirm-button py-2 login-button font-semi-bold fs-md"
+          [disabled]="formUser.invalid">
+          Guardar cambios
+        </button>
       </div>
     </form>
   </div>
