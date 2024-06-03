@@ -1,0 +1,36 @@
+/* ----- Modals ---------*/
+.modal-header {
+  border-bottom: none;
+}
+
+.modal-footer {
+  border-top: none;
+}
+
+.form-control {
+  border-radius: 6px;
+}
+
+.btn {
+  border-radius: 10px !important;
+}
+
+.btn-danger {
+  --bs-btn-bg: var(--alternative-secondary-color);
+}
+/* ----- Modals end ---------*/
+
+button {
+  background-color: transparent;
+  border: none;
+}
+
+.card{
+  border-color: transparent;
+  border-radius: 10px;
+  background-color: var(--alternative-secondary-color-light);
+}
+
+.border-bottom{
+  border-bottom: 1px solid rgba(165, 165, 165, 0.49);
+}

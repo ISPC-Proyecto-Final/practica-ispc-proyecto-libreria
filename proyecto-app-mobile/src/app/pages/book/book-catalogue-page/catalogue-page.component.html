@@ -1,0 +1,42 @@
+<app-search-bar></app-search-bar>
+
+<section class="container-fluid pt-5 pb-4">
+  <div class="row gy-2 justify-content-around">
+    <div class="col-auto">
+      <a class="nav-link" aria-current="page" id="all-genres" [class.active]="isActive(0)"
+        (click)="getAllBooks()">Todos</a>
+    </div>
+
+    <div class="col-auto">
+      <a class="nav-link" id="art-genre" [class.active]="isActive(genre.ARTE)"
+        (click)="onBookGenre(genre.ARTE)">Arte</a>
+    </div>
+
+    <div class="col-auto">
+      <a class="nav-link" id="scyfy-genre" [class.active]="isActive(genre.CIENCIA_FICCION)"
+        (click)="onBookGenre(genre.CIENCIA_FICCION)">Ciencia Ficción</a>
+    </div>
+
+    <div class="col-auto">
+      <a class="nav-link" id="gastronomy-genre" [class.active]="isActive(genre.GASTRONOMIA)"
+        (click)="onBookGenre(genre.GASTRONOMIA)">Gastronomia</a>
+    </div>
+
+    <div class="col-auto">
+      <a class="nav-link" id="childrens-genre" [class.active]="isActive(genre.ROMANTICO)"
+        (click)="onBookGenre(genre.ROMANTICO)">Romantico</a>
+    </div>
+
+    <div class="col-auto">
+      <a class="nav-link" id="youth -genre" [class.active]="isActive(genre.SUSPENSO)"
+        (click)="onBookGenre(genre.SUSPENSO)">Suspenso</a>
+    </div>
+
+    <div class="col-auto">
+      <a class="nav-link" id="bussines -genre" [class.active]="isActive(genre.NOVELA)"
+        (click)="onBookGenre(genre.NOVELA)">Novela</a>
+    </div>
+  </div>
+</section>
+
+<app-books-row-cards [books]="books" [showPrice]="false" [justify]="'start'" [colSize]="6"></app-books-row-cards>

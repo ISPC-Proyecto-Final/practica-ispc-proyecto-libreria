@@ -1,0 +1,10 @@
+.secondary-button {
+  color: var(--secondary-white);
+  border: none;
+  border-radius: 5px;
+  width: 250px;
+  height: 55px;
+  background-color: var(--secondary-red);
+  transition-duration: 0.2s;
+  transition-timing-function: ease-in-out;
+}

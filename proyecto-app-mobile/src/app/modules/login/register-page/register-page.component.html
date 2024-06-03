@@ -1,0 +1,176 @@
+<div class="modal-body container-fluid pt-5 vh-100">
+  <section class="row">
+    <div class="col-12">
+      <span class="font-medium fs-sm-2 fc-basic-8">Formá parte de nuestra comunidad</span>
+    </div>
+
+    <form [formGroup]="registerForm" (ngSubmit)="registerUser()" class="row gy-3">
+      <div class="col-12">
+        <div class="form-floating">
+          <input type="text" id="nameLabel" class="form-control fw-300 formInput" placeholder="Nombre y apellido"
+            formControlName="name" required />
+          <label for="nameLabel">Nombre y apellido</label>
+        </div>
+        <div *ngIf="name?.errors && name?.touched">
+          <ng-container *ngFor="let error of errorMessages.name">
+            <div class="text-danger" *ngIf="name?.hasError(error.type)">
+              {{ error.message }}
+            </div>
+          </ng-container>
+        </div>
+      </div>
+
+      <div class="col-12">
+        <div class="form-floating">
+          <input type="text" id="documentLabel" class="form-control fw-300 formInput"
+            placeholder="Documento de identidad" formControlName="document" required />
+          <label for="documentLabel">Documento de identidad</label>
+        </div>
+        <div *ngIf="document?.errors && document?.touched">
+          <ng-container *ngFor="let error of errorMessages.document">
+            <div class="text-danger" *ngIf="document?.hasError(error.type)">
+              {{ error.message }}
+            </div>
+          </ng-container>
+        </div>
+      </div>
+
+      <div class="col-12">
+        <div class="row">
+          <div class="col-4">
+            <div class="form-floating">
+              <input type="text" id="areaCodeLabel" class="form-control fw-300 formInput" placeholder="Código de área"
+                formControlName="areaCode" required />
+              <label for="areaCodeLabel">Área</label>
+            </div>
+            <div *ngIf="areaCode?.errors && areaCode?.touched">
+              <ng-container *ngFor="let error of errorMessages.areaCode">
+                <div class="text-danger" *ngIf="areaCode?.hasError(error.type)">
+                  {{ error.message }}
+                </div>
+              </ng-container>
+            </div>
+          </div>
+
+          <div class="col-8">
+            <div class="form-floating">
+              <input type="tel" id="telephoneLabel" class="form-control fw-300 formInput"
+                placeholder="Número de teléfono" formControlName="telephone" required />
+              <label for="telephoneLabel">Número de teléfono</label>
+            </div>
+            <div *ngIf="telephone?.errors && telephone?.touched">
+              <ng-container *ngFor="let error of errorMessages.telephone">
+                <div class="text-danger" *ngIf="telephone?.hasError(error.type)">
+                  {{ error.message }}
+                </div>
+              </ng-container>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-12">
+        <div class="form-floating">
+          <input type="text" id="addressLabel" class="form-control fw-300 formInput" placeholder="Calle y número"
+            formControlName="address" required />
+          <label for="addressLabel">Calle y número</label>
+        </div>
+        <div *ngIf="address?.errors && address?.touched">
+          <ng-container *ngFor="let error of errorMessages.address">
+            <div class="text-danger" *ngIf="address?.hasError(error.type)">
+              {{ error.message }}
+            </div>
+          </ng-container>
+        </div>
+      </div>
+
+      <div class="col-12">
+        <div class="form-floating">
+          <input type="text" id="postalCodeLabel" class="form-control fw-300 formInput" placeholder="Código postal"
+            formControlName="postalCode" required />
+          <label for="postalCodeLabel">Código postal</label>
+        </div>
+        <div *ngIf="postalCode?.errors && postalCode?.touched">
+          <ng-container *ngFor="let error of errorMessages.postalCode">
+            <div class="text-danger" *ngIf="postalCode?.hasError(error.type)">
+              {{ error.message }}
+            </div>
+          </ng-container>
+        </div>
+      </div>
+
+      <div class="col-12">
+        <div class="form-floating">
+          <input type="text" id="locationLabel" class="form-control fw-300 formInput" placeholder="Localidad"
+            formControlName="location" required />
+          <label for="locationLabel">Localidad</label>
+        </div>
+        <div *ngIf="location?.errors && location?.touched">
+          <ng-container *ngFor="let error of errorMessages.location">
+            <div class="text-danger" *ngIf="location?.hasError(error.type)">
+              {{ error.message }}
+            </div>
+          </ng-container>
+        </div>
+      </div>
+
+      <div class="col-12">
+        <div class="form-floating">
+          <input type="text" id="provinceLabel" class="form-control fw-300 formInput" placeholder="Provincia"
+            formControlName="province" required />
+          <label for="provinceLabel">Provincia</label>
+        </div>
+        <div *ngIf="province?.errors && province?.touched">
+          <ng-container *ngFor="let error of errorMessages.province">
+            <div class="text-danger" *ngIf="province?.hasError(error.type)">
+              {{ error.message }}
+            </div>
+          </ng-container>
+        </div>
+      </div>
+
+      <div class="col-12">
+        <div class="form-floating">
+          <input type="email" id="emailLabel" class="form-control fw-300 formInput" placeholder="Correo electronico"
+            formControlName="email" required />
+          <label for="emailLabel">Correo electronico</label>
+        </div>
+        <div *ngIf="email?.errors && email?.touched">
+          <ng-container *ngFor="let error of errorMessages.email">
+            <div class="text-danger" *ngIf="email?.hasError(error.type)">
+              {{ error.message }}
+            </div>
+          </ng-container>
+        </div>
+      </div>
+
+      <div class="col-12">
+        <div class="form-floating">
+          <input type="password" id="passwordLabel" class="form-control fw-300 formInput" placeholder="Contraseña"
+            formControlName="password" required />
+          <label for="passwordLabel">Contraseña</label>
+        </div>
+        <div *ngIf="password?.errors && password?.touched">
+          <ng-container *ngFor="let error of errorMessages.password">
+            <div class="text-danger" *ngIf="password?.hasError(error.type)">
+              {{ error.message }}
+            </div>
+          </ng-container>
+        </div>
+      </div>
+
+      <div class="col-12 fc-primary fs-sm-1 pt-2 text-end">
+        <span class="font-light">
+          Ya tenes una cuenta?
+          <a type="button" class="font-bold text-reset text-decoration-none" (click)="onClickEnterLogin()">Ingresá</a>
+        </span>
+      </div>
+
+      <div class="col-12 pt-4">
+        <button type="submit" class="col-12 py-2 login-button font-semi-bold fs-md">
+          Crear Cuenta
+        </button>
+      </div>
+    </form>
+  </section>
+</div>

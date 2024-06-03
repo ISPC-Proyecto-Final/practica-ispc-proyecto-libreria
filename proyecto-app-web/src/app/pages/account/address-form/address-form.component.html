@@ -1,0 +1,72 @@
+<div class="modal-body p-0 m-0">
+  <div class="container">
+    <div class="row">
+      <div class="text-end pt-4 pe-3">
+        <button type="button" class="btn-close" aria-label="Close" (click)="onClose()"></button>
+      </div>
+
+      <div class="row justify-content-start">
+        <div class="col-12 mb-2">
+          <h4 class="font-medium fs-md-1 fc-primary">Editar dirección</h4>
+        </div>
+      </div>
+    </div>
+
+    <form [formGroup]="formAddress" (submit)="updateUserAddress()">
+      <div class="row mb-3">
+        <label for="inputAddress" class="col-sm-2 col-form-label visually-hidden">Calle y numero</label>
+        <div class="col-sm-12">
+          <input type="text" formControlName="address_street" class="form-control" id="inputAddress"
+            placeholder="Calle y número" />
+            <small class="text-danger mt-2" [hidden]="address_street.valid || address_street.pristine">
+              <span *ngIf="address_street.errors?.['required']">
+                El campo "Calle y número" es obligatorio
+
+              </span>
+            </small>
+        </div>
+
+      </div>
+      <div class="row mb-3">
+        <label for="inputZip" class="col-sm-2 col-form-label visually-hidden">Codigo postal</label>
+        <div class="col-sm-12">
+          <input type="number" formControlName="postal_code" class="form-control" id="inputZip" placeholder="Código postal" />
+          <small class="text-danger mt-2" [hidden]="postal_code.valid || postal_code.pristine">
+            El campo "Código postal"es obligatorio
+          </small>
+        </div>
+      </div>
+      <div class="row mb-3">
+        <label for="inputLocality" class="col-sm-2 col-form-label visually-hidden">Localidad</label>
+        <div class="col-sm-12">
+          <input type="text" formControlName="address_location" class="form-control" id="inputLocality" placeholder="Localidad" />
+          <small class="text-danger mt-2" [hidden]="address_location.valid || address_location.pristine">
+            El campo "Localidad"es obligatorio
+          </small>
+        </div>
+      </div>
+      <div class="row mb-3">
+        <label for="inputProvince" class="col-sm-2 col-form-label visually-hidden">Provincia</label>
+        <div class="col-sm-12">
+          <input type="text" formControlName="address_province" class="form-control" id="inputProvince" placeholder="Provincia" />
+          <small class="text-danger mt-2" [hidden]="address_province.valid || address_province.pristine">
+            El campo "Provincia"es obligatorio
+          </small>
+        </div>
+      </div>
+
+      <div class="modal-footer">
+        <div>
+          <button type="button" class="btn btn-cancel me-5" data-bs-dismiss="modal" (click)="onClose()">
+            Cancelar
+          </button>
+        </div>
+        <div>
+          <button type="submit" class="btn btn-danger" [disabled]="formAddress.invalid">
+            Guardar cambios
+          </button>
+        </div>
+      </div>
+    </form>
+  </div>
+</div>

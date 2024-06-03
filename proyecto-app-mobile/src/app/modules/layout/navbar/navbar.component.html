@@ -1,0 +1,13 @@
+<section class="container-fluid py-5">
+  <div class="row justify-content-between">
+  <div class="col-auto">
+    <button type="button" class="button-style">
+      <img src="./assets/icons/arrow-left.png" alt="Back Button" class="img-fluid">
+    </button>
+  </div>
+
+  <div class="col-auto">
+    <app-button-cart *ngIf="!isAdmin"></app-button-cart>
+  </div>
+  </div>
+</section>

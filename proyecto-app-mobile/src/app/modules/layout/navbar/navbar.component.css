@@ -1,0 +1,56 @@
+.bg-dark {
+  background-color: var(--secondary-color) !important;
+}
+
+.me-auto {
+  margin-right: 0!important;
+}
+
+.nav-link {
+  color: white;
+}
+
+.menu-left a:first-child {
+  margin-right: 0px;
+}
+
+@media all and (min-width: 992px) {
+  nav {
+    height: 121px;
+  }
+
+  .me-auto {
+    margin-right: auto!important;
+  }
+
+  .width-nav {
+    width: 100%;
+  }
+
+  .padding-nav {
+    padding: 0px 25px;
+  }
+
+  .menu-left {
+    display: flex;
+    flex-direction: row;
+
+  }
+
+  .menu-right {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-left: 60px;
+  }
+
+  ul a:first-child {
+    margin-right: 100px;
+  }
+}
+
+.button-style {
+  color: white;
+  border: none;
+  background-color: transparent;
+}

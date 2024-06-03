@@ -1,0 +1,20 @@
+div {
+  transition-duration: 0.3s;
+  transition-timing-function: ease-in-out;
+}
+
+div:hover {
+  overflow: hidden;
+  transform: scale(1.05);
+  transition-duration: 0.3s;
+  transition-timing-function: ease-in-out;
+}
+
+a:hover h2 {
+  transition-duration: 0.1s;
+  transition-timing-function: ease-in-out;
+}
+
+.price-tag{
+  background-color: var(--alternative-secondary-color-light);
+}

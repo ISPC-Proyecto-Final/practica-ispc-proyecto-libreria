@@ -1,0 +1,99 @@
+<section class="container-fluid bg-color pt-4">
+  <div class="row">
+    <div class="col-12">
+      <h4 class="font-medium fs-md-1 fc-secondary">Sobre nosotros</h4>
+    </div>
+
+    <div class="col-12 pt-3">
+      <img src="./assets/img/img utils/book-room.jpeg" class="img-fluid" alt="Library example image" />
+    </div>
+
+    <div class="col-12 pt-3">
+      <p class="fc-primary fs-sm-1">
+        Somos una librería dedicada a ofrecerte una <span class="app-name">experiencia de lectura única y
+          enriquecedora</span>.
+      </p>
+    </div>
+
+    <div class="col-12 pt-3">
+      <p class="fc-primary fs-sm-1">
+        Desde nuestra fundación, nos hemos comprometido a <span class="app-name">promover el hábito de la lectura</span>
+        y a conectar a los lectores con historias emocionantes, nuevas perspectivas y autores talentosos.
+      </p>
+    </div>
+
+    <div class="col-12 pt-3">
+      <p class="fc-primary fs-sm-1">
+        Nuestro equipo está formado por apasionados lectores y expertos en el mundo editorial, comprometidos en
+        brindarte un <span class="app-name">servicio excepcional y una atención personalizada</span>. Nos enorgullece
+        ofrecerte no solo una <span class="app-name">amplia selección de libros</span>, sino también recomendaciones
+        personalizadas, eventos literarios y promociones especiales.
+      </p>
+    </div>
+
+    <div class="col-12 pt-3">
+      <p class="fc-primary fs-sm-1">
+        En Librería Plutón, nos esforzamos por construir una <span class="app-name">comunidad de lectores</span>
+        comprometidos y apasionados.
+      </p>
+    </div>
+
+    <div class="col-12 pt-3">
+      <p class="fc-primary fs-sm-1">
+        Te invitamos a <span class="app-name">explorar nuestro catálogo, descubrir nuevas lecturas</span> y ser parte de
+        esta aventura literaria con nosotros.
+      </p>
+    </div>
+  </div>
+</section>
+
+<section class="container-fluid pt-4">
+  <div class="row pb-5">
+    <div class="col-12">
+      <span class="fc-primary fs-sm-1">Envianos un mensaje y te responderemos a la brevedad</span>
+    </div>
+
+    <div class="col-12 pt-3">
+      <form>
+        <div class="col-12">
+          <div class="form-floating">
+            <input type="text" id="nameLabel" class="form-control" placeholder="Nombre y apellido" />
+            <label for="nameLabel">Nombre y apellido</label>
+          </div>
+        </div>
+
+        <div class="col-12 pt-3">
+          <div class="form-floating">
+            <input type="email" id="emailLabel" class="form-control" placeholder="Correo electrónico" />
+            <label for="emailLabel">Correo electrónico</label>
+          </div>
+        </div>
+
+        <div class="col-12 pt-3">
+          <div class="form-floating">
+            <textarea id="messageLabel" class="form-control py-5" placeholder="Dejanos tu mensaje"></textarea>
+            <label for="messageLabel">Dejanos tu mensaje</label>
+          </div>
+        </div>
+
+        <div class="col-12 pt-3">
+          <button type="submit" class="col-12 confirm-button font-extra-bold fs-md">
+            Confirmar
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-12">
+      <h4 class="font-medium fs-md-1 fc-secondary">Encontranos en</h4>
+    </div>
+
+    <div class="col-12" *ngFor="let store of stores">
+      <p>
+        <span><img src="./assets/icons/location-icon.png" alt="Map location icon"></span> {{ store.street_number }} - {{ store.province }} - {{ store.locality }} - {{ store.telephone }}
+      </p>
+    </div>
+  </div>
+</section>
