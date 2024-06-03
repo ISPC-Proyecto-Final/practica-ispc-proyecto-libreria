@@ -12,6 +12,7 @@ export class SearchBookPageComponent implements OnInit, OnDestroy {
 
   books: Book[] = [];
   title: string = '';
+  showNotFoundMessage = false;
   searchSub!: Subscription;
 
   constructor(
@@ -31,7 +32,7 @@ export class SearchBookPageComponent implements OnInit, OnDestroy {
     this.searchSub = this.bookService.getBookSearchListener()
       .subscribe((result: Book[]) => {
         this.books = result;
+        setTimeout(()=>{this.showNotFoundMessage = !this.books.length;}, 500)
       });
-
   }
 }

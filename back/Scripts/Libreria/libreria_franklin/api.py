@@ -50,16 +50,17 @@ class BookViewSet(viewsets.ModelViewSet, RetrieveUpdateAPIView):
    serializer_class = BookSerializer
    lookup_field = 'id_book'
 
-#    def get_queryset(self):
-#         search_query = self.request.GET.get('search', '')
-#         queryset = Book.objects.filter(
-#             Q(title__icontains=search_query) |
-#             Q(isbn__icontains=search_query) |
-#             Q(author__icontains=search_query) |
-#             Q(editorial__icontains=search_query)
-#         )
+   def get_queryset(self):
+        search_query = self.request.GET.get('search', '')
 
-#         return queryset
+        if search_query:
+            queryset = Book.objects.filter(
+                Q(title__icontains=search_query)
+            )
+        else:
+            queryset = Book.objects.all()
+
+        return queryset
 
 class AuthorViewSet(viewsets.ModelViewSet):
    queryset = Author.objects.all()

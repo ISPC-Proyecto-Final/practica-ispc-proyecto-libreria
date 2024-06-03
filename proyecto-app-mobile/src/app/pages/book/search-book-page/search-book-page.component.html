@@ -1,10 +1,12 @@
-<section class="container-fluid pt-5 mt-5" *ngIf="books.length; else notFound">
-  <div class="row pb-5 ps-4">
+<section class="container-fluid pt-5 mt-5" *ngIf="!showNotFoundMessage; else notFound">
+  <app-search-bar></app-search-bar>
+
+  <div class="col-12 py-5">
     <h6 class="font-bold fs-md-2 fc-primary">Resultados para tu busqueda</h6>
   </div>
-
-  <app-books-row-cards [books]="books"></app-books-row-cards>
 </section>
+
+<app-books-row-cards [books]="books" [colSize]="6"></app-books-row-cards>
 
 <ng-template #notFound>
   <app-search-book-not-found></app-search-book-not-found>

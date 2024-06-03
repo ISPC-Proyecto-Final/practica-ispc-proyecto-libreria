@@ -1,5 +1,5 @@
 <div class="input-group shadow">
-  <input type="text" class="form-control" placeholder="Buscar" (keyup.enter)="onClickSearch()">
+  <input type="text" class="form-control" placeholder="Buscar" (keyup.enter)="onClickSearch()" [(ngModel)]="title">
   <button class="btn btn-outline-primary search-button pt-3" type="button" (click)="onClickSearch()"><span
       class="material-icons">search</span>
   </button>

@@ -70,3 +70,7 @@ form button:hover {
 .shadow{
   box-shadow: 4px 4px 10px 0px #00000040;
 }
+
+.ng-valid:not(form).ng-touched {
+  border: var(--bs-border-width) solid var(--bs-border-color);
+}
