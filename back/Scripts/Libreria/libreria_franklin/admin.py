@@ -9,6 +9,7 @@ from .models import Rol
 from .models import Delivery
 from .models import Sell
 from .models import Store
+from .models import Coupon
 from django.contrib.auth import get_user_model
 from django.contrib.auth.admin import UserAdmin
 
@@ -31,6 +32,8 @@ class SellAdmin(admin.ModelAdmin):
     list_display = ('id_sell', 'saleDate', 'deliveryType', 'paymentType', 'totalQuantity', 'totalCost', 'delivery')    
 class StoreAdmin(admin.ModelAdmin):
   list_display = ('id_store','street_number','province','locality','telephone')
+class CouponAdmin(admin.ModelAdmin):
+  list_display = ('id_coupon','coupon_name','discount_percent')
 
 @admin.register(get_user_model())
 class CustomUserAdmin(UserAdmin):
@@ -45,3 +48,4 @@ admin.site.register(Delivery, DeliveryAdmin)
 admin.site.register(Rol, RolAdmin)
 admin.site.register(Sell, SellAdmin)
 admin.site.register(Store,StoreAdmin)
+admin.site.register(Coupon,CouponAdmin)
