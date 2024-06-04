@@ -1,6 +1,6 @@
 from ast import Store
 from rest_framework import serializers
-from .models import Book, Author, Publisher, Genre, Sell, Store, Payment, Delivery, CustomUser
+from .models import Book, Author, Publisher, Genre, Sell, Store, Payment, Delivery, CustomUser, Coupon
 from django.contrib.auth.hashers import make_password
 from django.contrib.auth import get_user_model
 
@@ -9,7 +9,14 @@ class CustomUserSerializer(serializers.ModelSerializer):
     class Meta:
         model = CustomUser
         fields = '__all__'
-        read_only_fields = ('id_user', )       
+        read_only_fields = ('id_user', )
+
+class CouponSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Coupon
+        fields = '__all__'
+        read_only_fields = ('id_Coupon', )
+
 class AuthorSerializer(serializers.ModelSerializer):
     class Meta:
         model = Author
