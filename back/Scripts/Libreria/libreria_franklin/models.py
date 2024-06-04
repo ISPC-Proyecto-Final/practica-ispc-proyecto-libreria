@@ -171,3 +171,15 @@ class Coupon(models.Model):
       verbose_name_plural = 'Coupons'
   def __str__(self):
     return "{self.coupon_name}, {self.discount_percent}"
+
+class SubscriptionBook(models.Model):
+  id_subscription_book = models.AutoField(primary_key=True)
+  book_name = models.CharField(max_length = 100)
+  active = models.BooleanField(default=False)
+
+  class Meta:
+      db_table = 'SubscriptionBook'
+      verbose_name = 'SubscriptionBook'
+      verbose_name_plural = 'SubscriptionBooks'
+  def __str__(self):
+    return "{self.cid_subscription_book}, {self.book_name}, {self.active}"
