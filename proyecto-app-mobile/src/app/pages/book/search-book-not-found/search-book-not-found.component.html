@@ -1,0 +1,33 @@
+<div class="container pt-5">
+  <div class="row justify-content-center gy-5 align-items-center">
+
+    <div class="col-12">
+      <img src="assets/img/img utils/no-encontrado.png" alt="Book not found reference image" class="img-fluid">
+    </div>
+
+    <div class="col-12 text-center">
+      <span class="col-12 fc-basic-6 font-bold fs-lg-2">Lo sentimos :(</span>
+    </div>
+
+    <div class="col-12 text-center">
+      <div class="row">
+        <div class="col-12 fc-secondary font-medium fs-lg" *ngIf="!this.title; else withTitle">
+          <p>No encontramos el libro que estas buscando</p>
+        </div>
+
+        <ng-template #withTitle>
+          <div class="col-12 fc-secondary font-medium fs-lg">
+            <p>No encontramos el libro con el título '<span class="fc-basic-6">{{ title }}</span>' que estas buscando
+            </p>
+          </div>
+        </ng-template>
+      </div>
+    </div>
+
+    <div class="col-12 text-center">
+      <button type="button" class="col-12 secondary-button text-sm-center fs-sm-2 font-bold" (click)="goToCatalogue()">
+        Ir al catalogo
+      </button>
+    </div>
+  </div>
+</div>

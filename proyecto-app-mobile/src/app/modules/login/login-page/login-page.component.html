@@ -1,0 +1,59 @@
+<section class="container-fluid pt-5">
+  <div class="row pt-5">
+    <div class="col-12">
+      <img src="./assets/img/img utils/log-in-image.png" class="img-fluid" alt="Login reference image" />
+    </div>
+
+    <div class="col-12">
+      <span class="font-medium fs-sm-2 fc-basic-8">Te damos la bienvenida. Nos alegra tenerte aquí</span>
+    </div>
+  </div>
+
+  <div class="col-12 pt-3">
+    <form [formGroup]="loginForm" (ngSubmit)="loginUser()" class="row gy-2 justify-content-center">
+      <div class="col-12">
+        <div class="form-floating">
+          <input type="email" id="emailLabel" class="form-control fw-300" placeholder="Correo electronico"
+            formControlName="email" />
+          <label for="emailLabel">Correo electronico</label>
+        </div>
+        <div *ngIf="email?.errors && email?.touched">
+          <ng-container *ngFor="let error of errorMessages.email">
+            <div class="text-danger" *ngIf="email?.hasError(error.type)">
+              {{ error.message }}
+            </div>
+          </ng-container>
+        </div>
+      </div>
+
+      <div class="col-12">
+        <div class="form-floating">
+          <input type="password" id="passwordLabel" class="form-control fw-300" placeholder="Contraseña"
+            formControlName="password" />
+          <label for="passwordLabel">Contraseña</label>
+        </div>
+        <div *ngIf="password?.errors && password?.touched">
+          <ng-container *ngFor="let error of errorMessages.password">
+            <div class="text-danger" *ngIf="password?.hasError(error.type)">
+              {{ error.message }}
+            </div>
+          </ng-container>
+        </div>
+      </div>
+
+      <div class="col-12 fc-primary fs-sm-1 text-end">
+        <span class="font-light">
+          No tenés cuenta?
+          <a type="button" class="font-bold text-reset text-decoration-none"
+            (click)="onClickEnterRegister()">Registrate</a>
+        </span>
+      </div>
+
+      <div class="col-12 pt-4">
+        <button type="submit" class="col-12 py-2 login-button font-semi-bold fs-md">
+          Iniciar sesión
+        </button>
+      </div>
+    </form>
+  </div>
+</section>

@@ -1,0 +1,4 @@
+.router-outlet-container {
+  background-color: var(--primary-background-color);
+  /* height: 100%; */
+}

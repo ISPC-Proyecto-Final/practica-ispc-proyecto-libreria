@@ -1,0 +1,36 @@
+.bg-color {
+  background-color: #F1F7FD;
+}
+
+.app-name {
+  color: var(--primary-blue);
+}
+
+.backgorund-color-green {
+  background-color: var(--alternative-secondary-color);
+}
+
+.backgorund-color-white {
+  background-color: white;
+}
+
+.border-radius {
+  border-radius: 40px 0px 0px 40px;
+}
+
+html {
+  height: 100%;
+}
+
+.confirm-button {
+  color: white;
+  border-radius: 15px;
+  border-color: var(--alternative-secondary-color);
+  background-color: var(--alternative-secondary-color);
+}
+
+.form-control:focus {
+  appearance: none;
+  box-shadow: none;
+  border: var(--bs-border-width) solid var(--bs-border-color);
+}

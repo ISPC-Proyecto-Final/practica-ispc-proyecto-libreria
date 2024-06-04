@@ -1,0 +1,17 @@
+.secondary-button {
+    color: var(--secondary-white);
+    border: none;
+    border-radius: 5px;
+    width: 250px;
+    height: 55px;
+    background-color: var(--alternative-secondary-color);
+    transition-duration: 0.2s;
+    transition-timing-function: ease-in-out;
+  }
+
+  .login-button {
+    color: white;
+    border-radius: 15px;
+    border-color: var(--alternative-secondary-color);
+    background-color: var(--alternative-secondary-color);
+  }

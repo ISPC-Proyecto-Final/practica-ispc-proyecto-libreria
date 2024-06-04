@@ -1,0 +1,350 @@
+<mat-stepper class="container-fluid py-3 stepper-container" orientation="horizontal">
+  <mat-step [stepControl]="firstFormGroup">
+    <div [formGroup]="firstFormGroup" class="notFormInput pt-4">
+      <div class="container-fluid">
+        <div class="row">
+          <div class="col-12">
+            <span class="font-bold fs-md-1 fc-secondary">Datos para el envío</span>
+          </div>
+
+          <div class="col-12 pt-3">
+            <div class="form-floating">
+              <input type="text" id="nameLabel" class="form-control fw-300 formInput" placeholder="Nombre y apellido"
+                formControlName="name" />
+              <label for="nameLabel">Nombre y apellido</label>
+            </div>
+            <div *ngIf="name?.errors && name?.touched">
+              <ng-container *ngFor="let error of errorMessages.name">
+                <div class="text-danger" *ngIf="name?.hasError(error.type)">
+                  {{ error.message }}
+                </div>
+              </ng-container>
+            </div>
+          </div>
+
+          <div class="col-12 pt-3">
+            <div class="form-floating">
+              <input type="text" id="documentLabel" class="form-control fw-300 formInput"
+                placeholder="Documento de identidad" formControlName="document" />
+              <label for="documentLabel">Documento de identidad</label>
+            </div>
+            <div *ngIf="document?.errors && document?.touched">
+              <ng-container *ngFor="let error of errorMessages.document">
+                <div class="text-danger" *ngIf="document?.hasError(error.type)">
+                  {{ error.message }}
+                </div>
+              </ng-container>
+            </div>
+          </div>
+
+          <div class="col-12 pt-3">
+            <div class="row">
+              <div class="col-4">
+                <div class="form-floating">
+                  <input type="text" id="areaCodeLabel" class="form-control fw-300 formInput" placeholder="Área"
+                    formControlName="areaCode" />
+                  <label for="areaCodeLabel">Área</label>
+                </div>
+                <div *ngIf="areaCode?.errors && areaCode?.touched">
+                  <ng-container *ngFor="let error of errorMessages.areaCode">
+                    <div class="text-danger" *ngIf="areaCode?.hasError(error.type)">
+                      {{ error.message }}
+                    </div>
+                  </ng-container>
+                </div>
+              </div>
+
+              <div class="col-8">
+                <div class="form-floating">
+                  <input type="tel" id="documentLabel" class="form-control fw-300 formInput"
+                    placeholder="Número de teléfono" formControlName="telephone" />
+                  <label for="telephoneLabel">Número de teléfono</label>
+                </div>
+                <div *ngIf="telephone?.errors && telephone?.touched">
+                  <ng-container *ngFor="let error of errorMessages.telephone">
+                    <div class="text-danger" *ngIf="telephone?.hasError(error.type)">
+                      {{ error.message }}
+                    </div>
+                  </ng-container>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-12 pt-3">
+            <div class="form-floating">
+              <input type="email" id="emailLabel" class="form-control fw-300 formInput" placeholder="Correo electronico"
+                formControlName="email" />
+              <label for="emailLabel">Correo electronico</label>
+            </div>
+            <div *ngIf="email?.errors && email?.touched">
+              <ng-container *ngFor="let error of errorMessages.email">
+                <div class="text-danger" *ngIf="email?.hasError(error.type)">
+                  {{ error.message }}
+                </div>
+              </ng-container>
+            </div>
+          </div>
+
+          <div class="col-12 pt-4">
+            <mat-radio-group aria-label="Select an option" class="row">
+              <div class="col-12">
+                <mat-radio-button (click)="selectDeliveryType(deliveryTypes.CORREO_ARGENTINO)">
+                  Correo argentino
+                </mat-radio-button>
+              </div>
+
+              <div class="col-12">
+                <mat-radio-button (click)="selectDeliveryType(deliveryTypes.SUCURSAL)">
+                  Retiro por local
+                </mat-radio-button>
+              </div>
+
+              <div *ngIf="showDeliveryForm">
+                <div class="col-12 pt-3">
+                  <div class="form-floating">
+                    <input type="text" id="addressLabel" class="form-control fw-300 formInput"
+                      placeholder="Calle y número" formControlName="address" />
+                    <label for="addressLabel">Calle y número</label>
+                  </div>
+                  <div *ngIf="address?.errors && address?.touched">
+                    <ng-container *ngFor="let error of errorMessages.address">
+                      <div class="text-danger" *ngIf="address?.hasError(error.type)">
+                        {{ error.message }}
+                      </div>
+                    </ng-container>
+                  </div>
+                </div>
+
+                <div class="col-12 pt-3">
+                  <div class="form-floating">
+                    <input type="text" id="locationLabel" class="form-control fw-300 formInput" placeholder="Localidad"
+                      formControlName="location" />
+                    <label for="locationLabel">Localidad</label>
+                  </div>
+                  <div *ngIf="location?.errors && location?.touched">
+                    <ng-container *ngFor="let error of errorMessages.location">
+                      <div class="text-danger" *ngIf="location?.hasError(error.type)">
+                        {{ error.message }}
+                      </div>
+                    </ng-container>
+                  </div>
+                </div>
+
+                <div class="col-12 pt-3">
+                  <div class="form-floating">
+                    <input type="text" id="provinceLabel" class="form-control fw-300 formInput" placeholder="Provincia"
+                      formControlName="province" />
+                    <label for="provinceLabel">Provincia</label>
+                  </div>
+                  <div *ngIf="province?.errors && province?.touched">
+                    <ng-container *ngFor="let error of errorMessages.province">
+                      <div class="text-danger" *ngIf="province?.hasError(error.type)">
+                        {{ error.message }}
+                      </div>
+                    </ng-container>
+                  </div>
+                </div>
+
+
+                <div class="col-12 pt-3">
+                  <div class="form-floating">
+                    <input type="text" id="postalCodeLabel" class="form-control fw-300 formInput"
+                      placeholder="Código postal" formControlName="postalCode" />
+                    <label for="postalCodeLabel">Código postal</label>
+                  </div>
+                  <div *ngIf="postalCode?.errors && postalCode?.touched">
+                    <ng-container *ngFor="let error of errorMessages.postalCode">
+                      <div class="text-danger" *ngIf="postalCode?.hasError(error.type)">
+                        {{ error.message }}
+                      </div>
+                    </ng-container>
+                  </div>
+                </div>
+              </div>
+            </mat-radio-group>
+
+            <div class="row pt-3 align-items-center justify-content-between">
+              <div class="col-auto">
+                <a type="button" class="fc-secondary fs-sm-2" (click)="onClickBackToCart()">
+                  Volver
+                </a>
+              </div>
+
+              <div class="col-7">
+                <button mat-button matStepperNext class="col-12 py-2 text-sm-center fs-sm-2 font-bold secondary-button">
+                  Ir a pagar
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </mat-step>
+
+  <mat-step [stepControl]="secondFormGroup">
+    <form [formGroup]="secondFormGroup" (ngSubmit)="confirmPurchase($event)" class="notFormInput pt-4">
+      <mat-radio-group>
+        <div class="container-fluid">
+          <div class="row">
+            <div class="col-12">
+              <span class="font-bold fs-md-1 fc-secondary">Métodos de pago</span>
+            </div>
+
+            <div class="col-12 pt-3">
+              <mat-radio-button (click)="selectPaymentType(paymentTypes.CREDITO)">
+                Pago online
+              </mat-radio-button>
+            </div>
+
+            <div class="col-12">
+              <mat-radio-button (click)="selectPaymentType(paymentTypes.EFECTIVO)">
+                Pago en local
+              </mat-radio-button>
+            </div>
+
+            <div *ngIf="showCardPayment">
+              <div class="col-12 pt-3">
+                <div class="row justify-content-between py-4">
+                  <div class="col-4">
+                    <img src="./assets/img/stepper/visa-color.png" alt="" class="img-fluid">
+                  </div>
+                  <div class="col-4">
+                    <img src="./assets/img/stepper/master-color.png" alt="" class="img-fluid">
+                  </div>
+                  <div class="col-4">
+                    <img src="./assets/img/stepper/american-color.png" alt="" class="img-fluid">
+                  </div>
+                </div>
+              </div>
+
+              <div class="col-12 pt-3">
+                <div class="form-floating">
+                  <input type="text" id="cardNameLabel" class="form-control fw-300 formInput"
+                    placeholder="Nombre como figura en la tarjeta" formControlName="cardName" />
+                  <label for="cardNameLabel">Nombre como figura en la tarjeta</label>
+                </div>
+                <div *ngIf="cardName?.errors && cardName?.touched">
+                  <ng-container *ngFor="let error of errorMessages.cardName">
+                    <div class="text-danger" *ngIf="cardName?.hasError(error.type)">
+                      {{ error.message }}
+                    </div>
+                  </ng-container>
+                </div>
+              </div>
+
+              <div class="col-12 pt-3">
+                <div class="form-floating">
+                  <input type="text" id="cardNumberLabel" class="form-control fw-300 formInput"
+                    placeholder="Número de tarjeta" formControlName="cardNumber" />
+                  <label for="cardNumberLabel">Número de tarjeta</label>
+                </div>
+                <div *ngIf="cardNumber?.errors && cardNumber?.touched">
+                  <ng-container *ngFor="let error of errorMessages.cardNumber">
+                    <div class="text-danger" *ngIf="cardNumber?.hasError(error.type)">
+                      {{ error.message }}
+                    </div>
+                  </ng-container>
+                </div>
+              </div>
+
+              <div class="col-12 pt-3">
+                <div class="row">
+                  <div class="col-4">
+                    <div class="form-floating">
+                      <input type="text" id="expirationDateLabel" class="form-control fw-300 formInput"
+                        placeholder="MM/AA" formControlName="expirationDate" />
+                      <label for="expirationDateLabel">MM/AA</label>
+                    </div>
+                    <div *ngIf="expirationDate?.errors && expirationDate?.touched">
+                      <ng-container *ngFor="let error of errorMessages.expirationDate">
+                        <div class="text-danger" *ngIf="expirationDate?.hasError(error.type)">
+                          {{ error.message }}
+                        </div>
+                      </ng-container>
+                    </div>
+                  </div>
+
+                  <div class="col-8">
+                    <div class="form-floating">
+                      <input type="text" id="cvvLabel" class="form-control fw-300 formInput" placeholder="CVV"
+                        formControlName="cvv" />
+                      <label for="cvvLabel">CVV</label>
+                    </div>
+                    <div *ngIf="cvv?.errors && cvv?.touched">
+                      <ng-container *ngFor="let error of errorMessages.cvv">
+                        <div class="text-danger" *ngIf="cvv?.hasError(error.type)">
+                          {{ error.message }}
+                        </div>
+                      </ng-container>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-12 pt-3" *ngIf="!showCardPayment">
+              <div class="col-12">
+                <h4 class="font-medium fs-sm-1 fc-secondary">Encontranos en</h4>
+              </div>
+
+              <div class="col-12" *ngFor="let store of stores">
+                <p>
+                  <span><img src="./assets/icons/location-icon.png" alt="Map location icon"></span> {{ store.street_number }} - {{ store.province }} - {{ store.locality }} - {{ store.telephone }}
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </mat-radio-group>
+
+      <div class="row pt-3 align-items-center justify-content-between">
+        <div class="col-auto">
+          <button matStepperPrevious type="button" class="fc-primary-light fs-sm-2 font-light back-button">
+            Volver
+          </button>
+        </div>
+
+        <div class="col-7">
+          <button type="submit" matStepperNext class="col-12 py-2 text-sm-center fs-sm-2 font-bold secondary-button">
+            Confirmar compra
+          </button>
+        </div>
+      </div>
+    </form>
+  </mat-step>
+
+  <mat-step>
+    <div class="container-fluid">
+      <div class="row pt-4 gy-1 justify-content-center">
+        <div class="col-12 text-center">
+          <img src="./assets/img/img utils/succesfull-payment.png" alt="" class="img-fluid">
+        </div>
+
+        <div class="col-12 text-center">
+          <span class="font-bold fs-md-1 fc-primary">El pago fue realizado con éxito</span>
+        </div>
+
+        <div class="col-12 text-center">
+          <p class="font-light fs-sm-2 fc-primary">Número de orden:</p>
+        </div>
+
+        <div class="col-12 text-center">
+          <span class="font-bold fs-sm-2 fc-primary">{{orderNumber}}</span>
+        </div>
+
+        <div class="col-12 text-center">
+          <span class="font-light fs-sm-2 fc-primary">Muchas gracias por tu compra</span>
+        </div>
+
+        <div class="col-12 text-center mt-3">
+          <button class="col-12 py-2 text-sm-center fs-sm-2 font-bold secondary-button mt-3"
+            (click)="onClickBackToCatalogue()">
+            Volver al catálogo
+          </button>
+        </div>
+      </div>
+    </div>
+  </mat-step>
+</mat-stepper>

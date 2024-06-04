@@ -1,0 +1,125 @@
+<section class="container-fluid detail pb-3" *ngIf="bookFound">
+  <div class="row">
+    <div class="col-12 text-center">
+      <img [src]="book.book_cover" class="img-fluid col-8 text-center" alt="Image Cover: {{ book.title }}" />
+    </div>
+  </div>
+
+  <div class="row text-center pt-2">
+    <div class="col-12">
+      <span class="font-medium fc-secondary fs-md-1">{{ book.title }}</span>
+    </div>
+
+    <div class="col-12">
+      <span class="font-medium fc-basic-4 fs-sm-2">{{ book.author.name }}</span>
+    </div>
+
+    <div class="col-12">
+      <span class="font-medium fc-secondary fs-md-1">${{ book.price }}</span>
+    </div>
+
+    <div class="col-12 pt-2 text-start">
+      <p><span class="font-bold">Sinopsis:</span> {{ book.synopsis }}</p>
+    </div>
+
+    <div class="col-12">
+      <button type="button" class="col-12 py-3 secondary-button text-sm-center fs-sm-2 font-bold" (click)="onAddBook()"
+        *ngIf=" book.stock > 0">
+        Agregar al carrito
+      </button>
+    </div>
+  </div>
+</section>
+
+<section class="container-fluid pt-3" *ngIf="bookFound">
+    <div class="row">
+      <div class="col-12 index-book-title">
+        <p class="font-medium fc-secondary fs-md">
+          Te pueden interesar
+        </p>
+      </div>
+    </div>
+  <app-books-row-cards [books]="recomendedBooks" [colSize]="6"></app-books-row-cards>
+</section>
+
+<section *ngIf="!bookFound && searchComplete">
+  <app-selected-book-not-found></app-selected-book-not-found>
+</section>
+
+<!-- <section class="container-fluid row p-4 p-md-5 m-0 detail" *ngIf="bookFound">
+  <div class="col-7 col-sm-6 col-md-5 col-lg-4 col-xl-3">
+    <img [src]="book.book_cover" class="img-fluid" alt="..." />
+  </div>
+
+  <div class="col-12 col-lg-7 col-xl-8 py-5 py-lg-0 ps-lg-5">
+    <div class="row gy-4">
+      <div class="col-md-12 fw-800 fc-secondary fs-lg-2 font-bold mb-0 pb-0">
+        <p class="mb-0">{{ book.title }}</p>
+      </div>
+      <div class="col-md-8 pt-0 mt-0">
+        <p class="fc-basic-4 fs-lg-3 font-medium mb-0">
+          {{ book.author.name }}
+        </p>
+      </div>
+      <p class="col-md-12 py-2 fc-primary fs-md mb-0">
+        Disponibilidad:
+        <b [ngClass]="{ 'fc-basic-5': book.stock, 'fc-basic-4': !book.stock }">
+          {{ book.stock > 0 ? "En existencia" : "Sin stock" }}
+        </b>
+      </p>
+      <div class="row">
+        <div class="col-md-12 d-md-flex justify-content-between align-items-center">
+
+          <p class="fs-md-2 font-bold fc-secondary pt-4">${{ book.price }}</p>
+
+          <button type="button" class="col-6 secondary-button text-sm-center fs-sm-2 font-bold" (click)="onAddBook()"
+            *ngIf=" book.stock > 0">
+            Agregar al carrito
+          </button>
+        </div>
+      </div>
+
+      <div class="col-md-12 py-2 fs-sm-2 fc-primary">
+        <p><b>Sinopsis:</b> {{ book.synopsis }}</p>
+      </div>
+    </div>
+
+    <table class="table-responsive">
+      <tbody class="font-medium fc-primary fs-sm-2">
+        <tr>
+          <th scope="row">Editorial</th>
+          <td class="ps-5 fc-secondary">{{ book.publisher.name }}</td>
+        </tr>
+        <tr>
+          <th scope="row">ISBN</th>
+          <td class="ps-5 fc-secondary">{{ book.isbn }}</td>
+        </tr>
+        <tr>
+          <th scope="row">Páginas</th>
+          <td class="ps-5 fc-secondary">{{ book.page_amount }}</td>
+        </tr>
+        <tr>
+          <th scope="row">Clasificación</th>
+          <td class="ps-5 fc-secondary">{{ book.genres[0] }}</td>
+        </tr>
+        <tr>
+          <th scope="row">Publicación</th>
+          <td class="ps-5 fc-secondary">{{ book.release_year }}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<section *ngIf="bookFound">
+  <div class="mt-5 pt-5">
+    <div class="container-fluid px-md-5">
+      <div class="row px-4 index-book-title">
+        <p class="col-10 d-none d-md-block font-medium fc-primary-light fs-md ps-3">
+          Te pueden interesar
+        </p>
+      </div>
+      <app-books-row-cards [books]="recomendedBooks"></app-books-row-cards>
+    </div>
+  </div>
+</section> -->

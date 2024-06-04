@@ -1,0 +1,72 @@
+<section *ngIf="profile; else loginRequired" class="container-fluid">
+  <div class="row">
+    <div class="col-12">
+      <span class="font-medium fs-md fc-secondary">Mi cuenta</span>
+    </div>
+
+    <div class="col-12 pt-4">
+      <div class="row gy-1 p-4 card">
+        <div class="col-12 border-bottom">
+          <span class="fs-sm-2 font-bold fc-secondary">Datos personales</span>
+          <button type="button" (click)="onEditPersonalData()">
+            <img src="/assets/icons/actions/edit.png" alt="Editar datos personales" />
+          </button>
+        </div>
+
+        <div class="col-12">
+          <span class="font-semi-bold fs-sm-2 fc-primary">{{profile.username}}</span>
+        </div>
+
+        <div class="col-12">
+          <span class="font-semi-bold fs-sm-2 fc-primary">{{profile.document}}</span>
+        </div>
+
+        <div class="col-12">
+          <span class="font-semi-bold fs-sm-2 fc-primary">{{profile.email}}</span>
+        </div>
+
+        <div class="col-12">
+          <span class="font-semi-bold fs-sm-2 fc-primary">{{profile.telephone_area_code}}
+            {{profile.telephone_number}}</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-12 pt-4">
+      <div class="row gy-1 p-4 card">
+        <div class="col-12 border-bottom">
+          <span class="fs-sm-2 font-bold fc-secondary">Dirección</span>
+          <button type="button" (click)="onEditAddress()">
+            <img src="/assets/icons/actions/edit.png" alt="Editar Dirección" />
+          </button>
+        </div>
+
+        <div class="col-12">
+          <span class="font-bold fs-sm-2 fc-primary">{{profile.address_street}}</span>
+        </div>
+
+        <div class="col-12">
+          <span class="font-bold fs-sm-2 fc-primary">{{profile.address_province}}</span>
+        </div>
+
+        <div class="col-12">
+          <span class="font-semi-bold fs-sm-2 fc-primary">{{profile.address_location}}</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-12" *ngIf="purchaseData.length">
+      <div class="row">
+        <div class="col-12">
+          <span class="font-medium fs-md fc-secondary">Pedidos realizados</span>
+        </div>
+
+        <app-pedidos-item [purchases]="purchaseData"></app-pedidos-item>
+      </div>
+    </div>
+  </div>
+</section>
+
+<ng-template #loginRequired>
+  <p>No hay usuario logueado</p>
+</ng-template>

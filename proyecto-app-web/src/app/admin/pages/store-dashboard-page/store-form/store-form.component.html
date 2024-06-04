@@ -1,0 +1,125 @@
+<div class="modal-body p-0 m-0" [class.pb-5]="!formEnable" *ngIf="!isDeleteForm">
+  <div class="container">
+
+    <div class="row">
+      <div class="text-end pt-4 pe-3">
+        <button type="button" class="btn-close" aria-label="Close" (click)="onClose()">
+        </button>
+      </div>
+
+      <div class="row justify-content-start">
+        <div class="col-12 mb-2">
+          <h4 class="font-medium fs-md-1 fc-primary">
+            {{action === 'create' ? 'Agregar Libro':'Editar Libro'}}
+          </h4>
+        </div>
+      </div>
+    </div>
+
+    <form [formGroup]="storeForm" (ngSubmit)="onSaveHandle($event)">
+      <div class="row mb-3">
+        <div class="col-sm-12">
+          <div class="form-floating">
+            <input type="text" class="form-control formInput" id="isbn" placeholder="address"
+              formControlName="address" />
+            <label for="address">Dirección</label>
+            <div *ngIf="address?.errors && address?.touched">
+              <ng-container *ngFor="let error of errorMessages.address">
+                <div class="text-danger" *ngIf="address?.hasError(error.type)">
+                  {{ error.message }}
+                </div>
+              </ng-container>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="row mb-3">
+        <div class="col-sm-12">
+          <div class="form-floating">
+            <input type="text" class="form-control formInput" id="province" placeholder="Provincia"
+              formControlName="province" />
+            <label for="province">Provincia</label>
+            <div *ngIf="province?.errors && province?.touched">
+              <ng-container *ngFor="let error of errorMessages.province">
+                <div class="text-danger" *ngIf="province?.hasError(error.type)">
+                  {{ error.message }}
+                </div>
+              </ng-container>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="row mb-3">
+        <div class="col-sm-12">
+          <div class="form-floating">
+            <input type="text" class="form-control formInput" id="locality" placeholder="Localidad"
+              formControlName="locality" />
+            <label for="locality">Localidad</label>
+            <div *ngIf="locality?.errors && locality?.touched">
+              <ng-container *ngFor="let error of errorMessages.locality">
+                <div class="text-danger" *ngIf="locality?.hasError(error.type)">
+                  {{ error.message }}
+                </div>
+              </ng-container>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="row mb-3">
+        <div class="col-sm-12">
+          <div class="form-floating">
+            <input type="tel" class="form-control formInput" id="telephone" placeholder="Télefono"
+              formControlName="telephone" />
+            <label for="telephone">Télefono</label>
+            <div *ngIf="telephone?.errors && telephone?.touched">
+              <ng-container *ngFor="let error of errorMessages.telephone">
+                <div class="text-danger" *ngIf="telephone?.hasError(error.type)">
+                  {{ error.message }}
+                </div>
+              </ng-container>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="modal-footer" *ngIf="formEnable">
+        <div>
+          <button type="button" class="btn btn-cancel me-5" data-bs-dismiss="modal" (click)="onClose()">
+            Cancelar
+          </button>
+        </div>
+        <div>
+          <button type="submit" class="btn btn-danger">
+            {{action === 'create' ? 'Guardar':'Guardar cambios'}}
+          </button>
+        </div>
+      </div>
+    </form>
+  </div>
+</div>
+
+<div class="modal-body p-0 m-0" [class.pb-5]="!formEnable" *ngIf="isDeleteForm">
+  <div class="container">
+
+    <div class="row py-5">
+
+      <div class="row justify-content-center">
+        <div class="col-12 mb-1 text-center">
+          <h4 class="font-medium fs-md-1 fc-primary">¿Desea eliminar la sucursal? </h4>
+        </div>
+      </div>
+    </div>
+
+    <div class="modal-footer" *ngIf="formEnable">
+      <div>
+        <button type="button" class="btn btn-cancel me-5" data-bs-dismiss="modal" (click)="onClose()">
+          Cancelar
+        </button>
+      </div>
+      <div>
+        <button type="submit" class="btn btn-danger" (click)="onConfirmDelete()">
+          Confirmar
+        </button>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,77 @@
+<div class="container-fluid background p-4">
+  <div class="row justify-content-center align-items-center">
+    <div class="col-6 text-center">
+      <img [src]="book.book_cover" alt="imagen de portada de el libro {{ book.title }}" class="img-fluid">
+    </div>
+
+    <div class="col-12 pt-2 text-center">
+      <h2 class="fc-secondary font-medium fs-sm-2">{{ book.title }}</h2>
+    </div>
+
+    <div class="col-12 text-center">
+      <h3 class="fc-primary-light fs-sm-2">{{ book.author.name }}</h3>
+    </div>
+
+    <div class="col-12 text-center">
+      <h4 class="fc-secondary-alt font-bold fs-md-1">${{ book.price }}</h4>
+    </div>
+
+      <div class="col-auto">
+        <div class="row text-center number-button">
+          <button type="button" class="col" (click)="onAddBook()">+</button>
+          <span class="col">{{book.selectedAmount}}</span>
+          <button type="button" class="col" (click)="onRemoveCopy()">-</button>
+        </div>
+      </div>
+
+      <div class="col-auto">
+        <div class="row align-items-center text-center">
+          <div class="col-1 pb-1">
+            <button type="button" (click)="onRemoveBook()">
+              <img src="./assets/icons/actions/trash.png" alt="trash icon" />
+            </button>
+          </div>
+        </div>
+      </div>
+  </div>
+</div>
+
+
+<!-- <div class="container-fluid background">
+  <div class="row justify-content-center align-items-center p-3">
+    <div class="col-12 text-center">
+      <img [src]="book.book_cover" alt="imagen de portada de el libro {{ book.title }}" class="img-fluid col-5">
+    </div>
+
+    <div class="col-12 pt-1 text-center">
+      <h2 class="fc-secondary font-medium fs-sm-2">{{ book.title }}</h2>
+    </div>
+
+    <div class="col-12 pt-1 text-center">
+      <h3 class="fc-primary-light font-semi-bold fs-sm-2">{{ book.author.name }}</h3>
+    </div>
+
+    <div class="col-auto py-3 ps-4 ps-md-0">
+      <div class="row text-center number-button">
+        <button type="button" class="col" (click)="onAddBook()">+</button>
+        <span class="col">{{book.selectedAmount}}</span>
+        <button type="button" class="col" (click)="onRemoveCopy()">-</button>
+      </div>
+    </div>
+
+    <div class="col-auto col-md-3 ps-3 ps-md-0">
+      <div class="row align-items-center text-center">
+
+        <div class="col-auto col-md-10 pt-2">
+          <h4 class="fc-secondary font-bold fs-md-1">${{ book.price }}</h4>
+        </div>
+
+        <div class="col-1 pb-2 ps-0">
+          <button type="button" (click)="onRemoveBook()">
+            <img src="./assets/icons/actions/trash.png" alt="trash icon" />
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div> -->
