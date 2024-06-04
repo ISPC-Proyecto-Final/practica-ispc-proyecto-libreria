@@ -7,6 +7,7 @@ import { Auth } from 'src/app/models/auth/auth-model';
 import { CreateUserDTO } from 'src/app/models/user/user-model';
 import { tap, catchError } from 'rxjs/operators';
 import { regExEmail, regExOnlyNumbers, regExPassword } from 'src/app/utils/regex/regex';
+import { ToastService } from 'src/app/services/utils/toast.service';
 
 @Component({
   selector: 'app-register-page',
@@ -74,6 +75,7 @@ export class RegisterPageComponent implements OnInit {
     private modalService: NgbModal,
     private formBuilder: FormBuilder,
     private userService: UserService,
+    private toastService: ToastService,
   ) {
 
   }
@@ -107,10 +109,12 @@ export class RegisterPageComponent implements OnInit {
       this.userService.createUser(userDto)
         .pipe(
           tap(response => {
+            this.toastService.createToast({type: 'bg-success', delay: 4000, message: 'Usuario registrado exitosamente'});
             console.log('Usuario registrado', response);
             this.onClickRegister();
           }),
           catchError(error => {
+            this.toastService.createToast({type: 'bg-danger', delay: 4000, message: 'Error al registar el usuario'});
             console.log('Error al registrar', error);
             throw error;
           })

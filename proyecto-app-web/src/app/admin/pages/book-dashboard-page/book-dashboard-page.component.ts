@@ -4,6 +4,7 @@ import { Book } from 'src/app/models/book/book-model';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { BookFormComponent } from './book-form/book-form.component';
 import { BookDashboardService } from '../../services/book/book-dashboard.service';
+import { ToastService } from 'src/app/services/utils/toast.service';
 
 
 @Component({
@@ -17,7 +18,8 @@ export class BookDashboardPageComponent implements OnInit {
 
   constructor(
     private bookService: BookDashboardService,
-    private modalService: NgbModal
+    private modalService: NgbModal,
+    private toastService: ToastService,
   ) { }
 
   ngOnInit() {
@@ -36,8 +38,10 @@ export class BookDashboardPageComponent implements OnInit {
       .result.then((result: boolean) => {
         console.log('res', result);
         if (!result) {
+          this.toastService.createToast({type: 'bg-danger', delay: 2500, message: 'Error al registrar libro'});
           return;
         }
+        this.toastService.createToast({type: 'bg-success', delay: 2500, message: 'Registro de libro exitoso'});
         this.getBooks();
       }, () => {
         return;
@@ -51,8 +55,10 @@ export class BookDashboardPageComponent implements OnInit {
 
     modalRef.result.then((result: boolean) => {
       if (!result) {
+        this.toastService.createToast({type: 'bg-danger', delay: 2500, message: 'Error al modificar libro'});
         return;
       }
+      this.toastService.createToast({type: 'bg-success', delay: 2500, message: 'Modificación de libro exitosa'});
       this.getBooks();
     }, () => {
       return;
@@ -66,8 +72,10 @@ export class BookDashboardPageComponent implements OnInit {
 
     modalRef.result.then((result: boolean) => {
       if (!result) {
+        this.toastService.createToast({type: 'bg-danger', delay: 2500, message: 'Error al eliminar libro'});
         return;
       }
+      this.toastService.createToast({type: 'bg-success', delay: 2500, message: 'Baja de libro exitosa'});
       this.getBooks();
     }, () => {
       return;
