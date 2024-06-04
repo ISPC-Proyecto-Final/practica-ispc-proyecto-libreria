@@ -1,7 +1,7 @@
 from rest_framework import viewsets, permissions
 from rest_framework.generics import RetrieveUpdateAPIView
 from .serializers import BookSerializer, AuthorSerializer, PublisherSerializer, GenreSerializer, SellSerializer, StoreSerializer, PaymentSerializer, DeliverySerializer, ProfileSerializer, CouponSerializer, SubscriptionBookSerializer
-from .models import Book, Author, Publisher, Genre, Sell, Store, Payment, Delivery, CustomUser
+from .models import Book, Author, Publisher, Genre, Sell, Store, Payment, Delivery, CustomUser, SubscriptionBook, Coupon
 from rest_framework.views import APIView
 from rest_framework.permissions import IsAdminUser, AllowAny, IsAuthenticated
 from django.contrib.auth import authenticate, login, logout

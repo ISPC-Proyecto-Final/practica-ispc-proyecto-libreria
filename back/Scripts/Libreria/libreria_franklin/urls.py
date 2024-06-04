@@ -1,5 +1,5 @@
 from rest_framework import routers
-from .api import BookViewSet, AuthorViewSet, PublisherViewSet, GenreViewSet,SellViewSet, StoreViewSet, PaymentViewSet, DeliveryViewSet, LoginView, LogoutView, SignupView, ProfileView, UserList, ProfileViewSet, ProcessPayment, CouponViewSet, SubcriptionsBooksViewSet
+from .api import BookViewSet, AuthorViewSet, PublisherViewSet, GenreViewSet,SellViewSet, StoreViewSet, PaymentViewSet, DeliveryViewSet, LoginView, LogoutView, SignupView, ProfileView, UserList, ProfileViewSet, ProcessPayment, CouponViewSet, SubscriptionBookViewSet
 from django.urls import path, include
 
 router = routers.DefaultRouter()
@@ -14,7 +14,7 @@ router.register("api/v1/stores", StoreViewSet,"stores")
 router.register("api/v1/payments", PaymentViewSet,"payments")
 router.register("api/v1/profiles", ProfileViewSet,"profiles")
 router.register("api/v1/coupons", CouponViewSet,"coupons")
-router.register("api/v1/subcriptions-books", SubcriptionsBooksViewSet,"subcriptions-books")
+router.register("api/v1/subcriptions-books", SubscriptionBookViewSet,"subcriptions-books")
 
 urlpatterns = [
     *router.urls,
