@@ -3,6 +3,7 @@ import { Book } from 'src/app/models/book/book-model';
 import { ActivatedRoute, ParamMap } from '@angular/router';
 import { BookService } from 'src/app/services/book/book.service';
 import { CartService } from 'src/app/services/cart/cart.service';
+import { ToastService } from 'src/app/services/utils/toast.service';
 
 
 @Component({
@@ -20,6 +21,7 @@ export class BookDetailComponent implements OnInit {
     private route: ActivatedRoute,
     private bookService: BookService,
     private cartService: CartService,
+    private toastService: ToastService,
   ) { }
 
   ngOnInit(): void {
@@ -31,6 +33,7 @@ export class BookDetailComponent implements OnInit {
   }
 
   onAddBook() {
+    this.toastService.createToast({type: 'bg-success', delay: 2500, message: 'Agregaste un libro al carrito'});
     this.cartService.addBook(this.book);
   }
 
