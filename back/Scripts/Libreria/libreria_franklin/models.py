@@ -159,3 +159,15 @@ class Store(models.Model):
       verbose_name_plural = 'Stores'
   def __str__(self):
     return "{self.street_number}, {self.locality}"
+
+class Coupon(models.Model):
+  id_coupon = models.AutoField(primary_key=True)
+  coupon_name = models.CharField(max_length = 100)
+  discount_percent = models.DecimalField(decimal_places=2, blank=False, max_digits=5)
+
+  class Meta:
+      db_table = 'Coupon'
+      verbose_name = 'Coupon'
+      verbose_name_plural = 'Coupons'
+  def __str__(self):
+    return "{self.coupon_name}, {self.discount_percent}"
