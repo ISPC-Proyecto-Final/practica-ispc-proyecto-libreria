@@ -31,16 +31,8 @@ export class NavbarComponent implements OnInit {
     this.getProfile();
   }
 
-  onClickLogIn() {
-    const modalRef = this.modalService.open(LoginPageComponent, {
-      fullscreen: true,
-    });
-  }
-
-  onClickRegister() {
-    const modalRef = this.modalService.open(RegisterPageComponent, {
-      fullscreen: true,
-    });
+  onClickBack() {
+    this.navigationService.navigateToBack();
   }
 
   onClickNavigateToHome() {

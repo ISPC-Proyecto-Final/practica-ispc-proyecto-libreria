@@ -1,5 +1,6 @@
 import { Injectable } from "@angular/core";
 import { Router } from "@angular/router";
+import { Location } from '@angular/common';
 
 @Injectable({
   providedIn: 'root'
@@ -7,11 +8,16 @@ import { Router } from "@angular/router";
 export class NavigationService {
 
   constructor(
-    private router: Router
+    private router: Router,
+    private location: Location
   ) { }
 
   navigateToHome() {
     this.router.navigate(['/home']);
+  }
+
+  navigateToBack() {
+    this.location.back();
   }
 
   navigateToBookDetail(id: number) {
