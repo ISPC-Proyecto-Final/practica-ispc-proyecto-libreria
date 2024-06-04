@@ -6,6 +6,7 @@ import { AuthService } from 'src/app/services//auth/auth.service';
 import { Credentials } from 'src/app/models/credentials/credentials-model';
 import { tap, catchError} from 'rxjs/operators';
 import { regExEmail, regExPassword } from 'src/app/utils/regex/regex';
+import { ToastService } from 'src/app/services/utils/toast.service';
 
 
 
@@ -35,7 +36,8 @@ export class LoginPageComponent {
     public activeModal: NgbActiveModal,
     private modalService: NgbModal,
     private formBuilder: FormBuilder,
-    private authService: AuthService
+    private authService: AuthService,
+    private toastService: ToastService
     ) { }
 
   
@@ -59,10 +61,12 @@ export class LoginPageComponent {
       .pipe(
         tap(response => {
           console.log('Usuario logueado', response);
+          this.toastService.createToast({type: 'bg-success', delay: 4000, message: 'Login exitoso'});
           this.authService.updateProfileListener(response);
           this.onClickLogIn();
         }),
         catchError(error => {
+          this.toastService.createToast({type: 'bg-danger', delay: 4000, message: 'Correo o contraseña inválida'});
           console.log('Error al ingresar', error);
           throw error;
         })
