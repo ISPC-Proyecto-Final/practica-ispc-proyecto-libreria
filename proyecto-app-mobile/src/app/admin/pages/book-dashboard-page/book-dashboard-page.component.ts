@@ -15,6 +15,7 @@ import { ToastService } from 'src/app/services/utils/toast.service';
 export class BookDashboardPageComponent implements OnInit {
 
   books: Book[] = [];
+  title = '';
 
   constructor(
     private bookService: BookDashboardService,
@@ -38,10 +39,8 @@ export class BookDashboardPageComponent implements OnInit {
       .result.then((result: boolean) => {
         console.log('res', result);
         if (!result) {
-          this.toastService.createToast({type: 'bg-danger', delay: 2500, message: 'Error al registrar libro'});
           return;
         }
-        this.toastService.createToast({type: 'bg-success', delay: 2500, message: 'Registro de libro exitoso'});
         this.getBooks();
       }, () => {
         return;
@@ -55,10 +54,8 @@ export class BookDashboardPageComponent implements OnInit {
 
     modalRef.result.then((result: boolean) => {
       if (!result) {
-        this.toastService.createToast({type: 'bg-danger', delay: 2500, message: 'Error al modificar libro'});
         return;
       }
-      this.toastService.createToast({type: 'bg-success', delay: 2500, message: 'Modificación de libro exitosa'});
       this.getBooks();
     }, () => {
       return;
@@ -72,10 +69,8 @@ export class BookDashboardPageComponent implements OnInit {
 
     modalRef.result.then((result: boolean) => {
       if (!result) {
-        this.toastService.createToast({type: 'bg-danger', delay: 2500, message: 'Error al eliminar libro'});
         return;
       }
-      this.toastService.createToast({type: 'bg-success', delay: 2500, message: 'Baja de libro exitosa'});
       this.getBooks();
     }, () => {
       return;
@@ -86,6 +81,10 @@ export class BookDashboardPageComponent implements OnInit {
     const modalRef = this.modalService.open(BookFormComponent, { size: 'lg', centered: true });
     modalRef.componentInstance.action = 'view';
     modalRef.componentInstance.bookId = id;
+  }
+
+  onClickSearch(){
+
   }
 }
 

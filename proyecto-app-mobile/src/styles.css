@@ -197,3 +197,10 @@ a:hover {
 .background{
   background-color: var(--primary-background-color);
 }
+
+.std-button{
+    color: white;
+    border-radius: 10px;
+    border-color: #538DCC;
+    background-color: #538DCC;
+}

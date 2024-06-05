@@ -11,6 +11,7 @@ import { GenreDashboardService } from 'src/app/admin/services/genre/genre-dashbo
 import { Genre } from 'src/app/models/genre/genre-model';
 import { map } from 'rxjs/operators'
 import { regExOnlyNumbers } from 'src/app/utils/regex/regex';
+import { ToastService } from 'src/app/services/utils/toast.service';
 
 
 
@@ -86,6 +87,7 @@ export class BookFormComponent implements OnInit {
     private authorService: AuthorDashboardService,
     private publisherService: PublisherDashboardService,
     private genreService: GenreDashboardService,
+    private toastService: ToastService,
   ) { }
 
   ngOnInit(): void {
@@ -157,7 +159,6 @@ export class BookFormComponent implements OnInit {
   }
 
   saveNewBook() {
-
     this.book = {
       isbn: this.bookForm.value.isbn as string,
       title: this.bookForm.value.title as string,
@@ -176,15 +177,14 @@ export class BookFormComponent implements OnInit {
     this.bookService.saveBook(this.book)
       .subscribe((result: Book) => {
         let book: Book = result;
-
         if (book) {
+          this.toastService.createToast({type: 'bg-success', delay: 2500, message: 'Registro de libro exitoso'});
           this.activeModal.close(true);
         }
       });
   }
 
   saveUpdateBook() {
-
     this.book = {
       isbn: this.bookForm.value.isbn as string,
       title: this.bookForm.value.title as string,
@@ -203,8 +203,8 @@ export class BookFormComponent implements OnInit {
     this.bookService.updateBook(this.bookId, this.book)
       .subscribe((result: Book) => {
         let book: Book = result;
-
         if (book) {
+          this.toastService.createToast({type: 'bg-success', delay: 2500, message: 'Modificación de libro exitosa'});
           this.activeModal.close(true);
         }
       });
@@ -213,12 +213,10 @@ export class BookFormComponent implements OnInit {
   onConfirmDelete() {
     this.bookService.deleteBook(this.bookId)
       .subscribe(() => {
+        this.toastService.createToast({type: 'bg-success', delay: 2500, message: 'Baja de libro exitosa'});
         this.activeModal.close(true);
-
       });
-
   }
-
 
 
   onClose() {
@@ -289,5 +287,4 @@ export class BookFormComponent implements OnInit {
   get genre() {
     return this.bookForm.get('genre');
   }
-
 }
