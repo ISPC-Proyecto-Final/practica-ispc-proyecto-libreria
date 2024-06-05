@@ -11,8 +11,9 @@ import { StoreDashboardPageComponent } from './pages/store-dashboard-page/store-
 const routes: Routes = [
   {
     // path: 'admin', component: AdminPageComponent,
-    path: 'admin', component: BookDashboardPageComponent,
+    path: 'admin',
     children: [
+      { path: '', component: BookDashboardPageComponent },
       { path: 'client-dashboard', component: ClientDashboardPageComponent },
       { path: 'book-dashboard', component: BookDashboardPageComponent },
       { path: 'author-dashboard', component: AuthorDashboardPageComponent },

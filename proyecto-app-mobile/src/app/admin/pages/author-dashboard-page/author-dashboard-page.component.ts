@@ -13,6 +13,7 @@ import { AuthorFormComponent } from './author-form/author-form.component';
 export class AuthorDashboardPageComponent {
 
   authors: Author[] = [];
+  name = '';
 
   constructor(
     private modalService: NgbModal,
@@ -71,5 +72,9 @@ export class AuthorDashboardPageComponent {
     }, () => {
       return;
     });
+  }
+
+  onClickSearch(){
+
   }
 }

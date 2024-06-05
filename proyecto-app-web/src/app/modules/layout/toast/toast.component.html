@@ -1,4 +1,4 @@
-<ngb-toast *ngFor="let toast of toasts" class="{{toast.type}} text-light" [autohide]="true" [delay]="toast.delay || 5000"
-  (hidden)="removeToast(toast)">
+<ngb-toast *ngFor="let toast of toasts" #toastElement class="{{toast.type}} text-light" [autohide]="true" [delay]="toast.delay || 5000"
+  (hidden)="removeToast(toast)" (click)="toastElement?.hide()">
   {{toast.message}}
 </ngb-toast>

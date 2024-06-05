@@ -10,7 +10,7 @@
       <div class="row justify-content-start">
         <div class="col-12 mb-2">
           <h4 class="font-medium fs-md-1 fc-primary">
-            {{action === 'create' ? 'Agregar Libro':'Editar Libro'}}
+            {{action === 'create' ? 'Agregar Libro' : action === 'view'? 'Datos del Libro' : 'Editar Libro'}}
           </h4>
         </div>
       </div>
