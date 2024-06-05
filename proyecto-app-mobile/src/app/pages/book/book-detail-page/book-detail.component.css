@@ -11,7 +11,7 @@
 }
 
 .secondary-button:hover {
-  background-color: var(--alternative-red);
+  background-color: var(--alternative-secondary-color);
 }
 
 .secondary-button:active {
