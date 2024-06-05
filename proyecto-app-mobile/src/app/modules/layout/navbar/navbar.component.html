@@ -1,13 +1,79 @@
-<section class="container-fluid py-5">
+<section class="container-fluid py-5" *ngIf="!isAdmin">
   <div class="row justify-content-between">
-  <div class="col-auto">
-    <button type="button" class="button-style" (click)="onClickBack()">
-      <img src="./assets/icons/arrow-left.png" alt="Back Button" class="img-fluid">
-    </button>
-  </div>
+    <div class="col-auto">
+      <button type="button" class="button-style" (click)="onClickBack()">
+        <img src="./assets/icons/arrow-left.png" alt="Back Button" class="img-fluid">
+      </button>
+    </div>
 
-  <div class="col-auto">
-    <app-button-cart *ngIf="!isAdmin"></app-button-cart>
-  </div>
+    <div class="col-auto">
+      <app-button-cart></app-button-cart>
+    </div>
   </div>
 </section>
+
+<nav class="navbar navbar-dark bg-dark fixed-top" *ngIf="isAdmin">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="#"></a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="offcanvas offcanvas-end dark-backgorund" tabindex="-1" id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel">
+      <div class="offcanvas-header">
+        <h5 class="offcanvas-title" id="offcanvasNavbarLabel">Hola Admin</h5>
+        <button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+      </div>
+      <div class="offcanvas-body">
+        <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
+          <li class="nav-item">
+            <a class="nav-link" (click)="onClickNavigateToBookDashboard()">Libros</a>
+          </li>
+
+          <li class="nav-item">
+            <a class="nav-link" (click)="onClickNavigateToAuthorDashboard()">Autores</a>
+          </li>
+
+          <li class="nav-item">
+            <a class="nav-link" (click)="onClickNavigateToPublisherDashboard()">Editoriales</a>
+          </li>
+
+          <li class="nav-item">
+            <a class="nav-link" (click)="navigateToStoreDashboard()">Sucursales</a>
+          </li>
+
+          <li class="nav-item">
+            <a class="nav-link" (click)="onClickNavigateToClientDashboard()">Clientes</a>
+          </li>
+
+          <li class="nav-item">
+            <a class="nav-link" (click)="logout()">Cerrar sesión</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</nav>
+
+<!-- <section class="container-fluid py-5" *ngIf="isAdmin">
+  <div class="row gy-2 justify-content-around">
+    <div class="col-auto">
+      <a class="fs-md-1" (click)="onClickNavigateToBookDashboard()">Libros</a>
+    </div>
+
+    <div class="col-auto">
+      <a class="fs-md-1" (click)="onClickNavigateToAuthorDashboard()">Autores</a>
+    </div>
+
+    <div class="col-auto">
+      <a class="fs-md-1" (click)="onClickNavigateToPublisherDashboard()">Editoriales</a>
+    </div>
+
+    <div class="col-auto">
+      <a class="fs-md-1" (click)="navigateToStoreDashboard()">Sucursales</a>
+    </div>
+
+    <div class="col-auto">
+      <a class="fs-md-1" (click)="onClickNavigateToClientDashboard()">Clientes</a>
+    </div>
+  </div>
+</section> -->

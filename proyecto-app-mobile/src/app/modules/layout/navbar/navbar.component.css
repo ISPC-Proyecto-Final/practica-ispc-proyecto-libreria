@@ -54,3 +54,12 @@
   border: none;
   background-color: transparent;
 }
+
+.navbar-dark .bg-dark{
+background-color: var(--secondary-color);
+}
+
+.dark-backgorund {
+  color: #fff ;
+  background-color: var(--secondary-color);
+}
