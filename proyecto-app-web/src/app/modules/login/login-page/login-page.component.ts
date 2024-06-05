@@ -66,8 +66,8 @@ export class LoginPageComponent {
           this.onClickLogIn();
         }),
         catchError(error => {
-          this.toastService.createToast({type: 'bg-danger', delay: 4000, message: 'Correo o contraseña inválida'});
           console.log('Error al ingresar', error);
+          this.toastService.createToast({type: 'bg-danger', delay: 4000, message: 'Correo o contraseña inválida'});
           throw error;
         })
       )
