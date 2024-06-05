@@ -10,6 +10,7 @@ import { UserDashboardService } from '../../services/user/user-dashboard.service
 export class ClientDashboardPageComponent implements OnInit {
 
   users: UserBasicInfoDTO[] = [];
+  name = '';
 
   constructor(
     private UserService: UserDashboardService
@@ -22,4 +23,7 @@ export class ClientDashboardPageComponent implements OnInit {
       });
   }
 
+  onClickSearch(){
+
+  }
 }

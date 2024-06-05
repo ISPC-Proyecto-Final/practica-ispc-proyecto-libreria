@@ -1,40 +1,36 @@
-<section class="container my-5 pb-5 table-responsive bg-secondary-white px-5 dashboard-table" id="books-dashboard">
-  <section class="container pb-5 mb-5">
-    <div class="row mt-5 pt-5 align-items-center gy-5">
-
-      <div class="col-12 col-lg-6">
-        <span class="fc-primary font-bold fs-md-2">Usuarios registrados</span>
-      </div>
-
-      <div class="col-12 col-lg-6">
-        <div class="input-group">
-          <input type="text" class="form-control rounded-1 px-4 py-3" placeholder="Buscá por nombre">
-          <button type="button" class="btn btn-outline-secondary"> <img src="./assets/icons/extra/lupa.png" alt="">
-            <i class="bi bi-search"></i>
-          </button>
-        </div>
-      </div>
+<section class="container-fluid pt-5 mt-5">
+  <div class="row justify-content-center align-items-center gy-3">
+    <div class="col-12">
+      <span class="font-bold fs-md-2 fc-secondary">Usuarios</span>
     </div>
-  </section>
 
-  <table class="table table-hover align-middle">
+    <div class="col-12 pt-3 input-group">
+      <input type="text" class="form-control" placeholder="Buscar" (keyup.enter)="onClickSearch()" [(ngModel)]="name">
+      <button class="btn btn-outline-primary search-button pt-3" type="button" (click)="onClickSearch()"><span
+          class="material-icons">search</span>
+      </button>
+    </div>
+  </div>
+</section>
 
-    <thead>
-      <tr>
-        <th scope="col">Nombre</th>
-        <th scope="col">Correo Electrónico</th>
-        <th scope="col">Teléfono</th>
-      </tr>
-    </thead>
+<section class="container-fluid mt-5 table-responsive bg-white dashboard-table vh-100">
+  <div class="row">
+    <table class="table table-striped col-12 align-middle">
+      <thead>
+        <tr>
+          <th scope="col" class="col">Nombre</th>
+          <th scope="col" class="col">Correo</th>
+          <th scope="col" class="col">Teléfono</th>
+        </tr>
+      </thead>
 
-    <tbody>
-
-      <tr *ngFor="let user of users">
-
-        <td class="ps-4">{{user.username}}</td>
-        <td class="ps-4">{{user.email}}</td>
-        <td class="ps-4">{{user.telephone_area_code}}{{user.telephone_number}}</td>
-      </tr>
-
-    </tbody>
-  </table>
+      <tbody>
+        <tr *ngFor="let user of users">
+          <td>{{user.username}}</td>
+          <td>{{user.email}}</td>
+          <td>{{user.telephone_area_code}}{{user.telephone_number}}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</section>
