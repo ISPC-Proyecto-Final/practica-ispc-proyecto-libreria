@@ -15,6 +15,7 @@ export class BookDetailComponent implements OnInit {
   book!: Book;
   id: string = '';
   bookFound = false;
+  searchComplete = false
   recomendedBooks: Book[] = [];
 
   constructor(
@@ -41,7 +42,7 @@ export class BookDetailComponent implements OnInit {
     this.bookService.getBookById(Number(this.id))
       .subscribe((result: Book) => {
         this.book = result;
-
+        this.searchComplete = true
         if (this.book) {
           this.bookFound = true;
           this.getRecomendations();
