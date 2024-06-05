@@ -16,8 +16,10 @@ import { CartService } from 'src/app/services/cart/cart.service';
   styleUrls: ['./navbar.component.css'],
 })
 export class NavbarComponent implements OnInit {
-  profile: User | null = null;
   @Input() isAdmin = false;
+
+  profile: User | null = null;
+  offcanvasElement: any;
 
   constructor(
     private modalService: NgbModal,
@@ -29,6 +31,7 @@ export class NavbarComponent implements OnInit {
 
   ngOnInit(): void {
     this.getProfile();
+    this.offcanvasElement = document.getElementById('offcanvasNavbar');
   }
 
   onClickBack() {
@@ -52,27 +55,33 @@ export class NavbarComponent implements OnInit {
 
   onClickNavigateToBookDashboard() {
     this.adminNavigationService.navigateToBookDashboard();
+    this.closeOffcanvas();
   }
 
   onClickNavigateToSalesDashboard() {
     this.adminNavigationService.navigateToSalesDashboard();
+    this.closeOffcanvas();
   }
 
   navigateToStoreDashboard() {
     this.adminNavigationService.navigateToStoreDashboard();
+    this.closeOffcanvas();
   }
 
   onClickNavigateToClientDashboard() {
     this.adminNavigationService.navigateToClientDashboard();
+    this.closeOffcanvas();
   }
 
   onClickNavigateToAuthorDashboard() {
     this.adminNavigationService.navigateToAuthorDashboard();
-  }
-  onClickNavigateToPublisherDashboard() {
-    this.adminNavigationService.navigateToPublisherDashboard();
+    this.closeOffcanvas();
   }
 
+  onClickNavigateToPublisherDashboard() {
+    this.adminNavigationService.navigateToPublisherDashboard();
+    this.closeOffcanvas();
+  }
 
   getProfile() {
     this.authService.getProfileListener().subscribe((user) => {
@@ -97,6 +106,14 @@ export class NavbarComponent implements OnInit {
       this.authService.clearProfile();
       this.cartService.clearCart();
       this.navigationService.navigateToHome();
+      this.closeOffcanvas();
     });
+  }
+
+  closeOffcanvas() {
+    const menuCloseButton = document.getElementById('close-offmenu-button');
+    if (menuCloseButton) {
+      menuCloseButton.click();
+    }
   }
 }
