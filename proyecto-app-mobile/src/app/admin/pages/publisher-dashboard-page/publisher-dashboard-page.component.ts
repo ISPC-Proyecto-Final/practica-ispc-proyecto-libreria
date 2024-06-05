@@ -12,6 +12,7 @@ import { PublisherFormComponent } from './publisher-form/publisher-form.componen
 export class PublisherDashboardPageComponent implements OnInit {
 
   publishers: Publisher[] = [];
+  name = '';
 
   constructor(
     private modalService: NgbModal,
@@ -72,4 +73,7 @@ export class PublisherDashboardPageComponent implements OnInit {
     });
   }
 
+  onClickSearch() {
+
+  }
 }
