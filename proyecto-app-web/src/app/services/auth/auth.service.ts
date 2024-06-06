@@ -29,20 +29,10 @@ export class AuthService {
     return this.http.post<User>(`${this.authApiUrl}/login/`, credentials);
   }
 
-  // getProfile(token: string, userId: number) {
-  //   const headers = new HttpHeaders();
-  //   headers.set('Authorization',  `Bearer ${token}`);
-  //   return this.http.get<User>(`${this.apiUrl}/profiles/${userId}`, {
-  //     headers
-  //   });
-  // }
-
-  // loginAndGet(credentials: Credentials) {
-  //   return this.loginUser(credentials)
-  //   .pipe(
-  //     switchMap(response => this.getProfile(response.access_token, response.user.id)),
-  //   );
-  // }
+  deleteAccount(): Observable<any> {
+    const headers = new HttpHeaders().set('Authorization', `Token ${this.profile?.token}`);
+    return this.http.delete(`${this.authApiUrl}/users/${this.profile?.id_user}/`, { headers });
+  }
 
   updateProfileListener(profile: User) {
     this.profile = profile;
@@ -59,7 +49,6 @@ export class AuthService {
 
   logoutUser(): Observable<boolean> {
     console.log('logout');
-
     return this.http.post(`${this.authApiUrl}/logout/`, {}, { observe: 'response' }).pipe(
       map((response: HttpResponse<any>) => {
         return response.status === 200;

@@ -5,9 +5,12 @@ import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { AddressFormComponent } from '../address-form/address-form.component';
 import { PersonalDataFormComponent } from '../personal-data-form/personal-data-form.component';
 import { AuthService } from 'src/app/services/auth/auth.service';
-import { Subscription } from 'rxjs';
+import { Subscription, catchError, tap } from 'rxjs';
 import { Sale } from 'src/app/models/sale/sale-model';
 import { Purchase } from 'src/app/models/user/purchase-model';
+import { ToastService } from 'src/app/services/utils/toast.service';
+import { CartService } from 'src/app/services/cart/cart.service';
+import { NavigationService } from 'src/app/services/navigation/navigation.service';
 
 @Component({
   selector: 'app-account-details',
@@ -25,8 +28,10 @@ export class AccountDetailsComponent implements OnInit, OnDestroy {
   constructor(
     private userService: UserService,
     private modalService: NgbModal,
-    private authService: AuthService
-
+    private authService: AuthService,
+    private toastService: ToastService,
+    private cartService : CartService,
+    private navigationService : NavigationService
   ) { }
 
 
@@ -36,7 +41,6 @@ export class AccountDetailsComponent implements OnInit, OnDestroy {
       if (profile) {
         this.profile = { ...profile };
         this.loadUserPurchases();
-
       }
     });
   }
@@ -92,4 +96,28 @@ export class AccountDetailsComponent implements OnInit, OnDestroy {
   }
 
 
+  onDeleteAccount() {
+    this.authService.deleteAccount()
+      .pipe(tap(response => {
+        console.log('Cuenta dada de baja', response);
+        this.toastService.createToast({ type: 'bg-success', delay: 4000, message: 'La cuenta se dio de baja exitosamente' });
+        this.logout();
+      }), catchError(error => {
+          console.log('Error al dar de baja la cuenta', error);
+          this.toastService.createToast({ type: 'bg-danger', delay: 4000, message: 'Error al dar de baja la cuenta' });
+          throw error;
+        })
+      ).subscribe();
+  }
+
+  logout() {
+    this.authService.logoutUser().subscribe((response: boolean) => {
+      if (!response) {
+        return;
+      }
+      this.authService.clearProfile();
+      this.cartService.clearCart();
+      this.navigationService.navigateToHome();
+    });
+  }
 }
