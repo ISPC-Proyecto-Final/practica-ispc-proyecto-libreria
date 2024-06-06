@@ -175,7 +175,8 @@ export class RegisterPageComponent implements OnInit {
 
   getUserDto(): CreateUserDTO {
     return {
-      username: this.registerForm.value.name,
+      first_name: this.registerForm.value.name,
+      username: this.registerForm.value.email,
       email: this.registerForm.value.email,
       password: this.registerForm.value.password,
       telephone_area_code: this.registerForm.value.areaCode,
