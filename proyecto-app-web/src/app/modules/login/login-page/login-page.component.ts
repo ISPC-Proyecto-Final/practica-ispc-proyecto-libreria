@@ -40,18 +40,18 @@ export class LoginPageComponent {
     private toastService: ToastService
     ) { }
 
-  
+
     ngOnInit(): void {
       this.createForm();
     }
-  
+
     createForm() {
       this.loginForm = this.formBuilder.group({
         email: ['', [Validators.required, Validators.maxLength(80), Validators.pattern(regExEmail)]],
         password: ['', [Validators.required, Validators.pattern(regExPassword)]],
       });
     }
-  
+
     loginUser(){
       this.loginForm.markAllAsTouched();
       if(this.loginForm.valid){
@@ -73,9 +73,7 @@ export class LoginPageComponent {
       )
       .subscribe();
       this.activeModal.close();
-      } 
-      
-     
+      }
   }
 
 //   loginUser(){
@@ -98,14 +96,14 @@ export class LoginPageComponent {
 //     .subscribe();
 //     this.activeModal.close();
 //     } else{
-  
+
 //       this.loginForm.markAllAsTouched
 //     }
-    
-   
+
+
 // }
-  
-  
+
+
     getCredencials(): Credentials  {
       return {
         email: this.loginForm.value.email,
@@ -116,7 +114,7 @@ export class LoginPageComponent {
     get email() {
       return this.loginForm.get('email');
     }
-    
+
     get password() {
       return this.loginForm.get('password');
     }
