@@ -34,7 +34,7 @@
           <div class="col-12 pt-3">
             <div class="form-floating">
               <input type="number" class="form-control formInput" formControlName="discount" />
-              <label>Porcentaje %</label>
+              <label>Descuento %</label>
               <div *ngIf="discount?.errors && discount?.touched">
                 <ng-container *ngFor="let error of errorMessages.name">
                   <div class="text-danger" *ngIf="discount?.hasError(error.type)">
