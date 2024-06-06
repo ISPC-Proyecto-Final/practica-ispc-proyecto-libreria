@@ -17,13 +17,13 @@
       <div class="row mb-3">
         <label for="inputEmail3" class="col-sm-2 col-form-label visually-hidden">Nombre y apellido</label>
         <div class="col-sm-12">
-          <input type="text" formControlName="username" class="form-control" id="inputEmail3"
+          <input type="text" formControlName="name" class="form-control" id="inputEmail3"
             placeholder="Nombre y apellido" />
-          <small class="text-danger mt-2" [hidden]="username.valid || username.pristine">
-            <span *ngIf="username.errors?.['required']">
+          <small class="text-danger mt-2" [hidden]="name.valid || name.pristine">
+            <span *ngIf="name.errors?.['required']">
               El campo "Nombre y apellido"es obligatorio
             </span>
-            <span *ngIf="username.errors?.['minlength']">
+            <span *ngIf="name.errors?.['minlength']">
               Minimo de 5 caracteres
             </span>
 

@@ -17,15 +17,15 @@
     <form [formGroup]="formUser" (submit)="updateUserData()" class="row justify-content-center">
       <div class="col-12">
         <div class="form-floating">
-          <input type="text" id="usernameLabel" class="form-control fw-300" placeholder="Nombre y apellido"
-            formControlName="username" />
-          <label for="usernameLabel">Nombre y apellido</label>
+          <input type="text" id="name" class="form-control fw-300" placeholder="Nombre y apellido"
+            formControlName="name" />
+          <label for="name">Nombre y apellido</label>
         </div>
-        <small class="text-danger mt-2" [hidden]="username.valid || username.pristine">
-          <span *ngIf="username.errors?.['required']">
+        <small class="text-danger mt-2" [hidden]="name.valid || name.pristine">
+          <span *ngIf="name.errors?.['required']">
             El campo "Nombre y apellido"es obligatorio
           </span>
-          <span *ngIf="username.errors?.['minlength']">
+          <span *ngIf="name.errors?.['minlength']">
             Minimo de 5 caracteres
           </span>
         </small>
