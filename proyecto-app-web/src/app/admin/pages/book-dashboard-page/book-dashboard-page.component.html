@@ -2,11 +2,11 @@
   <section class="container pb-5 mb-5">
     <div class="row mt-5 pt-5 justify-content-center align-items-center gy-5">
 
-      <div class="col-12 col-lg-4 text-start">
+      <div class="col-12">
         <span class="fw-700 db-tittle">Stock de productos</span>
       </div>
 
-      <div class="col-12 col-lg-6">
+      <div class="col-12">
         <div class="input-group">
           <input type="text" class="form-control rounded-1 px-4 py-3" placeholder="Buscá por ISBN, título, autor">
           <button type="button" class="btn btn-outline-secondary"> <img src="./assets/icons/extra/lupa.png" alt="">
@@ -15,9 +15,18 @@
         </div>
       </div>
 
-      <div class="col-12 col-lg-2 text-end">
-        <button type="button" role="button" class="primary-button-outline py-2 px-3 col-12"
-          (click)="onCreateBook()">Agregar stock</button>
+      <div class="col-12">
+        <div class="row">
+          <div class="col-auto">
+            <button type="button" role="button" class="std-button p-2"
+              (click)="showSubscriptionBooks()">Mostrar Libros de Subscripción</button>
+          </div>
+
+          <div class="col-auto">
+            <button type="button" role="button" class="std-button p-2"
+              (click)="onCreateBook()">Agregar stock</button>
+          </div>
+        </div>
       </div>
     </div>
   </section>

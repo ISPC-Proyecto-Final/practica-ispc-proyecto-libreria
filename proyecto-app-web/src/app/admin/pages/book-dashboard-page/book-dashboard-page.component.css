@@ -11,12 +11,6 @@
   background: #F6F6F6;
 }
 
-.primary-button-outline {
-  box-sizing: border-box;
-  border: 1px solid #E35352;
-  border-radius: 15px;
-}
-
 .table {
   font-family: 'Mulish';
   font-style: normal;
@@ -26,10 +20,6 @@
   color: #041C3E;
 
 }
-
-/* .th1 {
-  padding: 20px, 100px, 60px, 60px;
-} */
 
 th {
   padding: 20px;
@@ -59,11 +49,6 @@ a.active {
   font-weight: 700;
   color: var(--secondary-red);
 
-}
-
-button {
-  border: none;
-  background-color: transparent;
 }
 
 .trash-btn {

@@ -17,6 +17,7 @@ export class HomePageComponent implements OnInit {
   newAtBooks: Book[] = [];
   recomendedBooks: Book[] = [];
   topSellingBooks: Book[] = [];
+  subscriptionBooks: Book[] = [];
 
   constructor(
     bookService: BookService,
@@ -29,6 +30,7 @@ export class HomePageComponent implements OnInit {
     this.getRecomendedBooks();
     this.getNewAtBooks();
     this.getTopSellerBooks();
+    this.getsubscriptionBooks();
   }
 
   onClickCatalogue() {
@@ -60,6 +62,12 @@ export class HomePageComponent implements OnInit {
     return books.sort(() => Math.random() - 0.5).slice(0, 5);
   }
 
+  getsubscriptionBooks() {
+    this.bookService.getSubscriptionBooks()
+      .subscribe((result: Book[]) => {
+        this.subscriptionBooks = this.sortAndLimit(result);
+      })
+  }
 }
 
 
