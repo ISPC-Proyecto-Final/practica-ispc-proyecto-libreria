@@ -1,5 +1,5 @@
 from rest_framework import routers
-from .api import BookViewSet, AuthorViewSet, PublisherViewSet, GenreViewSet,SellViewSet, StoreViewSet, PaymentViewSet, DeliveryViewSet, LoginView, LogoutView, SignupView, ProfileView, UserList, ProfileViewSet, ProcessPayment, CouponViewSet, SubscriptionBookViewSet
+from .api import BookViewSet, AuthorViewSet, PublisherViewSet, GenreViewSet,SellViewSet, StoreViewSet, PaymentViewSet, DeliveryViewSet, LoginView, LogoutView, SignupView, ProfileView, UserList, ProfileViewSet, ProcessPayment, CouponViewSet, SubscriptionBookViewSet, DeleteUserView, CustomAuthToken, UserDeleteView
 from django.urls import path, include
 
 router = routers.DefaultRouter()
@@ -19,12 +19,15 @@ router.register("api/v1/subcriptions-books", SubscriptionBookViewSet,"subcriptio
 urlpatterns = [
     *router.urls,
     # Auth views
-    path('auth/login/',LoginView.as_view(), name='auth_login'),
+    # path('auth/login/',LoginView.as_view(), name='auth_login'),
+    path('auth/login/', CustomAuthToken.as_view(), name='auth_login'),
+    path('auth/users/<int:pk>/', UserDeleteView.as_view(), name='user-delete'),
     path('auth/logout/', LogoutView.as_view(), name='auth_logout'),
     path('auth/reset/', include('django_rest_passwordreset.urls', namespace='password_reset')),
     path('auth/register/', SignupView.as_view(), name='auth_signup'),
     path('user/profile/', ProfileView.as_view(), name='user_profile'),
     path('users/',UserList.as_view(), name='listar_usuarios'),
+    path('user/delete/', DeleteUserView.as_view(), name='user_delete'),
     path('process-payment/', ProcessPayment.as_view(), name='process_payment'),    
 ]
 # router_urls = router.urls

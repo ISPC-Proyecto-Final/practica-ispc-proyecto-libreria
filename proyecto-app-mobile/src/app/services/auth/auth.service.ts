@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { HttpClient, HttpHeaderResponse, HttpHeaders, HttpResponse } from '@angular/common/http';
+import { HttpClient, HttpHeaderResponse, HttpHeaders, HttpInterceptor, HttpResponse } from '@angular/common/http';
 import { environment } from 'src/environments/environment';
 import { Auth } from 'src/app/models/auth/auth-model';
 import { Credentials } from 'src/app/models/credentials/credentials-model';
@@ -29,20 +29,10 @@ export class AuthService {
     return this.http.post<User>(`${this.authApiUrl}/login/`, credentials);
   }
 
-  // getProfile(token: string, userId: number) {
-  //   const headers = new HttpHeaders();
-  //   headers.set('Authorization',  `Bearer ${token}`);
-  //   return this.http.get<User>(`${this.apiUrl}/profiles/${userId}`, {
-  //     headers
-  //   });
-  // }
-
-  // loginAndGet(credentials: Credentials) {
-  //   return this.loginUser(credentials)
-  //   .pipe(
-  //     switchMap(response => this.getProfile(response.access_token, response.user.id)),
-  //   );
-  // }
+  deleteAccount(): Observable<any> {
+    const headers = new HttpHeaders().set('Authorization', `Token ${this.profile?.token}`);
+    return this.http.delete(`${this.authApiUrl}/users/${this.profile?.id_user}/`, { headers });
+  }
 
   updateProfileListener(profile: User) {
     this.profile = profile;
@@ -71,5 +61,4 @@ export class AuthService {
     const url = `${this.apiUrl}/sells?user_id=${userId}`; // Ajusta la URL para obtener las compras del usuario específico
     return this.http.get<Sale[]>(url);
   }
-
 }
