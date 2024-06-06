@@ -120,6 +120,7 @@ export class BookFormComponent implements OnInit {
         this.bookForm.get('author')?.setValue(result.author.id_author);
         this.bookForm.get('publisher')?.setValue(result.publisher.id_publisher);
         this.bookForm.get('genre')?.setValue(result.genres[0]);
+        this.bookForm.get('subscription')?.setValue(result.subscription);
       })).subscribe();
   }
 
@@ -171,7 +172,8 @@ export class BookFormComponent implements OnInit {
       tags: this.bookForm.value.tags as string,
       author_id: this.bookForm.value.author as number,
       publisher_id: this.bookForm.value.publisher as number,
-      genre_ids: [this.bookForm.value.genre as number]
+      genre_ids: [this.bookForm.value.genre as number],
+      subscription: this.bookForm.value.subscription
     }
 
     this.bookService.saveBook(this.book)
@@ -197,7 +199,8 @@ export class BookFormComponent implements OnInit {
       tags: this.bookForm.value.tags as string,
       author_id: this.bookForm.value.author as number,
       publisher_id: this.bookForm.value.publisher as number,
-      genre_ids: [this.bookForm.value.genre as number]
+      genre_ids: [this.bookForm.value.genre as number],
+      subscription: this.bookForm.value.subscription
     }
 
     this.bookService.updateBook(this.bookId, this.book)
@@ -237,6 +240,7 @@ export class BookFormComponent implements OnInit {
       author: [{ value: '', disabled: !this.formEnable }, [Validators.required]],
       publisher: [{ value: '', disabled: !this.formEnable }, [Validators.required]],
       genre: [{ value: '', disabled: !this.formEnable }, [Validators.required]],
+      subscription: [{ value: false, disabled: !this.formEnable }],
     });
   }
 

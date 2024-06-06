@@ -86,5 +86,12 @@ export class BookDashboardPageComponent implements OnInit {
   onClickSearch(){
 
   }
+
+  showSubscriptionBooks(){
+    this.bookService.getAllBooks()
+    .subscribe((result: Book[]) => {
+      this.books = result.filter(book => book.subscription);
+    });
+  }
 }
 
