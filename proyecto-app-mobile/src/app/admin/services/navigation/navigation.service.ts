@@ -33,4 +33,7 @@ export class AdminNavigationService {
     this.router.navigate(['/admin/publisher-dashboard']);
   }
 
+  navigateToCouponDashboard() {
+    this.router.navigate(['/admin/coupons']);
+  }
 }

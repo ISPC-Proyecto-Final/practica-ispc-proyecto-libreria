@@ -7,6 +7,7 @@ import { PublisherDashboardPageComponent } from './pages/publisher-dashboard-pag
 import { SalesDashboardPageComponent } from './pages/sales-dashboard-page/sales-dashboard-page.component';
 import { AdminPageComponent } from './pages/admin-page/admin-page.component';
 import { StoreDashboardPageComponent } from './pages/store-dashboard-page/store-dashboard-page.component';
+import { CouponDashboardPageComponent } from './pages/coupon-dashboard-page/coupon-dashboard-page.component';
 
 const routes: Routes = [
   {
@@ -19,7 +20,8 @@ const routes: Routes = [
       { path: 'author-dashboard', component: AuthorDashboardPageComponent },
       { path: 'publisher-dashboard', component: PublisherDashboardPageComponent },
       { path: 'sales-dashboard', component: SalesDashboardPageComponent },
-      { path: 'store-dashboard', component: StoreDashboardPageComponent }
+      { path: 'store-dashboard', component: StoreDashboardPageComponent },
+      { path: 'coupons', component: CouponDashboardPageComponent },
     ],
   },
 ];
