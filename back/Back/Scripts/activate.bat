@@ -8,7 +8,7 @@ if defined _OLD_CODEPAGE (
     "%SystemRoot%\System32\chcp.com" 65001 > nul
 )
 
-set VIRTUAL_ENV=C:\Users\ICBC\Desktop\Nueva carpeta (2)\practica-ispc-proyecto-libreria-pluton\proyecto-app-web\Back\Back
+set VIRTUAL_ENV=C:\Users\rioss\OneDrive\Escritorio\practica-ispc-proyecto-libreria-pluton\back\Back
 
 if not defined PROMPT set PROMPT=$P$G
 

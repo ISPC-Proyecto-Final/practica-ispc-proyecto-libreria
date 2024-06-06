@@ -54,6 +54,7 @@ export class NavbarComponent implements OnInit {
   onClickNavigateToSubscription() {
     this.navigationService.navigateToSubscription();
   }
+
   onClickNavigateToContact() {
     this.navigationService.navigateToContact();
   }
@@ -72,6 +73,10 @@ export class NavbarComponent implements OnInit {
 
   onClickNavigateToClientDashboard() {
     this.adminNavigationService.navigateToClientDashboard();
+  }
+
+  onClickNavigateToCoupontDashboard() {
+    this.adminNavigationService.navigateToCouponDashboard();
   }
 
   onClickNavigateToAuthorDashboard() {

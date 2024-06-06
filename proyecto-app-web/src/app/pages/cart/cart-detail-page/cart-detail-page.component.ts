@@ -1,6 +1,7 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { Subscription } from 'rxjs';
 import { SelectedBookDto } from 'src/app/models/book/book-model';
+import { Coupon } from 'src/app/models/coupon/coupon-model';
 import { CartService } from 'src/app/services/cart/cart.service';
 import { NavigationService } from 'src/app/services/navigation/navigation.service';
 
@@ -73,26 +74,14 @@ export class CartDetailPageComponent implements OnInit, OnDestroy {
   }
 
   onSubmitCoupon() {
-    this.couponErrorMessage= '';
-    this.couponSuccessMessage = '';
-    this.cartService.makeDiscount(0);
-    const keyword = this.coupon.slice(0, 6);
-    this.coupon = this.coupon.replace(/[^\d.-]/g, "");
-    const discountPercent = parseFloat(this.coupon);
-    this.coupon = `${keyword}${this.coupon}`;
-    if (keyword.toLocaleLowerCase() !== 'pluton') {
-      console.log('no es pluton');
-      this.couponErrorMessage= 'Cupón inválido';
-      return;
-    }
-
-    if(Number.isNaN(discountPercent)){
-      console.log('no es un numero');
-      this.couponErrorMessage= 'Cupón inválido';
-      return;
-    }
-
-    this.cartService.makeDiscount(discountPercent);
-    this.couponSuccessMessage = 'Cupón aplicado exitosamente'
+    this.cartService.getAllCoupons()
+      .subscribe((result: Coupon[]) => {
+        const coupons = result;
+        const matchCoupon = coupons.find(item => item.name.toLocaleLowerCase().trim() === this.coupon.toLocaleLowerCase().trim());
+        const discount = matchCoupon?.discount ? matchCoupon.discount : 0;
+        this.couponErrorMessage = !discount ? 'Cupón inválido' : '';
+        this.couponSuccessMessage = discount ? 'Cupón aplicado exitosamente' : '';
+        this.cartService.makeDiscount(discount);
+      });
   }
 }
