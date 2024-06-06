@@ -63,6 +63,20 @@
     <div class="container-fluid">
       <div class="row">
         <div class="col-12">
+          <h6 class="fs-sm-1 fc-secondary font-bold text-uppercase">Libros de Suscripción</h6>
+        </div>
+        <div class="col-12 text-end fc-basic-7 fs-sm-mob">
+          <a role="button" (click)="onClickSubscription()">Ver más</a>
+        </div>
+      </div>
+    </div>
+    <app-books-row-cards [books]="subscriptionBooks" [colSize]="6"></app-books-row-cards>
+  </section>
+
+  <section class="pt-5">
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-12">
           <h6 class="fs-sm-1 fc-secondary font-bold text-uppercase">Recomendados</h6>
         </div>
         <div class="col-12 text-end fc-basic-7 fs-sm-mob">

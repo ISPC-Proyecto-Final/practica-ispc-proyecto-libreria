@@ -33,8 +33,12 @@ export class CartService {
       selectedAmount: 0,
     };
 
-    selectedBook =
-      this.cart.find((item) => item.isbn === book.isbn) || selectedBook;
+    selectedBook = this.cart.find((item) => item.isbn === book.isbn) || selectedBook;
+    const subscription = this.cart.find((item) => item.id_book === book.id_book);
+
+    if (selectedBook.id_book === -1 && subscription) {
+      return;
+    }
 
     if (selectedBook.selectedAmount > 0) {
       selectedBook.selectedAmount += 1;

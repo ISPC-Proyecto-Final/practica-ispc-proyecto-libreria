@@ -19,6 +19,7 @@ export class HomePageComponent implements OnInit {
   newAtBooks: Book[] = [];
   recomendedBooks: Book[] = [];
   topSellingBooks: Book[] = [];
+  subscriptionBooks: Book[] = [];
   profile: User | null = null;
 
   constructor(
@@ -33,11 +34,16 @@ export class HomePageComponent implements OnInit {
     this.getRecomendedBooks();
     this.getNewAtBooks();
     this.getTopSellerBooks();
+    this.getsubscriptionBooks();
     this.getProfile();
   }
 
   onClickCatalogue() {
     this.navigationService.navigateToCatalogue();
+  }
+
+  onClickSubscription() {
+    this.navigationService.navigateToSubscription();
   }
 
   getRecomendedBooks() {
@@ -69,6 +75,13 @@ export class HomePageComponent implements OnInit {
     this.authService.getProfileListener().subscribe((user) => {
       this.profile = user;
     });
+  }
+
+  getsubscriptionBooks() {
+    this.bookService.getSubscriptionBooks()
+      .subscribe((result: Book[]) => {
+        this.subscriptionBooks = this.sortAndLimit(result);
+      })
   }
 }
 

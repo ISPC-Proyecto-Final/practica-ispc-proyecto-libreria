@@ -99,4 +99,12 @@ export class BookService {
 
     return books;
   }
+
+  getSubscriptionBooks() {
+    const url = `${this.apiUrl}/books`
+    return this.http.get<Book[]>(url)
+      .pipe(map((result: Book[]) => {
+        return result.filter(book => book.subscription) as Book[];
+      }));
+  }
 }
