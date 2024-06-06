@@ -162,8 +162,8 @@ class Store(models.Model):
 
 class Coupon(models.Model):
   id_coupon = models.AutoField(primary_key=True)
-  coupon_name = models.CharField(max_length = 100)
-  discount_percent = models.DecimalField(decimal_places=2, blank=False, max_digits=5)
+  name = models.CharField(max_length = 100)
+  discount = models.DecimalField(decimal_places=2, blank=False, max_digits=5)
 
   class Meta:
       db_table = 'Coupon'

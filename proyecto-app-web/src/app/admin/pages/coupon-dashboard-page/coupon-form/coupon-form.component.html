@@ -1,0 +1,90 @@
+<div class="modal-body p-0 m-0" *ngIf="!isDeleteForm">
+    <div class="container">
+      <div class="row">
+        <div class="text-end pt-4 pe-3">
+          <button type="button" class="btn-close" aria-label="Close" (click)="onClose()">
+          </button>
+        </div>
+  
+        <div class="row justify-content-start">
+          <div class="col-12 mb-2">
+            <h4 class="font-medium fs-md-1 fc-primary">
+              {{action === 'create' ? 'Agregar Cupón':'Editar Cupón'}}
+            </h4>
+          </div>
+        </div>
+      </div>
+  
+      <form [formGroup]="couponForm" (ngSubmit)="onSaveHandle($event)">
+        <div class="row mb-3">
+          <div class="col-12">
+            <div class="form-floating">
+              <input type="text" class="form-control formInput" formControlName="name" />
+              <label>Nombre</label>
+              <div *ngIf="name?.errors && name?.touched">
+                <ng-container *ngFor="let error of errorMessages.name">
+                  <div class="text-danger" *ngIf="name?.hasError(error.type)">
+                    {{ error.message }}
+                  </div>
+                </ng-container>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-12 pt-3">
+            <div class="form-floating">
+              <input type="number" class="form-control formInput" formControlName="discount" />
+              <label>Descuento %</label>
+              <div *ngIf="discount?.errors && discount?.touched">
+                <ng-container *ngFor="let error of errorMessages.name">
+                  <div class="text-danger" *ngIf="discount?.hasError(error.type)">
+                    {{ error.message }}
+                  </div>
+                </ng-container>
+              </div>
+            </div>
+          </div>
+        </div>
+  
+        <div class="modal-footer">
+          <div>
+            <button type="button" class="btn btn-cancel me-5" data-bs-dismiss="modal" (click)="onClose()">
+              Cancelar
+            </button>
+          </div>
+          <div>
+            <button type="submit" class="btn btn-danger">
+              {{action === 'create' ? 'Guardar':'Guardar cambios'}}
+            </button>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+  
+  <div class="modal-body p-0 m-0" *ngIf="isDeleteForm">
+    <div class="container">
+  
+      <div class="row py-5">
+  
+        <div class="row justify-content-center">
+          <div class="col-12 mb-1 text-center">
+            <h4 class="font-medium fs-md-1 fc-primary">¿Desea eliminar el Cupón? </h4>
+          </div>
+        </div>
+      </div>
+  
+      <div class="modal-footer">
+        <div>
+          <button type="button" class="btn btn-cancel me-5" data-bs-dismiss="modal" (click)="onClose()">
+            Cancelar
+          </button>
+        </div>
+        <div>
+          <button type="submit" class="btn btn-danger" (click)="onConfirmDelete()">
+            Confirmar
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>

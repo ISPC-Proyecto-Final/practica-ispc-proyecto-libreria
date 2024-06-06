@@ -83,6 +83,11 @@ export class NavbarComponent implements OnInit {
     this.closeOffcanvas();
   }
 
+  onClickNavigateToCouponDashboard() {
+    this.adminNavigationService.navigateToCouponDashboard();
+    this.closeOffcanvas();
+  }
+
   getProfile() {
     this.authService.getProfileListener().subscribe((user) => {
       this.profile = user;

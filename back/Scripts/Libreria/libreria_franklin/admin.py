@@ -34,7 +34,7 @@ class SellAdmin(admin.ModelAdmin):
 class StoreAdmin(admin.ModelAdmin):
   list_display = ('id_store','street_number','province','locality','telephone')
 class CouponAdmin(admin.ModelAdmin):
-  list_display = ('id_coupon','coupon_name','discount_percent')
+  list_display = ('id_coupon','name','discount')
 class SubscriptionBookAdmin(admin.ModelAdmin):
   list_display = ('id_subscription_book','book_name','active')
 

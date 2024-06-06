@@ -25,6 +25,6 @@ export interface User {
 }
 
 export interface CreateUserDTO extends Omit
-  <User, 'id_user' | 'last_login' | 'is_superuser' | 'first_name' | 'last_name' | 'is_staff' | 'is_active' | 'date_joined' | 'groups' | 'user_permissions' | 'token'> { }
+  <User, 'id_user' | 'last_login' | 'is_superuser' | 'last_name' | 'is_staff' | 'is_active' | 'date_joined' | 'groups' | 'user_permissions' | 'token'> { }
 
-export interface UserBasicInfoDTO extends Pick<User, 'username' | 'email' | 'telephone_area_code' | 'telephone_number' | 'token'> { }
+export interface UserBasicInfoDTO extends Pick<User, 'first_name' | 'username' | 'email' | 'telephone_area_code' | 'telephone_number' | 'token'> { }

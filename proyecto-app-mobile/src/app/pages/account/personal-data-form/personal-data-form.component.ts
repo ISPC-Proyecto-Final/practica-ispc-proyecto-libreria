@@ -33,8 +33,8 @@ export class PersonalDataFormComponent {
     this.activeModal.close();
   }
 
-  get username(){
-    return this.formUser.get('username') as FormControl;
+  get name(){
+    return this.formUser.get('name') as FormControl;
   }
 
   get document(){
@@ -55,7 +55,7 @@ export class PersonalDataFormComponent {
 
   ngOnInit() {
     this.formUser = this.formBuilder.group({
-        username:[this.Data.username,[Validators.required, Validators.minLength(5)]],
+        name:[this.Data.first_name,[Validators.required, Validators.minLength(5)]],
         document:[this.Data.document,[Validators.required,Validators.pattern('^[0-9]{1,3}\.?[0-9]{3,3}\.?[0-9]{3,3}$')]],
         telephone_area_code:[this.Data.postal_code,[Validators.required]],
         telephone_number:[this.Data.telephone_number,[Validators.required]],

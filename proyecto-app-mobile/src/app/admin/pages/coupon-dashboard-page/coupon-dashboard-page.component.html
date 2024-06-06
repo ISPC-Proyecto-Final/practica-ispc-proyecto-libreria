@@ -1,0 +1,55 @@
+<section class="container-fluid pt-5 mt-5">
+  <div class="row justify-content-center align-items-center gy-3">
+    <div class="col-12">
+      <span class="font-bold fs-md-2 fc-secondary">Cupones</span>
+    </div>
+
+    <div class="col-12 pt-3 input-group">
+      <input type="text" class="form-control" placeholder="Buscar" (keyup.enter)="onClickSearch()" [(ngModel)]="name">
+      <button class="btn btn-outline-primary search-button pt-3" type="button" (click)="onClickSearch()"><span
+          class="material-icons">search</span>
+      </button>
+    </div>
+
+    <div class="col-12 text-end">
+      <button type="button" role="button" class="std-button py-2 col-12" (click)="onCreateCoupon()">
+        Agregar Cupón
+      </button>
+    </div>
+  </div>
+</section>
+
+<section class="container-fluid mt-5 table-responsive bg-white dashboard-table vh-100">
+  <table class="table table-striped align-middle">
+    <thead>
+      <tr>
+        <th scope="col" class="col">Nombre</th>
+        <th scope="col" class="col">Descuento%</th>
+        <th scope="col" class="col">Acciones</th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <tr *ngFor="let coupon of coupons">
+        <td>{{coupon.name}}</td>
+        <td>{{coupon.discount}}</td>
+
+        <td>
+          <div class="row">
+            <div class="col">
+              <button class="trash-btn" type="button" title="editar" (click)="onEditCoupon(coupon.id_coupon)">
+                <img src="./assets/icons/actions/edit.png" alt="" class="img-fluid">
+              </button>
+            </div>
+
+            <div class="col">
+              <button class="trash-btn" type="button" title="eliminar" (click)="onDeleteCoupon(coupon.id_coupon)">
+                <img src="./assets/icons/actions/trash.png" alt="" class="img-fluid">
+              </button>
+            </div>
+          </div>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</section>

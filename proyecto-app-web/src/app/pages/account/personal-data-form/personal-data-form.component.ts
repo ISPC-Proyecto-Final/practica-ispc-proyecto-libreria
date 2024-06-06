@@ -33,51 +33,51 @@ export class PersonalDataFormComponent {
     this.activeModal.close();
   }
 
-  get username(){
-    return this.formUser.get('username') as FormControl;
+  get name() {
+    return this.formUser.get('name') as FormControl;
   }
 
-  get document(){
+  get document() {
     return this.formUser.get('document') as FormControl;
   }
 
-  get telephone_area_code(){
+  get telephone_area_code() {
     return this.formUser.get('telephone_area_code') as FormControl;
   }
 
-  get telephone_number(){
+  get telephone_number() {
     return this.formUser.get('telephone_number') as FormControl;
   }
 
-  get email(){
+  get email() {
     return this.formUser.get('email') as FormControl;
   }
 
   ngOnInit() {
     this.formUser = this.formBuilder.group({
-        username:[this.Data.username,[Validators.required, Validators.minLength(5)]],
-        document:[this.Data.document,[Validators.required,Validators.pattern('^[0-9]{1,3}\.?[0-9]{3,3}\.?[0-9]{3,3}$')]],
-        telephone_area_code:[this.Data.postal_code,[Validators.required]],
-        telephone_number:[this.Data.telephone_number,[Validators.required]],
-        email:[this.Data.email,[Validators.required, Validators.email]]
+      name: [this.Data.first_name, [Validators.required, Validators.minLength(5)]],
+      document: [this.Data.document, [Validators.required, Validators.pattern('^[0-9]{1,3}\.?[0-9]{3,3}\.?[0-9]{3,3}$')]],
+      telephone_area_code: [this.Data.postal_code, [Validators.required]],
+      telephone_number: [this.Data.telephone_number, [Validators.required]],
+      email: [this.Data.email, [Validators.required, Validators.email]]
 
-      })
-    }
+    })
+  }
 
 
-  guardar(){
+  guardar() {
     console.log(this.formUser);
   }
 
-  limpiar(){
+  limpiar() {
     this.formUser.reset();
   }
 
-  updateUserData(){
-    console.log('Data enviada para guardar',this.formUser.value);
-    const newData: User = {...this.Data, ...this.formUser.value}
+  updateUserData() {
+    console.log('Data enviada para guardar', this.formUser.value);
+    const newData: User = { ...this.Data, ...this.formUser.value }
     const updatedData = newData;
-    console.log('newData',newData);
+    console.log('newData', newData);
     this.dataUpdated.emit(updatedData);
     this.activeModal.close();
   }

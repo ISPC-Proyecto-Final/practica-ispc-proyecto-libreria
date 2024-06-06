@@ -22,6 +22,8 @@ import { PublisherFormComponent } from './pages/publisher-dashboard-page/publish
 import { StoreDashboardPageComponent } from './pages/store-dashboard-page/store-dashboard-page.component';
 import { AdminNavigationService } from './services/navigation/navigation.service';
 import { StoreFormComponent } from './pages/store-dashboard-page/store-form/store-form.component';
+import { CouponDashboardPageComponent } from './pages/coupon-dashboard-page/coupon-dashboard-page.component';
+import { CouponFormComponent } from './pages/coupon-dashboard-page/coupon-form/coupon-form.component';
 
 
 
@@ -37,7 +39,9 @@ import { StoreFormComponent } from './pages/store-dashboard-page/store-form/stor
     AuthorFormComponent,
     PublisherFormComponent,
     StoreDashboardPageComponent,
-    StoreFormComponent
+    StoreFormComponent,
+    CouponDashboardPageComponent,
+    CouponFormComponent
   ],
   imports: [
     CommonModule,

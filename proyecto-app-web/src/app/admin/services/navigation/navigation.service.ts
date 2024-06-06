@@ -21,6 +21,10 @@ export class AdminNavigationService {
     this.router.navigate(['/admin/client-dashboard']);
   }
 
+  navigateToCouponDashboard() {
+    this.router.navigate(['/admin/coupons']);
+  }
+
   navigateToStoreDashboard() {
     this.router.navigate(['/admin/store-dashboard']);
   }
