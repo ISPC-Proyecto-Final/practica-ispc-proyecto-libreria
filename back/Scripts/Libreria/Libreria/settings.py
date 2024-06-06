@@ -41,6 +41,7 @@ INSTALLED_APPS = [
     'rest_framework',
     'django_rest_passwordreset',
     'libreria_franklin',
+    'rest_framework.authtoken'
 ]
 
 MIDDLEWARE = [
@@ -146,6 +147,7 @@ REST_FRAMEWORK = {
         'rest_framework.permissions.IsAuthenticatedOrReadOnly',
         'rest_framework.permissions.IsAuthenticated',
         'rest_framework.permissions.IsAdminUser',
+        'rest_framework.authentication.TokenAuthentication'
     ]
   
 }

@@ -1,7 +1,7 @@
 from rest_framework import viewsets, permissions
-from rest_framework.generics import RetrieveUpdateAPIView
-from .serializers import BookSerializer, AuthorSerializer, PublisherSerializer, GenreSerializer, SellSerializer, StoreSerializer, PaymentSerializer, DeliverySerializer, ProfileSerializer, CouponSerializer, SubscriptionBookSerializer
-from .models import Book, Author, Publisher, Genre, Sell, Store, Payment, Delivery, CustomUser, SubscriptionBook, Coupon
+from rest_framework.generics import RetrieveUpdateAPIView, DestroyAPIView
+from .serializers import BookSerializer, AuthorSerializer, PublisherSerializer, GenreSerializer, SellSerializer, StoreSerializer, PaymentSerializer, DeliverySerializer, ProfileSerializer, CouponSerializer, SubscriptionBookSerializer, AuthTokenSerializer
+from .models import Book, Author, Publisher, Genre, Sell, Store, Payment, Delivery, CustomUser, SubscriptionBook, Coupon, CustomUser
 from rest_framework.views import APIView
 from rest_framework.permissions import IsAdminUser, AllowAny, IsAuthenticated
 from django.contrib.auth import authenticate, login, logout
@@ -11,6 +11,10 @@ from rest_framework import status, generics
 from django.db.models import Q
 import json
 import mercadopago
+from rest_framework.authtoken.views import ObtainAuthToken
+from rest_framework.authtoken.models import Token
+from rest_framework.response import Response
+from django.contrib.auth.models import User
 
 class LoginView(APIView):
     permission_classes = [AllowAny] 
@@ -38,6 +42,31 @@ class LogoutView(APIView):
 
         # Devolvemos la respuesta al cliente
         return Response(status=status.HTTP_200_OK)
+
+class CustomAuthToken(ObtainAuthToken):
+    serializer_class = AuthTokenSerializer
+
+    def post(self, request, *args, **kwargs):
+        serializer = self.serializer_class(data=request.data,
+                                           context={'request': request})
+        serializer.is_valid(raise_exception=True)
+        user = serializer.validated_data['user']
+        token, created = Token.objects.get_or_create(user=user)
+        return Response({
+            'token': token.key,
+            'id_user': user.id_user,
+            'email': user.email,
+            'username': user.username,
+        })
+
+class UserDeleteView(generics.DestroyAPIView):
+    queryset = CustomUser.objects.all()
+    permission_classes = [permissions.IsAuthenticated]
+
+    def delete(self, request, *args, **kwargs):
+        user = self.get_object()
+        self.perform_destroy(user)
+        return Response(status=status.HTTP_204_NO_CONTENT)          
     
 class SignupView(generics.CreateAPIView):
     permission_classes = [AllowAny]
@@ -153,7 +182,18 @@ class UserList(generics.ListCreateAPIView):
 class ProcessPayment(APIView):
     permission_classes = [permissions.AllowAny]
     def post(self, request):
-        return Response({"status": "ok"})        
+        return Response({"status": "ok"})
+
+class DeleteUserView(DestroyAPIView):
+    permission_classes = [permissions.IsAuthenticated]
+
+    def get_object(self):
+        return self.request.user
+
+    def delete(self, request, *args, **kwargs):
+        user = self.get_object()
+        user.delete()
+        return Response(status=status.HTTP_204_NO_CONTENT)        
 
 # class ProcessPaymentA(APIView):
 #     def post(self, request):

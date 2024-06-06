@@ -2,7 +2,7 @@ from ast import Store
 from rest_framework import serializers
 from .models import Book, Author, Publisher, Genre, Sell, Store, Payment, Delivery, CustomUser, Coupon, SubscriptionBook
 from django.contrib.auth.hashers import make_password
-from django.contrib.auth import get_user_model
+from django.contrib.auth import get_user_model, authenticate
 
 
 class CustomUserSerializer(serializers.ModelSerializer):
@@ -145,6 +145,26 @@ class PaymentSerializer(serializers.ModelSerializer):
         model = Payment
         fields = '__all__'
 
+# class UserSerializer(serializers.ModelSerializer):
+#     email = serializers.EmailField(
+#         required=True)
+#     username = serializers.CharField(
+#         required=True)
+#     password = serializers.CharField(
+#         min_length=8)
+
+#     class Meta:
+#         model = get_user_model()
+#         fields = '__all__'
+#     def validate_password(self, value):
+#         return make_password(value)
+    
+# class ProfileSerializer(serializers.ModelSerializer):
+#     class Meta:
+#         model = CustomUser
+#         fields = '__all__'
+#         read_only_fields = ('__all__',)
+
 class UserSerializer(serializers.ModelSerializer):
     email = serializers.EmailField(
         required=True)
@@ -156,6 +176,7 @@ class UserSerializer(serializers.ModelSerializer):
     class Meta:
         model = get_user_model()
         fields = '__all__'
+
     def validate_password(self, value):
         return make_password(value)
     
@@ -164,3 +185,27 @@ class ProfileSerializer(serializers.ModelSerializer):
         model = CustomUser
         fields = '__all__'
         read_only_fields = ('__all__',)
+
+class AuthTokenSerializer(serializers.Serializer):
+    email = serializers.EmailField()
+    password = serializers.CharField(
+        style={'input_type': 'password'},
+        trim_whitespace=False
+    )
+
+    def validate(self, attrs):
+        email = attrs.get('email')
+        password = attrs.get('password')
+
+        if email and password:
+            user = authenticate(request=self.context.get('request'),
+                                username=email, password=password)
+            if not user:
+                msg = 'Unable to log in with provided credentials.'
+                raise serializers.ValidationError(msg, code='authorization')
+        else:
+            msg = 'Must include "email" and "password".'
+            raise serializers.ValidationError(msg, code='authorization')
+
+        attrs['user'] = user
+        return attrs
