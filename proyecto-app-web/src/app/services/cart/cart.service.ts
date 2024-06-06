@@ -17,6 +17,8 @@ export class CartService {
   private totalCostUpdated = new BehaviorSubject<number>(0);
 
   private apiUrl = `${environment.API_URL}`;
+  private subscriptionAdded = false;
+  private subscriptionCost = 15000;
 
   constructor(
     private http: HttpClient
@@ -33,8 +35,12 @@ export class CartService {
       selectedAmount: 0,
     };
 
-    selectedBook =
-      this.cart.find((item) => item.isbn === book.isbn) || selectedBook;
+    selectedBook = this.cart.find((item) => item.isbn === book.isbn) || selectedBook;
+    const subscription = this.cart.find((item) => item.id_book === book.id_book);
+
+    if (selectedBook.id_book === -1 && subscription) {
+      return;
+    }
 
     if (selectedBook.selectedAmount > 0) {
       selectedBook.selectedAmount += 1;
@@ -46,6 +52,11 @@ export class CartService {
     this.updatetTotalQuantity();
     this.updatedTotalCost();
     this.cartUpdated.next([...this.cart]);
+  }
+
+  addSubscription() {
+    this.subscriptionAdded = true;
+    this.totalCostUpdated.next(this.totalCost + this.subscriptionCost);
   }
 
   removeCopy(isbn: string) {
