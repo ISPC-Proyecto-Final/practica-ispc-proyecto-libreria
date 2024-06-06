@@ -1,6 +1,9 @@
 import { Injectable } from '@angular/core';
 import { Book, SelectedBookDto } from 'src/app/models/book/book-model';
 import { BehaviorSubject } from 'rxjs';
+import { HttpClient } from '@angular/common/http';
+import { environment } from 'src/environments/environment';
+import { Coupon } from 'src/app/models/coupon/coupon-model';
 
 @Injectable({
   providedIn: 'root',
@@ -12,6 +15,12 @@ export class CartService {
   private cartUpdated = new BehaviorSubject<SelectedBookDto[]>([]);
   private totalItemsUpdated = new BehaviorSubject<number>(0);
   private totalCostUpdated = new BehaviorSubject<number>(0);
+
+  private apiUrl = `${environment.API_URL}`;
+
+  constructor(
+    private http: HttpClient
+  ) { }
 
   addBook(book: Book | SelectedBookDto) {
     let selectedBook: SelectedBookDto = {
@@ -116,5 +125,10 @@ export class CartService {
 
   getTotalCostListener() {
     return this.totalCostUpdated.asObservable();
+  }
+
+  getAllCoupons() {
+    const url = `${this.apiUrl}/coupons/`;
+    return this.http.get<Coupon[]>(url);
   }
 }

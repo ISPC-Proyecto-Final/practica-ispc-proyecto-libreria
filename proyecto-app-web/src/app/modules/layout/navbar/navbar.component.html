@@ -28,8 +28,6 @@
             </a>
           </li>
 
-
-
           <!-- NAV ADMIN -->
           <li class="nav-item">
             <a class="nav-link" aria-current="page" (click)="onClickNavigateToBookDashboard()" *ngIf="isAdmin">
@@ -57,6 +55,11 @@
             </a>
           </li>
           <li class="nav-item">
+            <a class="nav-link" aria-current="page" (click)="onClickNavigateToCoupontDashboard()" *ngIf="isAdmin">
+              Cupones
+            </a>
+          </li>
+          <li class="nav-item">
             <a class="nav-link" aria-current="page" (click)="onClickNavigateToClientDashboard()" *ngIf="isAdmin">
               Clientes
             </a>
@@ -76,7 +79,7 @@
         <ng-container *ngIf="!isAdmin">
           <a class="nav-link" (click)="onProfile()" *ngIf="profile">
             <img src="./assets/img/navbar/user.png" alt="perfil" /> Hola
-            {{ profile.username }}</a>
+            {{ profile.first_name }}</a>
           <a class="nav-link" (click)="logout()" *ngIf="profile">| Cerrar sesión</a>
         </ng-container>
 

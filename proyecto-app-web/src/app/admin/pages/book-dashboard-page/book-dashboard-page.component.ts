@@ -38,7 +38,6 @@ export class BookDashboardPageComponent implements OnInit {
       .result.then((result: boolean) => {
         console.log('res', result);
         if (!result) {
-          this.toastService.createToast({type: 'bg-danger', delay: 2500, message: 'Error al registrar libro'});
           return;
         }
         this.toastService.createToast({type: 'bg-success', delay: 2500, message: 'Registro de libro exitoso'});
@@ -55,7 +54,6 @@ export class BookDashboardPageComponent implements OnInit {
 
     modalRef.result.then((result: boolean) => {
       if (!result) {
-        this.toastService.createToast({type: 'bg-danger', delay: 2500, message: 'Error al modificar libro'});
         return;
       }
       this.toastService.createToast({type: 'bg-success', delay: 2500, message: 'Modificación de libro exitosa'});
@@ -72,7 +70,6 @@ export class BookDashboardPageComponent implements OnInit {
 
     modalRef.result.then((result: boolean) => {
       if (!result) {
-        this.toastService.createToast({type: 'bg-danger', delay: 2500, message: 'Error al eliminar libro'});
         return;
       }
       this.toastService.createToast({type: 'bg-success', delay: 2500, message: 'Baja de libro exitosa'});
