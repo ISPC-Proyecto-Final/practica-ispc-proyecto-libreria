@@ -55,26 +55,47 @@
         </div>
 
         <div class="col-6 pt-5">
-          <form  class="row">
+          <form [formGroup]="messageForm" class="row">
             <div class="col-12">
               <span class="fc-primary fs-sm-1">Envianos un mensaje y te responderemos a la brevedad</span>
             </div>
 
             <div class="col-12 col-lg-11 col-xl-9 form-register pb-4 pt-4">
-              <input type="text" class="form-control fw-300 py-3 formInput" placeholder="Nombre y apellido"/>
+              <input type="text" class="form-control fw-300 py-3 formInput" placeholder="Nombre y apellido" formControlName="name"/>
+              <div *ngIf="name?.errors && name?.touched">
+                <ng-container *ngFor="let error of errorMessages.name">
+                  <div class="text-danger" *ngIf="name?.hasError(error.type)">
+                    {{ error.message }}
+                  </div>
+                </ng-container>
+              </div>
             </div>
 
             <div class="col-12 col-lg-11 col-xl-9 pb-4">
-              <input type="email" class="form-control fw-300 py-3 formInput" placeholder="Correo electrónico" />
+              <input type="email" class="form-control fw-300 py-3 formInput" placeholder="Correo electrónico" formControlName="email"/>
+              <div *ngIf="email?.errors && email?.touched">
+                <ng-container *ngFor="let error of errorMessages.email">
+                  <div class="text-danger" *ngIf="email?.hasError(error.type)">
+                    {{ error.message }}
+                  </div>
+                </ng-container>
+              </div>
             </div>
 
             <div class="col-12 col-lg-11 col-xl-9 pb-4">
-              <textarea class="form-control fw-300 py-4 formInput" placeholder="Dejanos tu mensaje"></textarea>
+              <textarea class="form-control fw-300 py-4 formInput" placeholder="Dejanos tu mensaje" formControlName="message"></textarea>
+              <div *ngIf="message?.errors && message?.touched">
+                <ng-container *ngFor="let error of errorMessages.message">
+                  <div class="text-danger" *ngIf="message?.hasError(error.type)">
+                    {{ error.message }}
+                  </div>
+                </ng-container>
+              </div>
             </div>
 
             <div class="col-12 col-lg-11 col-xl-9 d-grid gap-2">
-              <button type="submit" class="py-2 login-button font-extra-bold fs-md">
-                Confirmar
+              <button type="submit" class="py-2 login-button font-extra-bold fs-md" (click)="onSendMessage()">
+                Enviar
               </button>
             </div>
 
