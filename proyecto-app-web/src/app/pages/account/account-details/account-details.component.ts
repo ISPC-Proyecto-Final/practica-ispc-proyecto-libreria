@@ -87,7 +87,7 @@ export class AccountDetailsComponent implements OnInit, OnDestroy {
       centered: true,
     });
     console.log(this.profile);
-    modalRef.componentInstance.Data = { ...this.profile };
+    modalRef.componentInstance.data = { ...this.profile };
     modalRef.componentInstance.dataUpdated.subscribe((updateData: User) => {
       this.profile = { ...updateData };
       console.log('Put usuario', this.profile)

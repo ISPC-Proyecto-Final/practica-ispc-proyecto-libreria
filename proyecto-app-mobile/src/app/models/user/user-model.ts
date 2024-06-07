@@ -24,6 +24,22 @@ export interface User {
   token: any;
 }
 
+export interface UserUpdate {
+  id_user?: number;
+  password?: string;
+  username?: string;
+  first_name?: string;
+  last_name?: string;
+  email?: string;
+  telephone_number?: string;
+  telephone_area_code?: string;
+  document?: number;
+  address_province?: string;
+  address_location?: string;
+  address_street?: string;
+  postal_code?: string;
+}
+
 export interface CreateUserDTO extends Omit
   <User, 'id_user' | 'last_login' | 'is_superuser' | 'last_name' | 'is_staff' | 'is_active' | 'date_joined' | 'groups' | 'user_permissions' | 'token'> { }
 

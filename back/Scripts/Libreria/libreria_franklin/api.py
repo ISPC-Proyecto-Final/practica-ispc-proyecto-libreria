@@ -1,6 +1,6 @@
 from rest_framework import viewsets, permissions
 from rest_framework.generics import RetrieveUpdateAPIView, DestroyAPIView
-from .serializers import BookSerializer, AuthorSerializer, PublisherSerializer, GenreSerializer, SellSerializer, StoreSerializer, PaymentSerializer, DeliverySerializer, ProfileSerializer, CouponSerializer, ContactMessageSerializer, AuthTokenSerializer
+from .serializers import BookSerializer, AuthorSerializer, PublisherSerializer, GenreSerializer, SellSerializer, StoreSerializer, PaymentSerializer, DeliverySerializer, ProfileSerializer, CouponSerializer, ContactMessageSerializer, AuthTokenSerializer, CustomUserSerializer
 from .models import Book, Author, Publisher, Genre, Sell, Store, Payment, Delivery, CustomUser, ContactMessage, Coupon, CustomUser
 from rest_framework.views import APIView
 from rest_framework.permissions import IsAdminUser, AllowAny, IsAuthenticated
@@ -80,7 +80,21 @@ class UserDeleteView(generics.DestroyAPIView):
     def delete(self, request, *args, **kwargs):
         user = self.get_object()
         self.perform_destroy(user)
-        return Response(status=status.HTTP_204_NO_CONTENT)          
+        return Response(status=status.HTTP_204_NO_CONTENT)
+
+class UpdateUserView(generics.UpdateAPIView):
+    queryset = CustomUser.objects.all()
+    serializer_class = CustomUserSerializer
+    permission_classes = [permissions.IsAuthenticated]
+
+    def get_object(self):
+        return self.request.user
+
+    def put(self, request, *args, **kwargs):
+        return self.partial_update(request, *args, **kwargs)
+
+    def patch(self, request, *args, **kwargs):
+        return self.partial_update(request, *args, **kwargs)                  
     
 class SignupView(generics.CreateAPIView):
     permission_classes = [AllowAny]

@@ -4,7 +4,7 @@ import { environment } from 'src/environments/environment';
 import { Auth } from 'src/app/models/auth/auth-model';
 import { Credentials } from 'src/app/models/credentials/credentials-model';
 import { BehaviorSubject, Observable, Subject, map, switchMap, tap } from 'rxjs';
-import { CreateUserDTO, User } from 'src/app/models/user/user-model';
+import { CreateUserDTO, User, UserUpdate } from 'src/app/models/user/user-model';
 import { Purchase } from 'src/app/models/user/purchase-model';
 import { Sale } from 'src/app/models/sale/sale-model';
 
@@ -27,6 +27,12 @@ export class AuthService {
 
   loginUser(credentials: Credentials): Observable<User> {
     return this.http.post<User>(`${this.authApiUrl}/login/`, credentials);
+  }
+
+  updateUser(user: UserUpdate) {
+    const headers = new HttpHeaders().set('Authorization', `Token ${this.profile?.token}`);
+    const endpoint = `${this.authApiUrl}/user/update/`;
+    return this.http.put<User>(endpoint, user, { headers });
   }
 
   deleteAccount(): Observable<any> {
@@ -60,5 +66,4 @@ export class AuthService {
     const url = `${this.apiUrl}/sells?user_id=${userId}`; // Ajusta la URL para obtener las compras del usuario específico
     return this.http.get<Sale[]>(url);
   }
-
 }

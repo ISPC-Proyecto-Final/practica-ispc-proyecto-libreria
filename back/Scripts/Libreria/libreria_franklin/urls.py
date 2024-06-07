@@ -1,5 +1,5 @@
 from rest_framework import routers
-from .api import BookViewSet, AuthorViewSet, PublisherViewSet, GenreViewSet,SellViewSet, StoreViewSet, PaymentViewSet, DeliveryViewSet, LoginView, LogoutView, SignupView, ProfileView, UserList, ProfileViewSet, ProcessPayment, CouponViewSet, ContactMessageViewSet, DeleteUserView, CustomAuthToken, UserDeleteView
+from .api import BookViewSet, AuthorViewSet, PublisherViewSet, GenreViewSet,SellViewSet, StoreViewSet, PaymentViewSet, DeliveryViewSet, LoginView, LogoutView, SignupView, ProfileView, UserList, ProfileViewSet, ProcessPayment, CouponViewSet, ContactMessageViewSet, DeleteUserView, CustomAuthToken, UserDeleteView, UpdateUserView
 from django.urls import path, include
 
 router = routers.DefaultRouter()
@@ -21,6 +21,7 @@ urlpatterns = [
     # Auth views
     # path('auth/login/',LoginView.as_view(), name='auth_login'),
     path('auth/login/', CustomAuthToken.as_view(), name='auth_login'),
+    path('auth/user/update/', UpdateUserView.as_view(), name='user-update'),
     path('auth/users/<int:pk>/', UserDeleteView.as_view(), name='user-delete'),
     path('auth/logout/', LogoutView.as_view(), name='auth_logout'),
     path('auth/reset/', include('django_rest_passwordreset.urls', namespace='password_reset')),
