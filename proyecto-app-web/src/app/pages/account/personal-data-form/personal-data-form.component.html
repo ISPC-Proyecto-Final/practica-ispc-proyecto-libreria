@@ -15,10 +15,17 @@
     </div>
     <form [formGroup]="formUser" (submit)="updateProfile()">
       <div class="row mb-3">
-        <label for="inputEmail3" class="col-sm-2 col-form-label visually-hidden">Nombre y apellido</label>
+        <!-- <label for="inputEmail3" class="col-sm-2 col-form-label visually-hidden">Nombre y apellido</label> -->
         <div class="col-sm-12">
-          <input type="text" formControlName="name" class="form-control" id="inputEmail3"
-            placeholder="Nombre y apellido" />
+          <!-- <input type="text" formControlName="name" class="form-control" id="inputEmail3"
+            placeholder="Nombre y apellido" /> -->
+
+            <div class="form-floating">
+              <input type="text" id="nameLabel" class="form-control fw-300" placeholder="Nombre y apellido"
+                formControlName="name" />
+              <label for="nameLabel">Nombre y apellido</label>
+            </div>
+
             <div *ngIf="name?.errors && name?.touched">
               <ng-container *ngFor="let error of errorMessages.name">
                 <div class="text-danger" *ngIf="name?.hasError(error.type)">
@@ -30,10 +37,17 @@
       </div>
 
       <div class="row mb-3">
-        <label for="inputPassword3" class="col-sm-2 col-form-label visually-hidden">DNI</label>
+        <!-- <label for="inputPassword3" class="col-sm-2 col-form-label visually-hidden">DNI</label> -->
         <div class="col-sm-12">
-          <input type="text" formControlName="document" class="form-control" id="inputPassword3"
-            placeholder="Documento de identidad" />
+          <!-- <input type="text" formControlName="document" class="form-control" id="inputPassword3"
+            placeholder="Documento de identidad" /> -->
+
+            <div class="form-floating">
+              <input type="text" id="documentLabel" class="form-control fw-300" placeholder="Documento"
+                formControlName="document" />
+              <label for="documentLabel">Documento</label>
+            </div>
+
             <div *ngIf="document?.errors && document?.touched">
               <ng-container *ngFor="let error of errorMessages.document">
                 <div class="text-danger" *ngIf="document?.hasError(error.type)">
@@ -46,8 +60,15 @@
 
       <div class="row mb-3">
         <div class="col-sm-5">
-          <input type="text" formControlName="areaCode" class="form-control" placeholder="Código de área"
-            aria-label="Codigo de area" />
+          <!-- <input type="text" formControlName="areaCode" class="form-control" placeholder="Código de área"
+            aria-label="Codigo de area" /> -->
+
+            <div class="form-floating">
+              <input type="text" id="areaCodeLabel" class="form-control fw-300" placeholder="Código de área"
+                formControlName="areaCode" />
+              <label for="areaCodeLabel">Código de área</label>
+            </div>
+
             <div *ngIf="areaCode?.errors && areaCode?.touched">
               <ng-container *ngFor="let error of errorMessages.areaCode">
                 <div class="text-danger" *ngIf="areaCode?.hasError(error.type)">
@@ -58,7 +79,14 @@
         </div>
 
         <div class="col-sm-7">
-          <input type="tel" formControlName="telephone" class="form-control" placeholder="Número" aria-label="Numero" />
+          <!-- <input type="tel" formControlName="telephone" class="form-control" placeholder="Número" aria-label="Numero" /> -->
+
+          <div class="form-floating">
+            <input type="text" id="telephoneLabel" class="form-control fw-300" placeholder="Número de teléfono"
+              formControlName="telephone" />
+            <label for="telephoneLabel">Número de teléfono</label>
+          </div>
+
           <div *ngIf="telephone?.errors && telephone?.touched">
             <ng-container *ngFor="let error of errorMessages.telephone">
               <div class="text-danger" *ngIf="telephone?.hasError(error.type)">
