@@ -1,7 +1,7 @@
 from rest_framework import viewsets, permissions
 from rest_framework.generics import RetrieveUpdateAPIView, DestroyAPIView
-from .serializers import BookSerializer, AuthorSerializer, PublisherSerializer, GenreSerializer, SellSerializer, StoreSerializer, PaymentSerializer, DeliverySerializer, ProfileSerializer, CouponSerializer, SubscriptionBookSerializer, AuthTokenSerializer
-from .models import Book, Author, Publisher, Genre, Sell, Store, Payment, Delivery, CustomUser, SubscriptionBook, Coupon, CustomUser
+from .serializers import BookSerializer, AuthorSerializer, PublisherSerializer, GenreSerializer, SellSerializer, StoreSerializer, PaymentSerializer, DeliverySerializer, ProfileSerializer, CouponSerializer, ContactMessageSerializer, AuthTokenSerializer
+from .models import Book, Author, Publisher, Genre, Sell, Store, Payment, Delivery, CustomUser, ContactMessage, Coupon, CustomUser
 from rest_framework.views import APIView
 from rest_framework.permissions import IsAdminUser, AllowAny, IsAuthenticated
 from django.contrib.auth import authenticate, login, logout
@@ -110,10 +110,10 @@ class CouponViewSet(viewsets.ModelViewSet):
    permission_classes = [permissions.AllowAny]
    serializer_class = CouponSerializer
 
-class SubscriptionBookViewSet(viewsets.ModelViewSet):
-   queryset = SubscriptionBook.objects.all()
+class ContactMessageViewSet(viewsets.ModelViewSet):
+   queryset = ContactMessage.objects.all()
    permission_classes = [permissions.AllowAny]
-   serializer_class = SubscriptionBookSerializer
+   serializer_class = ContactMessageSerializer
 
 class AuthorViewSet(viewsets.ModelViewSet):
    queryset = Author.objects.all()

@@ -59,7 +59,8 @@ class Book(models.Model):
     stock= models.PositiveIntegerField(blank=False, default=0)
     release_year = models.PositiveSmallIntegerField(blank=False)
     synopsis = models.TextField(max_length=3000, blank=False)
-    price = models.DecimalField(max_length=200, decimal_places=2, max_digits=50,blank=False)
+    # price = models.DecimalField(max_length=200, decimal_places=2, max_digits=50,blank=False)
+    price = models.DecimalField(max_digits=7, decimal_places=2, blank=False)
     tags = models.CharField(max_length=300,  blank=False)
     author = models.ForeignKey(Author, to_field='id_author',related_name="author", on_delete=models.CASCADE)
     publisher = models.ForeignKey(Publisher, to_field='id_publisher',related_name="publisher", on_delete=models.CASCADE)
@@ -173,14 +174,15 @@ class Coupon(models.Model):
   def __str__(self):
     return "{self.coupon_name}, {self.discount_percent}"
 
-class SubscriptionBook(models.Model):
-  id_subscription_book = models.AutoField(primary_key=True)
-  book_name = models.CharField(max_length = 100)
-  active = models.BooleanField(default=False)
+class ContactMessage(models.Model):
+  id_contact_message = models.AutoField(primary_key=True)
+  name = models.CharField(max_length = 150)
+  email = models.EmailField(max_length=150)
+  message = models.CharField(max_length = 1000)
 
   class Meta:
-      db_table = 'SubscriptionBook'
-      verbose_name = 'SubscriptionBook'
-      verbose_name_plural = 'SubscriptionBooks'
+      db_table = 'ContactMessage'
+      verbose_name = 'ContactMessage'
+      verbose_name_plural = 'ContactMessages'
   def __str__(self):
-    return "{self.cid_subscription_book}, {self.book_name}, {self.active}"
+    return "{self.id_contact_message}, {self.name}, {self.email}, {self.message}"
