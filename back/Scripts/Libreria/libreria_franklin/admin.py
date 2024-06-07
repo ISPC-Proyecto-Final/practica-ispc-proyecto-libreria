@@ -21,7 +21,7 @@ class PublisherAdmin(admin.ModelAdmin):
 class GenreAdmin(admin.ModelAdmin):
     list_display = ('id_genre', 'name')
 class BookAdmin(admin.ModelAdmin):
-    list_display = ('isbn', 'title', 'page_amount', 'book_cover', 'stock', 'release_year', 'synopsis', 'price', 'author', 'publisher')
+    list_display = ('isbn', 'title', 'page_amount', 'book_cover', 'stock', 'release_year', 'synopsis', 'price', 'author', 'publisher', 'subscription')
 class PaymentAdmin(admin.ModelAdmin):
     list_display = ('id_payment', 'card_association', 'number', 'cvv', 'expiration')    
 

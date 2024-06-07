@@ -84,5 +84,12 @@ export class BookDashboardPageComponent implements OnInit {
     modalRef.componentInstance.action = 'view';
     modalRef.componentInstance.bookId = id;
   }
+
+  showSubscriptionBooks(){
+    this.bookService.getAllBooks()
+    .subscribe((result: Book[]) => {
+      this.books = result.filter(book => book.subscription);
+    });
+  }
 }
 

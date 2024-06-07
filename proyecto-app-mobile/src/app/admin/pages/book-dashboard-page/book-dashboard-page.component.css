@@ -3,12 +3,6 @@
   background: #F6F6F6;
 }
 
-.primary-button-outline {
-  box-sizing: border-box;
-  border: 1px solid #E35352;
-  border-radius: 15px;
-}
-
 .table {
   font-family: 'Mulish';
   font-style: normal;

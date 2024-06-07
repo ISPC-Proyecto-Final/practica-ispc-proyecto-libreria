@@ -10,14 +10,6 @@
   border-radius: 6px;
 }
 
-.btn {
-  border-radius: 5px !important;
-}
-
-.btn-danger {
-  --bs-btn-bg: #e35352;
-}
-
 .btn-cancel {
   border: none;
   text-decoration: underline;

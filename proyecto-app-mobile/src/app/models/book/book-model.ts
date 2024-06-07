@@ -16,6 +16,7 @@ export interface Book {
   synopsis: string;
   price: string;
   tags: string;
+  subscription: boolean;
 }
 
 export interface SelectedBookDto

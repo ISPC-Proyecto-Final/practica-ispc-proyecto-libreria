@@ -3,6 +3,23 @@
   <div class="container-fluid px-md-5">
     <div class="row px-4 index-book-title">
       <p class="col-6 col-md-12 fc-primary font-bold fs-md text-uppercase">
+        Libro de Suscripción
+      </p>
+      <p class="col-10 d-none d-md-block font-medium fc-primary-light fs-md">
+        Mira los libros de suscripción de este mes
+      </p>
+    </div>
+  </div>
+
+  <div class="ps-5">
+    <app-books-row-cards [books]="subscriptionBooks" justify="start"></app-books-row-cards>
+  </div>
+</div>
+
+<div class="mt-5 pt-5">
+  <div class="container-fluid px-md-5">
+    <div class="row px-4 index-book-title">
+      <p class="col-6 col-md-12 fc-primary font-bold fs-md text-uppercase">
         Recomendados
       </p>
       <p class="col-10 d-none d-md-block font-medium fc-primary-light fs-md">

@@ -1,5 +1,8 @@
 import { Component } from '@angular/core';
+import { SelectedBookDto } from 'src/app/models/book/book-model';
+import { CartService } from 'src/app/services/cart/cart.service';
 import { NavigationService } from 'src/app/services/navigation/navigation.service';
+import { ToastService } from 'src/app/services/utils/toast.service';
 
 @Component({
   selector: 'app-subscription-page',
@@ -8,10 +11,24 @@ import { NavigationService } from 'src/app/services/navigation/navigation.servic
 })
 export class SubscriptionPageComponent {
 
-  constructor(private navitaionService: NavigationService) { }
+  constructor(
+    private cartService: CartService,
+    private navitaionService: NavigationService,
+    private toastService: ToastService,
+  ) { }
 
   onClickSubscription(){
-    this.navitaionService.navigateToCheckout();
+    let selectedBook: SelectedBookDto = {
+      id_book: -1,
+      isbn: '',
+      title: 'Suscripción mensual',
+      author: {id_author: -1, name: 'Plutón'},
+      book_cover: '',
+      price: '15000',
+      selectedAmount: 0,
+    };
+    this.toastService.createToast({type: 'bg-success', delay: 4000, message: 'Agregaste suscripción al carrito'});
+    this.cartService.addBook(selectedBook);
   }
 
 }

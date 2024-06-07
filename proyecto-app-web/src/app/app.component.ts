@@ -8,7 +8,7 @@ import { AuthService } from './services/auth/auth.service';
   styleUrls: ['./app.component.css'],
 })
 export class AppComponent implements OnInit {
-  title = 'Librería Franklin';
+  title = 'Librería Plutón';
   isAdmin = false;
 
   profile: User | null = null;

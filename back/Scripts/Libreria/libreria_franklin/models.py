@@ -65,6 +65,7 @@ class Book(models.Model):
     publisher = models.ForeignKey(Publisher, to_field='id_publisher',related_name="publisher", on_delete=models.CASCADE)
     # genre = models.ForeignKey(Genre, to_field='id_genre',related_name="genre", on_delete=models.CASCADE)
     genres = models.ManyToManyField(Genre, null=True)
+    subscription = models.BooleanField(default=False)
     class Meta:
         db_table = 'Book'
         verbose_name = 'Book'

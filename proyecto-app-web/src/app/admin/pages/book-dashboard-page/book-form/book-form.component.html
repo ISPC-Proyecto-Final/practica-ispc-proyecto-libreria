@@ -35,7 +35,8 @@
       <div class="row mb-3">
         <div class="col-sm-12">
           <div class="form-floating">
-            <input type="text" class="form-control formInput" id="titulo" placeholder="titulo" formControlName="title" />
+            <input type="text" class="form-control formInput" id="titulo" placeholder="titulo"
+              formControlName="title" />
             <label for="titulo">Título</label>
             <div *ngIf="title?.errors && title?.touched">
               <ng-container *ngFor="let error of errorMessages.title">
@@ -82,7 +83,8 @@
       <div class="row mb-3">
         <div class="col-sm-12">
           <div class="form-floating">
-            <input type="number" class="form-control formInput" id="stock" placeholder="Stock" formControlName="stock" />
+            <input type="number" class="form-control formInput" id="stock" placeholder="Stock"
+              formControlName="stock" />
             <label for="stock">Stock</label>
             <div *ngIf="stock?.errors && stock?.touched">
               <ng-container *ngFor="let error of errorMessages.stock">
@@ -97,7 +99,8 @@
       <div class="row mb-3">
         <div class="col-sm-12">
           <div class="form-floating">
-            <input type="number" class="form-control formInput" id="precio" placeholder="Precio" formControlName="price" />
+            <input type="number" class="form-control formInput" id="precio" placeholder="Precio"
+              formControlName="price" />
             <label for="precio">Precio</label>
             <div *ngIf="price?.errors && price?.touched">
               <ng-container *ngFor="let error of errorMessages.price">
@@ -194,6 +197,18 @@
           </div>
         </div>
       </div>
+
+      <div class="row mb-3">
+        <div class="col-12">
+          <div class="form-check">
+            <input class="form-check-input" type="checkbox" formControlName="subscription" id="flexCheckChecked">
+            <label class="form-check-label" for="flexCheckChecked">
+              Libro de Subscripción
+            </label>
+          </div>
+        </div>
+      </div>
+
       <div class="row mb-3">
         <div class="col-sm-12">
           <div class="form-floating">

@@ -194,6 +194,18 @@
           </div>
         </div>
       </div>
+
+      <div class="row mb-3">
+        <div class="col-12">
+          <div class="form-check">
+            <input class="form-check-input" type="checkbox" formControlName="subscription" id="flexCheckChecked">
+            <label class="form-check-label" for="flexCheckChecked">
+              Libro de Subscripción
+            </label>
+          </div>
+        </div>
+      </div>
+
       <div class="row mb-3">
         <div class="col-sm-12">
           <div class="form-floating">
@@ -219,7 +231,7 @@
           </button>
         </div>
         <div>
-          <button type="submit" class="btn btn-danger">
+          <button type="submit" class="std-button p-2">
             {{action === 'create' ? 'Guardar':'Guardar cambios'}}
           </button>
         </div>
@@ -247,7 +259,7 @@
         </button>
       </div>
       <div>
-        <button type="submit" class="btn btn-danger" (click)="onConfirmDelete()">
+        <button type="submit" class="std-button p-2" (click)="onConfirmDelete()">
           Confirmar
         </button>
       </div>

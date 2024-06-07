@@ -73,6 +73,14 @@ export class BookService {
       }));
   }
 
+  getSubscriptionBooks() {
+    const url = `${this.apiUrl}/books`
+    return this.http.get<Book[]>(url)
+      .pipe(map((result: Book[]) => {
+        return result.filter(book => book.subscription) as Book[];
+      }));
+  }
+
   // getBooksByPublisher(publisherId: string) {
   //   const url = `${this.apiUrl}/publisher/${publisherId}/books?_expand=author&_expand=publisher`
   //   return this.http.get<Book[]>(url);
