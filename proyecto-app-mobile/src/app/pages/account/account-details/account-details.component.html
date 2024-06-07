@@ -52,6 +52,10 @@
         <div class="col-12">
           <span class="font-semi-bold fs-sm-2 fc-primary">{{profile.address_location}}</span>
         </div>
+
+        <div class="col-12">
+          <span class="font-semi-bold fs-sm-2 fc-primary">{{profile.postal_code}}</span>
+        </div>
       </div>
     </div>
 
@@ -65,10 +69,20 @@
       </div>
     </div>
   </div>
+
+  <div class="row pt-5 mt-5">
+    <div class="col-auto">
+      <button class="std-button p-2" (click)="logout()">Cerrar sesión</button>
+    </div>
+  </div>
+
+  <div class="row pt-5 mt-5">
+    <div class="col-auto">
+      <button class="std-button p-2" (click)="onDeleteAccount()">Dar de baja la cuenta</button>
+    </div>
+  </div>
 </section>
 
 <ng-template #loginRequired>
   <p>No hay usuario logueado</p>
 </ng-template>
-
-<button (click)="onDeleteAccount()">Eliminar cuenta</button>

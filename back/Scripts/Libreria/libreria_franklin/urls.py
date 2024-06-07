@@ -1,5 +1,5 @@
 from rest_framework import routers
-from .api import BookViewSet, AuthorViewSet, PublisherViewSet, GenreViewSet,SellViewSet, StoreViewSet, PaymentViewSet, DeliveryViewSet, LoginView, LogoutView, SignupView, ProfileView, UserList, ProfileViewSet, ProcessPayment, CouponViewSet, SubscriptionBookViewSet, DeleteUserView, CustomAuthToken, UserDeleteView
+from .api import BookViewSet, AuthorViewSet, PublisherViewSet, GenreViewSet,SellViewSet, StoreViewSet, PaymentViewSet, DeliveryViewSet, LoginView, LogoutView, SignupView, ProfileView, UserList, ProfileViewSet, ProcessPayment, CouponViewSet, ContactMessageViewSet, DeleteUserView, CustomAuthToken, UserDeleteView, UpdateUserView
 from django.urls import path, include
 
 router = routers.DefaultRouter()
@@ -14,13 +14,14 @@ router.register("api/v1/stores", StoreViewSet,"stores")
 router.register("api/v1/payments", PaymentViewSet,"payments")
 router.register("api/v1/profiles", ProfileViewSet,"profiles")
 router.register("api/v1/coupons", CouponViewSet,"coupons")
-router.register("api/v1/subcriptions-books", SubscriptionBookViewSet,"subcriptions-books")
+router.register("api/v1/contact-messages", ContactMessageViewSet,"contact-messages")
 
 urlpatterns = [
     *router.urls,
     # Auth views
     # path('auth/login/',LoginView.as_view(), name='auth_login'),
     path('auth/login/', CustomAuthToken.as_view(), name='auth_login'),
+    path('auth/user/update/', UpdateUserView.as_view(), name='user-update'),
     path('auth/users/<int:pk>/', UserDeleteView.as_view(), name='user-delete'),
     path('auth/logout/', LogoutView.as_view(), name='auth_logout'),
     path('auth/reset/', include('django_rest_passwordreset.urls', namespace='password_reset')),

@@ -14,21 +14,20 @@
       </div>
     </div>
 
-    <form [formGroup]="formUser" (submit)="updateUserData()" class="row justify-content-center">
+    <form [formGroup]="formUser" (submit)="updateProfile()" class="row justify-content-center">
       <div class="col-12">
         <div class="form-floating">
           <input type="text" id="name" class="form-control fw-300" placeholder="Nombre y apellido"
             formControlName="name" />
           <label for="name">Nombre y apellido</label>
         </div>
-        <small class="text-danger mt-2" [hidden]="name.valid || name.pristine">
-          <span *ngIf="name.errors?.['required']">
-            El campo "Nombre y apellido"es obligatorio
-          </span>
-          <span *ngIf="name.errors?.['minlength']">
-            Minimo de 5 caracteres
-          </span>
-        </small>
+        <div *ngIf="name?.errors && name?.touched">
+          <ng-container *ngFor="let error of errorMessages.name">
+            <div class="text-danger" *ngIf="name?.hasError(error.type)">
+              {{ error.message }}
+            </div>
+          </ng-container>
+        </div>
       </div>
 
       <div class="col-12 pt-3">
@@ -37,53 +36,59 @@
             formControlName="document" />
           <label for="documentLabel">Documento de identidad</label>
         </div>
-        <small class="text-danger mt-2" [hidden]="document.valid || document.pristine">
-          <span *ngIf="document.errors?.['required']">
-            El campo "Documento de identidad" es obligatorio
-          </span>
-          <span *ngIf="document.errors?.['pattern']">
-            El "DNI" debe ser válido
-          </span>
-        </small>
+        <div *ngIf="document?.errors && document?.touched">
+          <ng-container *ngFor="let error of errorMessages.document">
+            <div class="text-danger" *ngIf="document?.hasError(error.type)">
+              {{ error.message }}
+            </div>
+          </ng-container>
+        </div>
       </div>
 
       <div class="col-12 pt-3">
         <div class="form-floating">
-          <input type="text" id="telephone_area_codeLabel" class="form-control fw-300" placeholder="Codigo de area"
-            formControlName="telephone_area_code" />
-          <label for="telephone_area_codeLabel">Codigo de area</label>
+          <input type="text" id="areaCodeLabel" class="form-control fw-300" placeholder="Código de area"
+            formControlName="areaCode" />
+          <label for="areaCodeLabel">Código de area</label>
         </div>
-        <small class="text-danger mt-2" [hidden]="telephone_area_code.valid || telephone_area_code.pristine">
-          El campo "Código de área" es obligatorio
-        </small>
+        <div *ngIf="areaCode?.errors && areaCode?.touched">
+          <ng-container *ngFor="let error of errorMessages.areaCode">
+            <div class="text-danger" *ngIf="areaCode?.hasError(error.type)">
+              {{ error.message }}
+            </div>
+          </ng-container>
+        </div>
       </div>
 
       <div class="col-12 pt-3">
         <div class="form-floating">
-          <input type="text" id="telephone_numberLabel" class="form-control fw-300" placeholder="Teléfono"
-            formControlName="telephone_number" />
-          <label for="telephone_numberLabel">Teléfono</label>
+          <input type="text" id="telephoneLabel" class="form-control fw-300" placeholder="Teléfono"
+            formControlName="telephone" />
+          <label for="telephoneLabel">Teléfono</label>
         </div>
-        <small class="text-danger mt-2" [hidden]="telephone_number.valid || telephone_number.pristine">
-          El campo "Número" es obligatorio
-        </small>
+        <div *ngIf="telephone?.errors && telephone?.touched">
+          <ng-container *ngFor="let error of errorMessages.telephone">
+            <div class="text-danger" *ngIf="telephone?.hasError(error.type)">
+              {{ error.message }}
+            </div>
+          </ng-container>
+        </div>
       </div>
 
-      <div class="col-12 pt-3">
+      <!-- <div class="col-12 pt-3">
         <div class="form-floating">
           <input type="email" id="emailLabel" class="form-control fw-300" placeholder="Correo electrónico"
             formControlName="email" />
           <label for="emailLabel">Correo electrónico</label>
         </div>
-        <small class="text-danger mt-2" [hidden]="email.valid || email.pristine">
-          <span *ngIf="email.errors?.['required']">
-            El email es obligatorio
-          </span>
-          <span *ngIf="email.errors?.['email']">
-            El email debe ser válido
-          </span>
-        </small>
-      </div>
+        <div *ngIf="telephone?.errors && telephone?.touched">
+          <ng-container *ngFor="let error of errorMessages.telephone">
+            <div class="text-danger" *ngIf="telephone?.hasError(error.type)">
+              {{ error.message }}
+            </div>
+          </ng-container>
+        </div>
+      </div> -->
 
       <div class="modal-footer col-12">
         <button type="submit" class="col-12 confirm-button py-2 login-button font-semi-bold fs-md"

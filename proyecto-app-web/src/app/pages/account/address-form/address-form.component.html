@@ -12,46 +12,90 @@
       </div>
     </div>
 
-    <form [formGroup]="formAddress" (submit)="updateUserAddress()">
+    <form [formGroup]="formAddress" (submit)="updateProfile()">
       <div class="row mb-3">
-        <label for="inputAddress" class="col-sm-2 col-form-label visually-hidden">Calle y numero</label>
+        <!-- <label for="inputAddress" class="col-sm-2 col-form-label visually-hidden">Calle y numero</label> -->
         <div class="col-sm-12">
-          <input type="text" formControlName="address_street" class="form-control" id="inputAddress"
-            placeholder="Calle y número" />
-            <small class="text-danger mt-2" [hidden]="address_street.valid || address_street.pristine">
-              <span *ngIf="address_street.errors?.['required']">
-                El campo "Calle y número" es obligatorio
 
-              </span>
-            </small>
-        </div>
+          <!-- <input type="text" formControlName="address" class="form-control" id="inputAddress"
+            placeholder="Calle y número" /> -->
 
-      </div>
-      <div class="row mb-3">
-        <label for="inputZip" class="col-sm-2 col-form-label visually-hidden">Codigo postal</label>
-        <div class="col-sm-12">
-          <input type="number" formControlName="postal_code" class="form-control" id="inputZip" placeholder="Código postal" />
-          <small class="text-danger mt-2" [hidden]="postal_code.valid || postal_code.pristine">
-            El campo "Código postal"es obligatorio
-          </small>
+            <div class="form-floating">
+              <input type="text" id="addressLabel" class="form-control fw-300" placeholder="Calle y número"
+                formControlName="address" />
+              <label for="addressLabel">Calle y número</label>
+            </div>
+
+            <div *ngIf="address?.errors && address?.touched">
+              <ng-container *ngFor="let error of errorMessages.address">
+                <div class="text-danger" *ngIf="address?.hasError(error.type)">
+                  {{ error.message }}
+                </div>
+              </ng-container>
+            </div>
         </div>
       </div>
+
       <div class="row mb-3">
-        <label for="inputLocality" class="col-sm-2 col-form-label visually-hidden">Localidad</label>
+        <!-- <label for="inputZip" class="col-sm-2 col-form-label visually-hidden">Codigo postal</label> -->
         <div class="col-sm-12">
-          <input type="text" formControlName="address_location" class="form-control" id="inputLocality" placeholder="Localidad" />
-          <small class="text-danger mt-2" [hidden]="address_location.valid || address_location.pristine">
-            El campo "Localidad"es obligatorio
-          </small>
+          <!-- <input type="number" formControlName="postalCode" class="form-control" id="inputZip" placeholder="Código postal" /> -->
+
+          <div class="form-floating">
+            <input type="text" id="postalCodeLabel" class="form-control fw-300" placeholder="Código postal"
+              formControlName="postalCode" />
+            <label for="postalCodeLabel">Código postal</label>
+          </div>
+
+          <div *ngIf="postalCode?.errors && postalCode?.touched">
+            <ng-container *ngFor="let error of errorMessages.postalCode">
+              <div class="text-danger" *ngIf="postalCode?.hasError(error.type)">
+                {{ error.message }}
+              </div>
+            </ng-container>
+          </div>
         </div>
       </div>
+
       <div class="row mb-3">
-        <label for="inputProvince" class="col-sm-2 col-form-label visually-hidden">Provincia</label>
+        <!-- <label for="inputLocality" class="col-sm-2 col-form-label visually-hidden">Localidad</label> -->
         <div class="col-sm-12">
-          <input type="text" formControlName="address_province" class="form-control" id="inputProvince" placeholder="Provincia" />
-          <small class="text-danger mt-2" [hidden]="address_province.valid || address_province.pristine">
-            El campo "Provincia"es obligatorio
-          </small>
+          <!-- <input type="text" formControlName="location" class="form-control" id="inputLocality" placeholder="Localidad" /> -->
+
+          <div class="form-floating">
+            <input type="text" id="locationLabel" class="form-control fw-300" placeholder="Localidad"
+              formControlName="location" />
+            <label for="locationLabel">Localidad</label>
+          </div>
+
+          <div *ngIf="location?.errors && location?.touched">
+            <ng-container *ngFor="let error of errorMessages.location">
+              <div class="text-danger" *ngIf="location?.hasError(error.type)">
+                {{ error.message }}
+              </div>
+            </ng-container>
+          </div>
+        </div>
+      </div>
+
+      <div class="row mb-3">
+        <!-- <label for="inputProvince" class="col-sm-2 col-form-label visually-hidden">Provincia</label> -->
+        <div class="col-sm-12">
+          <!-- <input type="text" formControlName="province" class="form-control" id="inputProvince" placeholder="Provincia" /> -->
+
+          <div class="form-floating">
+            <input type="text" id="provinceLabel" class="form-control fw-300" placeholder="Provincia"
+              formControlName="province" />
+            <label for="provinceLabel">Provincia</label>
+          </div>
+
+          <div *ngIf="province?.errors && province?.touched">
+            <ng-container *ngFor="let error of errorMessages.province">
+              <div class="text-danger" *ngIf="province?.hasError(error.type)">
+                {{ error.message }}
+              </div>
+            </ng-container>
+          </div>
         </div>
       </div>
 
@@ -62,7 +106,7 @@
           </button>
         </div>
         <div>
-          <button type="submit" class="btn btn-danger" [disabled]="formAddress.invalid">
+          <button type="submit" class="std-button p-2" [disabled]="formAddress.invalid">
             Guardar cambios
           </button>
         </div>

@@ -13,56 +13,90 @@
         </div>
       </div>
     </div>
-    <form [formGroup]="formUser" (submit)="updateUserData()">
+    <form [formGroup]="formUser" (submit)="updateProfile()">
       <div class="row mb-3">
-        <label for="inputEmail3" class="col-sm-2 col-form-label visually-hidden">Nombre y apellido</label>
+        <!-- <label for="inputEmail3" class="col-sm-2 col-form-label visually-hidden">Nombre y apellido</label> -->
         <div class="col-sm-12">
-          <input type="text" formControlName="name" class="form-control" id="inputEmail3"
-            placeholder="Nombre y apellido" />
-          <small class="text-danger mt-2" [hidden]="name.valid || name.pristine">
-            <span *ngIf="name.errors?.['required']">
-              El campo "Nombre y apellido"es obligatorio
-            </span>
-            <span *ngIf="name.errors?.['minlength']">
-              Minimo de 5 caracteres
-            </span>
+          <!-- <input type="text" formControlName="name" class="form-control" id="inputEmail3"
+            placeholder="Nombre y apellido" /> -->
 
-          </small>
+            <div class="form-floating">
+              <input type="text" id="nameLabel" class="form-control fw-300" placeholder="Nombre y apellido"
+                formControlName="name" />
+              <label for="nameLabel">Nombre y apellido</label>
+            </div>
+
+            <div *ngIf="name?.errors && name?.touched">
+              <ng-container *ngFor="let error of errorMessages.name">
+                <div class="text-danger" *ngIf="name?.hasError(error.type)">
+                  {{ error.message }}
+                </div>
+              </ng-container>
+            </div>
         </div>
       </div>
+
       <div class="row mb-3">
-        <label for="inputPassword3" class="col-sm-2 col-form-label visually-hidden">DNI</label>
+        <!-- <label for="inputPassword3" class="col-sm-2 col-form-label visually-hidden">DNI</label> -->
         <div class="col-sm-12">
-          <input type="number" formControlName="document" class="form-control" id="inputPassword3"
-            placeholder="Documento de identidad" />
-          <small class="text-danger mt-2" [hidden]="document.valid || document.pristine">
+          <!-- <input type="text" formControlName="document" class="form-control" id="inputPassword3"
+            placeholder="Documento de identidad" /> -->
 
-            <span *ngIf="document.errors?.['required']">
-              El campo "Documento de identidad" es obligatorio
-            </span>
-            <span *ngIf="document.errors?.['pattern']">
-              El "DNI" debe ser válido
-            </span>
+            <div class="form-floating">
+              <input type="text" id="documentLabel" class="form-control fw-300" placeholder="Documento"
+                formControlName="document" />
+              <label for="documentLabel">Documento</label>
+            </div>
 
-          </small>
+            <div *ngIf="document?.errors && document?.touched">
+              <ng-container *ngFor="let error of errorMessages.document">
+                <div class="text-danger" *ngIf="document?.hasError(error.type)">
+                  {{ error.message }}
+                </div>
+              </ng-container>
+            </div>
         </div>
       </div>
+
       <div class="row mb-3">
         <div class="col-sm-5">
-          <input type="number" formControlName="telephone_area_code" class="form-control" placeholder="Código de área"
-            aria-label="Codigo de area" />
-          <small class="text-danger mt-2" [hidden]="telephone_area_code.valid || telephone_area_code.pristine">
-            El campo "Código de área" es obligatorio
-          </small>
+          <!-- <input type="text" formControlName="areaCode" class="form-control" placeholder="Código de área"
+            aria-label="Codigo de area" /> -->
+
+            <div class="form-floating">
+              <input type="text" id="areaCodeLabel" class="form-control fw-300" placeholder="Código de área"
+                formControlName="areaCode" />
+              <label for="areaCodeLabel">Código de área</label>
+            </div>
+
+            <div *ngIf="areaCode?.errors && areaCode?.touched">
+              <ng-container *ngFor="let error of errorMessages.areaCode">
+                <div class="text-danger" *ngIf="areaCode?.hasError(error.type)">
+                  {{ error.message }}
+                </div>
+              </ng-container>
+            </div>
         </div>
+
         <div class="col-sm-7">
-          <input type="tel" formControlName="telephone_number" class="form-control" placeholder="Número" aria-label="Numero" />
-          <small class="text-danger mt-2" [hidden]="telephone_number.valid || telephone_number.pristine">
-            El campo "Número" es obligatorio
-          </small>
+          <!-- <input type="tel" formControlName="telephone" class="form-control" placeholder="Número" aria-label="Numero" /> -->
+
+          <div class="form-floating">
+            <input type="text" id="telephoneLabel" class="form-control fw-300" placeholder="Número de teléfono"
+              formControlName="telephone" />
+            <label for="telephoneLabel">Número de teléfono</label>
+          </div>
+
+          <div *ngIf="telephone?.errors && telephone?.touched">
+            <ng-container *ngFor="let error of errorMessages.telephone">
+              <div class="text-danger" *ngIf="telephone?.hasError(error.type)">
+                {{ error.message }}
+              </div>
+            </ng-container>
+          </div>
         </div>
       </div>
-      <div class="row mb-3">
+      <!-- <div class="row mb-3">
         <label for="inputEmail" class="col-sm-2 col-form-label visually-hidden">Email</label>
         <div class="col-sm-12">
           <input type="email" formControlName="email" class="form-control" id="inputEmail"
@@ -76,7 +110,7 @@
             </span>
           </small>
         </div>
-      </div>
+      </div> -->
       <div class="modal-footer">
         <div>
           <button type="button" class="btn btn-cancel me-5" data-bs-dismiss="modal" (click)="onClose()">
@@ -84,7 +118,7 @@
           </button>
         </div>
         <div>
-          <button type="submit" class="btn btn-danger" [disabled]="formUser.invalid">
+          <button type="submit" class="std-button p-2" [disabled]="formUser.invalid">
             Guardar cambios
           </button>
         </div>

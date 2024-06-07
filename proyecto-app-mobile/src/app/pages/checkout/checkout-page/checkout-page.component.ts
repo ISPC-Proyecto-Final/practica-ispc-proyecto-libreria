@@ -370,6 +370,7 @@ export class CheckoutPageComponent implements OnInit, OnDestroy {
   }
 
   async processPurchase() {
+    this.cartService.clearCart();
     let paymentStatus = await this.processPayment();
 
     if (!paymentStatus) {

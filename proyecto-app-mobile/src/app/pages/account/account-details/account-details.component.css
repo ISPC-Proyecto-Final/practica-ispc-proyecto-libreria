@@ -20,11 +20,6 @@
 }
 /* ----- Modals end ---------*/
 
-button {
-  background-color: transparent;
-  border: none;
-}
-
 .card{
   border-color: transparent;
   border-radius: 10px;

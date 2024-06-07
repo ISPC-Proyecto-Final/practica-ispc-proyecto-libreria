@@ -10,7 +10,7 @@ from .models import Delivery
 from .models import Sell
 from .models import Store
 from .models import Coupon
-from .models import SubscriptionBook
+from .models import ContactMessage
 from django.contrib.auth import get_user_model
 from django.contrib.auth.admin import UserAdmin
 
@@ -35,8 +35,8 @@ class StoreAdmin(admin.ModelAdmin):
   list_display = ('id_store','street_number','province','locality','telephone')
 class CouponAdmin(admin.ModelAdmin):
   list_display = ('id_coupon','name','discount')
-class SubscriptionBookAdmin(admin.ModelAdmin):
-  list_display = ('id_subscription_book','book_name','active')
+class ContactMessageAdmin(admin.ModelAdmin):
+  list_display = ('id_contact_message','name','email', 'message')
 
 @admin.register(get_user_model())
 class CustomUserAdmin(UserAdmin):
@@ -52,4 +52,4 @@ admin.site.register(Rol, RolAdmin)
 admin.site.register(Sell, SellAdmin)
 admin.site.register(Store, StoreAdmin)
 admin.site.register(Coupon, CouponAdmin)
-admin.site.register(SubscriptionBook, SubscriptionBookAdmin)
+admin.site.register(ContactMessage, ContactMessageAdmin)

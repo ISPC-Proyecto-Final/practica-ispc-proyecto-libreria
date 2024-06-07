@@ -14,51 +14,65 @@
       </div>
     </div>
 
-    <form [formGroup]="formAddress" (submit)="updateUserAddress()" class="row justify-content-center">
+    <form [formGroup]="formAddress" (submit)="updateProfile()" class="row justify-content-center">
       <div class="col-12">
         <div class="form-floating">
-          <input type="text" id="address_streetLabel" class="form-control fw-300" placeholder="Calle y número"
-            formControlName="address_street" />
-          <label for="address_streetLabel">Calle y número</label>
+          <input type="text" id="addressLabel" class="form-control fw-300" placeholder="Calle y número"
+            formControlName="address" />
+          <label for="addressLabel">Calle y número</label>
         </div>
-        <small class="text-danger mt-2" [hidden]="address_street.valid || address_street.pristine">
-          <span *ngIf="address_street.errors?.['required']">
-            El campo "Calle y número" es obligatorio
-          </span>
-        </small>
+        <div *ngIf="address?.errors && address?.touched">
+          <ng-container *ngFor="let error of errorMessages.address">
+            <div class="text-danger" *ngIf="address?.hasError(error.type)">
+              {{ error.message }}
+            </div>
+          </ng-container>
+        </div>
       </div>
 
       <div class="col-12 pt-3">
         <div class="form-floating">
-          <input type="text" id="postal_codeLabel" class="form-control fw-300" placeholder="Código postal"
-            formControlName="postal_code" />
-          <label for="postal_codeLabel">Código postal</label>
+          <input type="text" id="postalCodeLabel" class="form-control fw-300" placeholder="Código postal"
+            formControlName="postalCode" />
+          <label for="postalCodeLabel">Código postal</label>
         </div>
-        <small class="text-danger mt-2" [hidden]="postal_code.valid || postal_code.pristine">
-          El campo "Código postal"es obligatorio
-        </small>
+        <div *ngIf="postalCode?.errors && postalCode?.touched">
+          <ng-container *ngFor="let error of errorMessages.postalCode">
+            <div class="text-danger" *ngIf="postalCode?.hasError(error.type)">
+              {{ error.message }}
+            </div>
+          </ng-container>
+        </div>
       </div>
 
       <div class="col-12 pt-3">
         <div class="form-floating">
-          <input type="text" id="address_locationLabel" class="form-control fw-300" placeholder="Localidad"
-            formControlName="address_location" />
-          <label for="address_locationLabel">Localidad</label>
+          <input type="text" id="locationLabel" class="form-control fw-300" placeholder="Localidad"
+            formControlName="location" />
+          <label for="locationLabel">Localidad</label>
         </div>
-        <small class="text-danger mt-2" [hidden]="address_location.valid || address_location.pristine">
-          El campo "Localidad"es obligatorio
-        </small>
+        <div *ngIf="location?.errors && location?.touched">
+          <ng-container *ngFor="let error of errorMessages.location">
+            <div class="text-danger" *ngIf="location?.hasError(error.type)">
+              {{ error.message }}
+            </div>
+          </ng-container>
+        </div>
       </div>
 
       <div class="col-12 pt-3">
         <div class="form-floating">
-          <input type="text" id="address_provinceLabel" class="form-control fw-300" placeholder="Provincia"
-            formControlName="address_province" />
-          <label for="address_provinceLabel">Provincia</label>
+          <input type="text" id="provinceLabel" class="form-control fw-300" placeholder="Provincia"
+            formControlName="province" />
+          <label for="provinceLabel">Provincia</label>
         </div>
-        <small class="text-danger mt-2" [hidden]="address_province.valid || address_province.pristine">
-          El campo "Provincia"es obligatorio
-        </small>
+        <div *ngIf="province?.errors && province?.touched">
+          <ng-container *ngFor="let error of errorMessages.province">
+            <div class="text-danger" *ngIf="province?.hasError(error.type)">
+              {{ error.message }}
+            </div>
+          </ng-container>
+        </div>
       </div>
 
       <div class="modal-footer col-12">
