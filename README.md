@@ -12,6 +12,22 @@ Una de las principales novedades es la introducción de un **servicio de suscrip
 #### Programa de fidelización 🫂
 Desarrollo de un programa de fidelización que recompense a los clientes recurrentes con **descuentos, promociones especiales y beneficios exclusivos**.
 
+### Mejoras Tecnológicas y Funcionales 🔧
+
+Además de las novedades mencionadas, se han realizado varias mejoras tecnológicas y funcionales para optimizar el rendimiento y la escalabilidad de la aplicación:
+
+#### Migración de Tecnología: 
+Hemos migrado nuestra aplicación de Android Studio a Cordova, lo que permite una mayor escalabilidad y compatibilidad tanto en iOS como en Android. Esta migración facilita el mantenimiento y la implementación de nuevas características en ambas plataformas.
+
+#### Seguridad Mejorada con Tokens: 
+Para mejorar la seguridad de nuestra aplicación, hemos implementado un sistema de autenticación basado en tokens. Este método asegura que las sesiones de los usuarios sean manejadas de manera más segura y eficiente, protegiendo mejor los datos personales y de autenticación.
+
+#### Unificación de la Base de Datos: 
+Anteriormente, utilizábamos bases de datos separadas para la versión web y móvil de la aplicación. Ahora, hemos unificado las bases de datos, lo que simplifica la administración y garantiza una experiencia de usuario más coherente y sincronizada en todas las plataformas.
+
+#### Dashboard de Admin en Móvil: 
+Hemos ampliado las funcionalidades de administración, haciendo que el dashboard de admin, que antes estaba disponible solo en la web, ahora también esté accesible desde la aplicación móvil. Esto permite a los administradores gestionar la librería de manera más flexible y desde cualquier lugar.
+
 
 ### Integrantes 👩🏻 🧑🏻
 
