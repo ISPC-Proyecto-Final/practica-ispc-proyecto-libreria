@@ -24,7 +24,7 @@
 
           <p class="fs-md-2 font-bold fc-secondary pt-4">${{ book.price }}</p>
 
-          <button type="button" class="col-6 secondary-button text-sm-center fs-sm-2 font-bold" (click)="onAddBook()"
+          <button type="button" class="col-auto p-2 std-button text-sm-center fs-sm-2 font-bold" (click)="onAddBook()"
             *ngIf=" book.stock > 0">
             Agregar al carrito
           </button>

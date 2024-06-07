@@ -77,7 +77,7 @@
         </div>
 
         <div class="col-12 pt-3">
-          <button type="submit" class="col-12 confirm-button font-extra-bold fs-md">
+          <button type="submit" class="col-12 std-button p-2 font-bold fs-md">
             Confirmar
           </button>
         </div>
@@ -90,10 +90,31 @@
       <h4 class="font-medium fs-md-1 fc-secondary">Encontranos en</h4>
     </div>
 
+    <div class="col-12">
+      <p>
+        <span><img src="./assets/icons/location-icon.png" alt="Map location icon"> Nuestra pagina web <a
+            href="https://github.com/ISPC-Proyecto-Final/practica-ispc-proyecto-libreria-pluton"
+            class="fc-secondary-alt" target="_blank">Plutón</a></span>
+      </p>
+    </div>
     <div class="col-12" *ngFor="let store of stores">
       <p>
-        <span><img src="./assets/icons/location-icon.png" alt="Map location icon"></span> {{ store.street_number }} - {{ store.province }} - {{ store.locality }} - {{ store.telephone }}
+        <span><img src="./assets/icons/location-icon.png" alt="Map location icon"></span> {{ store.street_number }} - {{
+        store.province }} - {{ store.locality }} - {{ store.telephone }}
       </p>
+    </div>
+  </div>
+
+  <div class="row pt-3">
+    <div class="col-12">
+      <h4 class="font-medium fs-md-1 fc-secondary">También podés encontrarnos visitando nuestra página web</h4>
+    </div>
+
+    <div class="col-12 pt-2">
+      <a href="https://github.com/ISPC-Proyecto-Final/practica-ispc-proyecto-libreria-pluton"
+        target="_blank">
+        <button class="col-12 std-button p-2 font-bold fs-md">Página Web</button>
+      </a>
     </div>
   </div>
 </section>

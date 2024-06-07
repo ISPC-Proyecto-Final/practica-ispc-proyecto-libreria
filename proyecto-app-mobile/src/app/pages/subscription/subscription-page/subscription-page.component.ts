@@ -27,7 +27,7 @@ export class SubscriptionPageComponent {
       price: '15000',
       selectedAmount: 0,
     };
-    this.toastService.createToast({type: 'bg-success', delay: 4000, message: 'Agregaste suscripción al carrito'});
+    this.toastService.createToast({type: 'bg-success', delay: 4000, message: 'Agregaste la suscripción al carrito'});
     this.cartService.addBook(selectedBook);
   }
 }
