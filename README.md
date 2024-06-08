@@ -27,6 +27,10 @@ Anteriormente, utilizábamos bases de datos separadas para la versión web y mó
 
 #### Dashboard de Admin en Móvil: 
 Hemos ampliado las funcionalidades de administración, haciendo que el dashboard de admin, que antes estaba disponible solo en la web, ahora también esté accesible desde la aplicación móvil. Esto permite a los administradores gestionar la librería de manera más flexible y desde cualquier lugar.
+***
+#### Elevator Pitch
+
+[Elevator Pitch Libreria Plutón](https://drive.google.com/drive/u/0/folders/1xu8aPaLSdzlEn0k5V8uyIJLIc1mVCH1L)
 
 
 ### Integrantes 👩🏻 🧑🏻
